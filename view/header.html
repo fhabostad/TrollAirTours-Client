@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Troll Air Tours</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Troll Air Tours">
+        <meta name="keywords" content="Troll,Air,Tours,Guide,aircraft,seaplane">
+        <link rel="stylesheet" type="text/css" href="style/style.css">
+        <link rel="shortcut icon" href="image/favicon.ico">
+         <script src="mobilenavigation.js"></script>
+        
+    </head>
+    <body>
+        
+        <div id="main-wrapper">
+            
+            <header>
+                <div id="left-top">
+                    <img src="image/logov2.png" alt=""/>
+                </div>
+                
+                <div id="right-top">
+                    <div id="navbutton">
+                        <span id="opennav">
+                            <a href="#navigation" onclick="toggle_visibilitydual('opennav','closenav');">
+                                <img src="image/menu.png" alt="menu button, opens navigation side bar">
+                            </a>
+                        </span>
+                        <span id="closenav">
+                               <a href="#" onclick="toggle_visibilitydual('closenav','opennav');">
+                                    <img src="image/menuclose.png" alt="menu button, closes navigation side bar">
+                               </a>
+                        </span>
+                        
+                    </div>
+                </div>
+				
+				<div id="navigation">
+					<nav>
+						<ul>
+							<li><a href="?page=home">Home</a></li>
+							<li><a href="?page=bookingOne">Booking Step One</a></li>
+							<li><a href="?page=about"> About Us</a></li>
+						</ul>
+					</nav>    
+				</div>
+            </header>
+			
+			<main>
