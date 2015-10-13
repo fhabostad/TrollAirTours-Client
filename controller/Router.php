@@ -27,12 +27,16 @@ class Router {
         switch ($page) {
             case "customers":
             case "addCustomer":
-                return new CustomerController();
+            return new BookingController();  
                 
             case "bookingOne":
-            case "bookingTwo":
+            case "bookingTwo": 
             case "bookingThree":
                 return new BookingController();
+            
+            
+            case "bookingThree":
+            //    return new BookingController();
                 
             case "about":
                 return new AboutController();

@@ -28,5 +28,5 @@ abstract class Controller {
         include($templatePath);
         return true;
     }
-
+ 
 }

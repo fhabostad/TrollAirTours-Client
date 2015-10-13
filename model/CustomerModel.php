@@ -6,7 +6,7 @@ class CustomerModel {
 
     const TABLE = "customer";
     const SELECT_QUERY = "SELECT * FROM " . CustomerModel::TABLE;
-    const INSERT_QUERY = " INSERT INTO " . CustomerModel::TABLE . "(Gender,FirstName)VALUES( :Gender,:FirstName)";
+    const INSERT_QUERY = " INSERT INTO " . CustomerModel::TABLE . "(Gender,FirstName,LastName,StreetAddress)VALUES( :Gender,:FirstName,:LastName,:StreetAddress)";
       
     // const INSERT_QUERY = " INSERT INTO " . CustomerModel::TABLE . "(Gender,
    //     FirstName, LastName, TelephoneNumber, StreetAddress, ZipCode, Email, Country
@@ -40,9 +40,9 @@ class CustomerModel {
      *
      * @return bool true on success, false otherwise
      */
-    public function add($givenGender,$givenFirst_name,$givenLast_name, $givenPhone_number) {
-        return $this->addStmt->execute(array("Gender" => $givenGender, "FirstName" => $givenFirst_name));
-    }
+    //public function add($givenGender,$givenFirst_name,$givenLast_name, $givenStreet_address, $givenPhone_number) {
+    //    return $this->addStmt->execute(array("Gender" => $givenGender, "FirstName" => $givenFirst_name, "LastName" => $givenLast_name, "StreetAdress"=>$givenStreet_address));
+   // }
 
     // TODO - create additional functions for customer model here
 
