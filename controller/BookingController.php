@@ -62,7 +62,7 @@ class BookingController extends Controller {
                 $givenZip_code      = $_REQUEST["givenZip_code"];
                 $givenCity          = $_REQUEST["givenCity"];
                 $givenCountry       = $_REQUEST["givenCountry"];
-                $givenArea_code     = $_REQUEST["givenArea_code"];
+                $givenCountry_code  = $_REQUEST["givenCountry_code"];
                 $givenPhone_number  = $_REQUEST["givenPhone_number"];
                 $givenEmail         = $_REQUEST["givenEmail"];
                 
@@ -74,12 +74,12 @@ class BookingController extends Controller {
                 $_SESSION["givenZip_code"]          = $givenZip_code;
                 $_SESSION["givenCity"]              = $givenCity;
                 $_SESSION["givenCountry"]           = $givenCountry;
-                $_SESSION["givenArea_code"]         = $givenArea_code;
+                $_SESSION["givenCountry_code"]      = $givenCountry_code;
                 $_SESSION["givenPhone_number"]      = $givenPhone_number;
                 $_SESSION["givenEmail"]             = $givenEmail;
                 
                 
-                echo $_SESSION["givenGender"];
+               // echo $_SESSION["givenGender"];
                 
                 return $this->render("bookingstepTwo");
                 
