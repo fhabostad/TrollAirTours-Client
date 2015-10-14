@@ -120,11 +120,21 @@ main
   background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
  }
  
+ #main-top-overlay button
+ {
+     height: 4.5em;
+     width: 6.6em;
+     margin-top: 2.5em;
+     margin-left: 9em;
+     font-size: 1.5em;
+     background-color: greenyellow;
+     border-radius: 0.4em;
+ }
+ 
   #main-top-overlay h2
  {
      text-decoration: underline;
      text-align: center;
-  
  }
  
  
@@ -415,6 +425,12 @@ main
  {
      display: none;
  }
+ 
+ select
+ {   width: 20.5em;
+     height: 2.5em;
+ }
+ 
  /*
  #geiranger-marked
  {

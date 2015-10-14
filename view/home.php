@@ -32,8 +32,9 @@
                             <a href="https://no.wikipedia.org/wiki/Briksda"> More information </a>    
                         </div>
                      
-                    
-                    
+                    <form action="?page=bookingOne" method="post">
+                        <button type="booking">Booking</button>
+                    </form>
                     </div>
                 
                     
