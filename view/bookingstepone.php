@@ -33,7 +33,7 @@
                                       
                                  
                             </div>
-                            <button type="button" type="submit">Next</button>
+                            <button class="btn btn-default"  type="button" type="submit">Next</button>
                         </form>
                        
                     </div>
