@@ -15,13 +15,12 @@
                     <div id="main-top-booking">
                     
                     <div id="main-top-overlay-booking">
-                        <form action="?page=bookingsteptwo" method="post">
+                        <form action="?page=bookingTwo" method="post">
                             <div id="form-left-column">
-                                <label>Gender</label> <select name="gender" id="gender" size="1">
-                                                     <optgroup label="Select gender:">
-                                                        <option value="male" Selected>Male</option>
+                                <label>Gender</label> <select name="gender" id="gender" size="1" required>
+                                                        <option disabled selected> -- select gender -- </option>
+                                                        <option value="male" >Male</option>
                                                         <option value="female">Female</option>
-                                                     </optgroup>
                                 </select>
                                                      
                                 <label>First name</label> <input type="text" name="givenFirst_name" placeholder="Enter first name" tabindex="2" required><br>                     
@@ -39,9 +38,8 @@
                                       
                                  
                             </div>
-                            <button class="btn btn-default" type="submit">Add</button>
+                            <button class="btn btn-default" type="submit">Next</button>
                         </form>
-                       <!-- <input type="text" name="givenGender" placeholder="Mr/Mrs" tabindex="1" required><br> -->
                     </div>
                 
                     
