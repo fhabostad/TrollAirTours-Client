@@ -11,7 +11,7 @@ class FlightController extends Controller {
     public function show($page) {
         if ($page == "addFlight") {
             $this->addFlightAction();
-        } else if ($page == "flight") {
+      } else if ($page == "flight") {
             $this->showFlightAction();
         }
     }
@@ -33,13 +33,13 @@ class FlightController extends Controller {
             "aircrafts" => $aircrafts,
         );
         
-        return $this->render("flight", $data);
+        return $this->render("date", $data);
     }
     
     
     private function addFlightAction() {
         // Find "customerName" parameter in request,
-        $givenFlightID = $_REQUEST["givenFlightID"];
+   //     $givenFlightID = $_REQUEST["givenFlightID"];
         $givenRegIDFK = $_REQUEST["givenRegIDFK"];
         $FlightDate = $_REQUEST["givenFlightDate"];
         $givenDeparture = $_REQUEST["givenDeparture"];
