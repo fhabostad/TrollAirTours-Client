@@ -17,7 +17,7 @@
                     <div id="main-top-overlay-booking">
                         <form action="?page=bookingTwo" method="post">
                             <div id="form-left-column">
-                                <label>Gender</label> <select name="gender" id="gender" size="1" required>
+                                <label>Gender</label> <select name="givenGender" id="gender" size="1" required>
                                                         <option disabled selected> -- select gender -- </option>
                                                         <option value="male" >Male</option>
                                                         <option value="female">Female</option>
