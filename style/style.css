@@ -157,9 +157,19 @@ main
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 110.4%;
   z-index: 2;
   background-color: rgba(255, 255, 255, 0.64); /*dim the background*/
+
+ }
+ 
+ #main-top-overlay-booking button
+ {
+     height: 5em;
+     width: 9em;
+     margin-top: 4em;
+     margin-left: 67em;
+    
  }
 
 #main-top-booking img
@@ -365,20 +375,21 @@ main
  
  #form-left-column
  {
-     display: block;
+   
      padding: 0;
-     margin-top: 10%;
+     margin-top: 6%;
      margin-left: 33%;
      float: left;
+     
      
  }
  
   #form-right-column 
  {
     
-     display: block;
+
      padding: 0;
-     margin-top: 14.4%;
+     margin-top: 10.4%;
      margin-bottom: 12em;
      margin-right: 33%;
      float: right;

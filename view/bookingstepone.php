@@ -33,7 +33,7 @@
                                       
                                  
                             </div>
-                            <button class="btn btn-default" style="width:100%;background-color: #00ff00;" type="submit">Add</button>
+                            <button type="button" type="submit">Next</button>
                         </form>
                        
                     </div>
