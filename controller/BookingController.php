@@ -88,12 +88,21 @@ class BookingController extends Controller {
             
             case '3':
                 $givenTourType        = $_REQUEST["givenTourType"];
+                $givenFlightDate      = $_REQUEST["givenFlightDate"];
+                $givenDeparture       = $_REQUEST["givenDeparture"];
                 
-                $_SESSION["givenTourType"]            = $givenTourType;
+                $_SESSION["givenTourType"]       = $givenTourType;
+                $_SESSION["givenFlightDate"]     = $givenFlightDate;
+                $_SESSION["givenDeparture"]      = $givenDeparture;
+
+
                 echo $_SESSION["givenTourType"];
+                echo $_SESSION["givenFlightDate"];
+                echo $_SESSION["givenDeparture"];        
                 
                  return $this->render("bookingstepThree");
                 
+                 break;
         
         }
         

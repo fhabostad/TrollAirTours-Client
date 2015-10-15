@@ -32,15 +32,15 @@ class Router {
             case "bookingOne":
                return new BookingController();
             case "bookingTwo":
-              //  return new BookingController();
+                return new BookingController();
             case "bookingThree":
                 return new BookingController();
-           
+          // return new FlightController();
             
            case "addFlight":
                 case "flight":
                     return new FlightController();
-                return new FlightController();
+            //    return new FlightController();
                 
             case "about":
                 return new AboutController();
