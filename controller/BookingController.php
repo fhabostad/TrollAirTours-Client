@@ -83,9 +83,16 @@ class BookingController extends Controller {
                 
                 return $this->render("bookingstepTwo");
                 
+                
                 break;
             
             case '3':
+                $givenTourType        = $_REQUEST["givenTourType"];
+                
+                $_SESSION["givenTourType"]            = $givenTourType;
+                echo $_SESSION["givenTourType"];
+                
+                 return $this->render("bookingstepThree");
                 
         
         }
