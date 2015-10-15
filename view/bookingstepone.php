@@ -23,7 +23,7 @@
                                                         <option value="female">Female</option>
                                 </select>
                                 <label>First name</label> <input type="text" name="givenFirst_name" placeholder="Enter first name" tabindex="2" required><br>
-                                <label>Birth date</label> <input type="date" name="givenBirth_date" placeholder="Enter birth date YYYY-MM-DD" max="1899-12-31" min="2000-01-01" tabindex="4" required><br>  
+                                <label>Birth date</label> <input type="date" name="givenBirth_date" placeholder="Enter birth date YYYY-MM-DD" max="2000-12-31" min="1899-01-01" tabindex="4" required><br>  
                                 <label>City</label> <input type="text" name="givenCity" placeholder="Enter City" tabindex="6" required><br>                   
                                 <label>ZIP code</label> <input type="number" name="givenZip_code" placeholder="Enter ZIP code" min="0" tabindex="8" required><br>        
                                 <label>Country code</label> <input type="text" name="givenCountry_code" placeholder="Enter country code" tabindex="10" required><br> 
