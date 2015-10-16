@@ -6,5 +6,6 @@ require_once("CustomerController.php");
 require_once ("AboutController.php");
 require_once ("BookingController.php");
 require_once("FlightController.php");
+require_once ("DestinationController.php");
 // TODO - create other controllers as separate Controller subclasses
 // TODO - include other controllers here

@@ -79,9 +79,22 @@ class BookingController extends Controller {
                 $_SESSION["givenEmail"]             = $givenEmail;
                 
                 
+                 $flightModel = $GLOBALS["flightModel"];
+                 $flights = $flightModel->getAll();
+                
+                 $flightModel = $GLOBALS["flightModel"];
+                 $flights = $flightModel->getAll();
+                 
+                 
+                $data = array(
+                    
+                    "flights" => $flights, 
+                );
+                
+                
                // echo $_SESSION["givenGender"];
                 
-                return $this->render("bookingstepTwo");
+                return $this->render("bookingstepTwo",$data);
                 
                 
                 break;

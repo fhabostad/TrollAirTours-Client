@@ -34,8 +34,8 @@
        e.style.display = 'none';
        
     }
-    
-    function toggle_visibilityQuad(id,id2,id3,id4) {
+   
+  function toggle_visibilityDest(id,id2,id3,id4) {
        var e = document.getElementById(id);
        var f = document.getElementById(id2);
        var g = document.getElementById(id3);

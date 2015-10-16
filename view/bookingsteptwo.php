@@ -1,35 +1,40 @@
+<?php
+
+$Flights = $GLOBALS["flights"];
+
+?>       
+
 <div id="main-top-booking">
                     
 <div id="main-top-overlay-booking">
-    <form action="?page=bookingstepthree" method="post">
-                                                          
-<div id="checkbox">
+    <form action="?page=bookingThree" method="post">      
 
-
-<div class="checkbox-option">
-    <input type="checkbox" id="geiranger">
-    <label for="geiranger">Geiranger</label>
-</div>
-<div class="checkbox-option">
-   <input type="checkbox" id="briksdalen">
-<!-- depending on width, a linebreak can occur here. -->
-    <label for="briksdalen">Briksdalen</label>
-</div>
-<div class="checkbox-option">
-    <input type="checkbox" id="åkneset">
-    <label for="åkneset">Åkneset</label>
-</div>
-</div>
-<div id="form-left-column-steptwo">
-
-    <label>Date</label> <input type="text" name="givenDate" placeholder="Enter date" tabindex="1" required><br>
-    <label>Time</label> <input type="text" name="givenTime" placeholder="Enter time" tabindex="2" required><br>   
-    <label>Costs</label> <input type="text" name="givenCosts" placeholder="Sum"  tabindex="3" required><br>    
-    
-    <div id="buttonsteptwo">
-    <button class="btn btn-default" type="Search">Search</button>
-    </div>
-</div>
-</form>     
-</div>   
-          
+             <label for="inputTourType" class="sr-only">Destination</label>
+               <select name="givenTourType" class="form-control" id="sel1" required>
+                        <option>Select Tour Type</option>
+                            <?php foreach($Flights as $Flight): ?> 
+                                    <option><?php echo $Flight["TourType"]; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        
+                      <label for="inputFlightDate" class="sr-only">Date</label>
+               <select name="givenFlightDate" class="form-control" id="sel1" required>
+                        <option>Select Date</option>
+                            <?php foreach($Flights as $Flight): ?> 
+                                    <option><?php echo $Flight["FlightDate"]; ?></option>
+                            <?php endforeach; ?>
+                        
+               </select>
+                      <label for="inputDeparture" class="sr-only">Departure</label>
+               <select name="givenDeparture" class="form-control" id="sel1" required>
+                        <option>Select Depature</option>
+                            <?php foreach($Flights as $Flight): ?> 
+                                    <option><?php echo $Flight["Departure"]; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                      
+                      
+                            <button class="btn btn-default" type="submit">Next</button>
+      
+    </form>
+      </div>          
