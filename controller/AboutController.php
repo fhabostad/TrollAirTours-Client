@@ -11,7 +11,19 @@ class AboutController extends Controller {
      * @param string $page
      */
     public function show($page) {
-        $this->render("about");
+        $flightModel = $GLOBALS["flightModel"];
+        $flightDates = $flightModel->getAllDates();
+        
+        $dateArray = array(); 
+        foreach($flightDates as $flightDate){
+            array_push($dateArray, $flightDate["FlightDate"]);
+            
+        }
+        
+        $GLOBALS["CalenderDates"] = $dateArray;
+        
+        
+        $this->render("calender");
     }
 
 }

@@ -6,17 +6,21 @@ class FlightModel {
 
     const TABLE = "Flight";
     const SELECT_QUERY = "SELECT * FROM " . FlightModel::TABLE;
+    const SELECT_DATE_QUERY = "SELECT FlightDate FROM " . FlightModel::TABLE;
     const INSERT_QUERY = "INSERT INTO " . FlightModel::TABLE . " (FlightID,RegID,FlightDate,Departure,TourType) VALUES (:FlightID,:RegID,:FlightDate,:Departure,:TourType)";
     const DELETE_QUERY = "DELETE FROM" . FlightModel::TABLE . " WHERE FlightID= ?";
+    
 
     /** @var PDOStatement Statement for selecting all entries */
     private $selStmt;
+    private $selDateStmt;
     /** @var PDOStatement Statement for adding new entries */
     private $addStmt;
 
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
         $this->addStmt = $this->dbConn->prepare(FlightModel::INSERT_QUERY);
+        $this->selDateStmt = $this->dbConn->prepare(FlightModel::SELECT_DATE_QUERY);
         $this->selStmt = $this->dbConn->prepare(FlightModel::SELECT_QUERY);
         $this->delStmt = $this->dbConn->prepare(FlightModel::DELETE_QUERY);
     }
@@ -30,6 +34,13 @@ class FlightModel {
         $this->selStmt->execute();
         return $this->selStmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
+    public function getAllDates() {
+        // Fetch all Aircraft as associative arrays
+        $this->selDateStmt->execute();
+        return $this->selDateStmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 
     /**
      * Try to add a new aircraft

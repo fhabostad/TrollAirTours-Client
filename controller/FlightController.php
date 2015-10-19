@@ -37,29 +37,29 @@ class FlightController extends Controller {
     }
     
     
-  //  private function addFlightAction() {
-  //      // Find "customerName" parameter in request,
-  //      $givenFlightID = $_REQUEST["givenFlightID"];
-  //      $givenRegIDFK = $_REQUEST["givenRegIDFK"];
-  //      $FlightDate = $_REQUEST["givenFlightDate"];
-  //      $givenDeparture = $_REQUEST["givenDeparture"];
- //       $givenTourType = $_REQUEST["givenTourType"];
- //       if (!$givenFlightID) {
-  //          return $this->showFlightAction();
-  //      }
+   private function addFlightAction() {
+       // Find "customerName" parameter in request,
+       $givenFlightID = $_REQUEST["givenFlightID"];
+       $givenRegIDFK = $_REQUEST["givenRegIDFK"];
+       $FlightDate = $_REQUEST["givenFlightDate"];
+       $givenDeparture = $_REQUEST["givenDeparture"];
+       $givenTourType = $_REQUEST["givenTourType"];
+      if (!$givenFlightID) {
+            return $this->showFlightAction();
+       }
 
         // Try to add new customer, Set action response code - success or not
         /** @var CustomerModel $customerModel */
-  //      $flightModel = $GLOBALS["flightModel"];
-  //      $added = $flightModel->add($givenFlightID,$givenRegIDFK,$FlightDate,$givenDeparture,$givenTourType);
+       $flightModel = $GLOBALS["flightModel"];
+       $added = $flightModel->add($givenFlightID,$givenRegIDFK,$FlightDate,$givenDeparture,$givenTourType);
 
         // Render the page
-  //      $data = array(
- //           "added" => $added,
- //           "givenRegID" => $givenFlightID,
-//        );
- //       return $this->render("flightAdd", $data);
- //   }
+       $data = array(
+           "added" => $added,
+        "givenRegID" => $givenFlightID,
+    );
+       return $this->render("flightAdd", $data);
+   }
    
     
         
