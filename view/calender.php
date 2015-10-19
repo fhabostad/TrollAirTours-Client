@@ -10,6 +10,12 @@ $calenderDatesBriksdalen = $GLOBALS["CalenderDatesBriksdalen"];
 
 <script>
    
+function test()
+{
+    window.alert("yo");
+}
+   
+   
 function EnableSpecificDates(date) {
 
 
@@ -39,18 +45,29 @@ if(document.getElementById('Geiranger').checked) {
  }
 }
 
-
-
-
-
- 
- 
 $(function() {
  $( "#datepicker" ).datepicker({
- dateFormat: "dd.mm.yy",
+dateFormat: "dd.mm.yy",
  beforeShowDay: EnableSpecificDates
  });
+
+ 
  });
+
+ function timedrop()
+ {
+    var cuisines = ["Chinese","Indian"];     
+
+    var sel = document.getElementById('CuisineList');
+    var fragment = document.createDocumentFragment();
+    cuisines.forEach(function(cuisine, index) {
+    var opt = document.createElement('option');
+    opt.innerHTML = cuisine;
+    opt.value = cuisine;
+    fragment.appendChild(opt);
+});
+sel.appendChild(fragment);
+ }
 
 
 
@@ -63,4 +80,7 @@ $(function() {
 <input type="radio" name="gender" id="Aakneset" value="Aakneset"> Aakneset </input>
 
 <p>Date: <input type="text" id="datepicker"></p>
+
+
+<select id="CuisineList" onclick="timedrop()"></select>
 
