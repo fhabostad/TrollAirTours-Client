@@ -6,7 +6,7 @@ class FlightModel {
 
     const TABLE = "Flight";
     const SELECT_QUERY = "SELECT * FROM " . FlightModel::TABLE;
-    const SELECT_DATE_QUERY = "SELECT FlightDate FROM " . FlightModel::TABLE;
+    const SELECT_DATE_QUERY = "SELECT FlightDate FROM " . FlightModel::TABLE . " WHERE TourType = ?";
     const INSERT_QUERY = "INSERT INTO " . FlightModel::TABLE . " (FlightID,RegID,FlightDate,Departure,TourType) VALUES (:FlightID,:RegID,:FlightDate,:Departure,:TourType)";
     const DELETE_QUERY = "DELETE FROM" . FlightModel::TABLE . " WHERE FlightID= ?";
     
@@ -35,9 +35,9 @@ class FlightModel {
         return $this->selStmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    public function getAllDates() {
+    public function getAllDatesFor($TourType) {
         // Fetch all Aircraft as associative arrays
-        $this->selDateStmt->execute();
+        $this->selDateStmt->execute(array($TourType));
         return $this->selDateStmt->fetchAll(PDO::FETCH_ASSOC);
     }
     

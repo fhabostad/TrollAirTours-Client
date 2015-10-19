@@ -12,15 +12,32 @@ class AboutController extends Controller {
      */
     public function show($page) {
         $flightModel = $GLOBALS["flightModel"];
-        $flightDates = $flightModel->getAllDates();
+        $flightDatesGeiranger = $flightModel->getAllDatesFor("Geiranger");
+        $flightDatesAakneset = $flightModel->getAllDatesFor("Aakneset");
+        $flightDatesBriksdalen = $flightModel->getAllDatesFor("Briksdalen");
         
-        $dateArray = array(); 
-        foreach($flightDates as $flightDate){
-            array_push($dateArray, $flightDate["FlightDate"]);
-            
+        $dateArrayGeiranger = array(); 
+        foreach($flightDatesGeiranger as $flightDateGeiranger){
+            array_push($dateArrayGeiranger, $flightDateGeiranger["FlightDate"]);         
         }
         
-        $GLOBALS["CalenderDates"] = $dateArray;
+        $GLOBALS["CalenderDatesGeiranger"] = $dateArrayGeiranger;
+        
+        $dateArrayAakneset = array(); 
+        foreach($flightDatesAakneset as $flightDateAakneset){
+            array_push($dateArrayAakneset, $flightDateAakneset["FlightDate"]);         
+        }
+        
+        $GLOBALS["CalenderDatesAakneset"] = $dateArrayAakneset;
+        
+        $dateArrayBriksdalen = array(); 
+        foreach($flightDatesBriksdalen as $flightDateBriksdalen){
+            array_push($dateArrayBriksdalen, $flightDateBriksdalen["FlightDate"]);         
+        }
+        
+        $GLOBALS["CalenderDatesBriksdalen"] = $dateArrayBriksdalen;
+        
+        
         
         
         $this->render("calender");

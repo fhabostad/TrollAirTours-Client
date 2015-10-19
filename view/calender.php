@@ -1,6 +1,7 @@
 <?php
-$calenderDates = $GLOBALS["CalenderDates"];
-
+$calenderDatesGerianger = $GLOBALS["CalenderDatesGeiranger"];
+$calenderDatesAakneset = $GLOBALS["CalenderDatesAakneset"];
+$calenderDatesBriksdalen = $GLOBALS["CalenderDatesBriksdalen"];
 ?>
 
 
@@ -8,13 +9,20 @@ $calenderDates = $GLOBALS["CalenderDates"];
 
 
 <script>
-    function EnableSpecificDates(date) {
- var disableddates = [<?php foreach($calenderDates as $calenderDate)
-{ 
-echo  "\"$calenderDate\"" . ",";
-} ?>];
+   
+function EnableSpecificDates(date) {
+
+
+if(document.getElementById('Geiranger').checked) {
+  var disableddates = [<?php foreach($calenderDatesGerianger as $calenderDateGerianger){ echo  "\"$calenderDateGerianger\"" . ",";} ?>];
+}else if(document.getElementById('Briksdalen').checked) {
+  var disableddates = [<?php foreach($calenderDatesBriksdalen as $calenderDateBriksdalen){ echo  "\"$calenderDateBriksdalen\"" . ",";} ?>];
+}else if(document.getElementById('Aakneset').checked) {
+  var disableddates = [<?php foreach($calenderDatesAakneset as $calenderDateAakneset){ echo  "\"$calenderDateAakneset\"" . ",";} ?>];
+}     
+ 
             
-   var disableddates2 = ["08.12.2015", "11.10.2016"];          
+        
            
  var m = date.getMonth();
  var d = date.getDate();
@@ -29,14 +37,17 @@ echo  "\"$calenderDate\"" . ",";
      return [false];
  }
  }
- 
-
 }
+
+
+
+
+
  
  
- $(function() {
+$(function() {
  $( "#datepicker" ).datepicker({
-     dateFormat : "yy-mm-dd",
+ dateFormat: "dd.mm.yy",
  beforeShowDay: EnableSpecificDates
  });
  });
@@ -47,5 +58,9 @@ echo  "\"$calenderDate\"" . ",";
 </script>
 
 
+<input type="radio" name="gender" id="Geiranger" value="Geiranger"> Geiranger </input>
+<input type="radio" name="gender" id="Briksdalen" value="Briksdalen"> Briksdalen </input>
+<input type="radio" name="gender" id="Aakneset" value="Aakneset"> Aakneset </input>
 
 <p>Date: <input type="text" id="datepicker"></p>
+
