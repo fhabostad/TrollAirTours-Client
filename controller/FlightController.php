@@ -14,23 +14,27 @@ class FlightController extends Controller {
         } else if ($page == "flight") {
             $this->showFlightAction();
         }
+             
     }
     
 
     private function showFlightAction() {
+        
+        
+
         $flightModel = $GLOBALS["flightModel"];
         $flights = $flightModel->getAll();
 
-      //  $aircraftModel = $GLOBALS["aircraftModel"];
-      //  $aircrafts = $aircraftModel->getAll();
+        $aircraftModel = $GLOBALS["aircraftModel"];
+        $aircrafts = $aircraftModel->getAll();
 
-       // $tempFlightID = isset($_REQUEST["FlightID"]) ? $_REQUEST["FlightID"] : "";
-       // $FlightID = htmlspecialchars($tempFlightID);
+        $tempFlightID = isset($_REQUEST["FlightID"]) ? $_REQUEST["FlightID"] : "";
+        $FlightID = htmlspecialchars($tempFlightID);
         
         $data = array(
-            "flights" => $flights,
-       //     "FlightID" => $FlightID,
-       //     "aircrafts" => $aircrafts,
+              "flights" => $flights,
+            "FlightID" => $FlightID,
+            "aircrafts" => $aircrafts,
         );
         
         return $this->render("flight", $data);

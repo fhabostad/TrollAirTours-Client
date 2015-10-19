@@ -1,40 +1,88 @@
 <?php
-
-$Flights = $GLOBALS["flights"];
-
-?>       
+$calenderDatesGerianger = $GLOBALS["CalenderDatesGeiranger"];
+$calenderDatesAakneset = $GLOBALS["CalenderDatesAakneset"];
+$calenderDatesBriksdalen = $GLOBALS["CalenderDatesBriksdalen"];
+?>
 
 <div id="main-top-booking">
-                    
-<div id="main-top-overlay-booking">
-    <form action="?page=bookingThree" method="post">      
 
-             <label for="inputTourType" class="sr-only">Destination</label>
-               <select name="givenTourType" class="form-control" id="sel1" required>
-                        <option>Select Tour Type</option>
-                            <?php foreach($Flights as $Flight): ?> 
-                                    <option><?php echo $Flight["TourType"]; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        
-                      <label for="inputFlightDate" class="sr-only">Date</label>
-               <select name="givenFlightDate" class="form-control" id="sel1" required>
-                        <option>Select Date</option>
-                            <?php foreach($Flights as $Flight): ?> 
-                                    <option><?php echo $Flight["FlightDate"]; ?></option>
-                            <?php endforeach; ?>
-                        
-               </select>
-                      <label for="inputDeparture" class="sr-only">Departure</label>
-               <select name="givenDeparture" class="form-control" id="sel1" required>
-                        <option>Select Depature</option>
-                            <?php foreach($Flights as $Flight): ?> 
-                                    <option><?php echo $Flight["Departure"]; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                      
-                      
-                            <button class="btn btn-default" type="submit">Next</button>
-      
-    </form>
-      </div>          
+
+
+<script>
+   
+function test()
+{
+    window.alert("yo");
+}
+   
+   
+function EnableSpecificDates(date) {
+
+
+if(document.getElementById('Geiranger').checked) {
+  var disableddates = [<?php foreach($calenderDatesGerianger as $calenderDateGerianger){ echo  "\"$calenderDateGerianger\"" . ",";} ?>];
+}else if(document.getElementById('Briksdalen').checked) {
+  var disableddates = [<?php foreach($calenderDatesBriksdalen as $calenderDateBriksdalen){ echo  "\"$calenderDateBriksdalen\"" . ",";} ?>];
+}else if(document.getElementById('Aakneset').checked) {
+  var disableddates = [<?php foreach($calenderDatesAakneset as $calenderDateAakneset){ echo  "\"$calenderDateAakneset\"" . ",";} ?>];
+}     
+ 
+            
+        
+           
+ var m = date.getMonth();
+ var d = date.getDate();
+ var y = date.getFullYear();
+ 
+ var currentdate = d + "." + (m + 1) + "." + y; 
+ for (var i = 0; i < disableddates.length; i++) {
+ if ($.inArray(currentdate, disableddates) != -1 ) {
+ return [true];
+ }else
+ {
+     return [false];
+ }
+ }
+}
+
+$(function() {
+ $( "#datepicker" ).datepicker({
+dateFormat: "dd.mm.yy",
+ beforeShowDay: EnableSpecificDates
+ });
+
+ 
+ });
+
+ function timedrop()
+ {
+    var cuisines = ["Chinese","Indian"];     
+
+    var sel = document.getElementById('CuisineList');
+    var fragment = document.createDocumentFragment();
+    cuisines.forEach(function(cuisine, index) {
+    var opt = document.createElement('option');
+    opt.innerHTML = cuisine;
+    opt.value = cuisine;
+    fragment.appendChild(opt);
+});
+sel.appendChild(fragment);
+ }
+
+
+
+
+</script>
+
+
+<input type="radio" name="gender" id="Geiranger" value="Geiranger"> Geiranger </input>
+<input type="radio" name="gender" id="Briksdalen" value="Briksdalen"> Briksdalen </input>
+<input type="radio" name="gender" id="Aakneset" value="Aakneset"> Aakneset </input>
+
+<p>Date: <input type="text" id="datepicker"></p>
+
+
+<select id="CuisineList" onclick="timedrop()"></select>
+
+
+                    
