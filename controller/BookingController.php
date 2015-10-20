@@ -23,14 +23,14 @@ class BookingController extends Controller {
           
           
           
-        if ($page == "addCustomer") {
+        if ($page == "tempaddCustomer") {
             $this->addCustomerAction(1);
         } else if ($page == "bookingOne") {
-           $this->showBookingAction(1);
-       }else if(($page == "bookingTwo")){
            $this->showBookingAction(2);
+       }else if(($page == "bookingTwo")){
+           $this->showBookingAction(1);
        }else if(($page == "bookingThree")){
-           $this->showBookingAction(3);
+           $this->showBookingAction(4);
        }
     }
 
