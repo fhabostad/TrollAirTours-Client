@@ -23,13 +23,13 @@ class BookingController extends Controller {
           
           
           
-        if ($page == "tempaddCustomer") {
-            $this->addCustomerAction(1);
-        } else if ($page == "bookingOne") {
-           $this->showBookingAction(2);
-       }else if(($page == "bookingTwo")){
+       if ($page == "bookingOne") {
            $this->showBookingAction(1);
+       }else if(($page == "bookingTwo")){
+           $this->showBookingAction(2);
        }else if(($page == "bookingThree")){
+           $this->showBookingAction(3);
+       }else if(($page == "bookingFour")){
            $this->showBookingAction(4);
        }
     }
@@ -55,6 +55,32 @@ class BookingController extends Controller {
         switch($casevalue)
         {
             case '1':
+                 $flightModel = $GLOBALS["flightModel"];
+                 $flights = $flightModel->getAll();
+                 $flightDatesGeiranger = $flightModel->getAllDatesFor("Geiranger");
+                 $flightDatesAakneset = $flightModel->getAllDatesFor("Aakneset");
+                 $flightDatesBriksdalen = $flightModel->getAllDatesFor("Briksdalen");
+        
+                $dateArrayGeiranger = array(); 
+                foreach($flightDatesGeiranger as $flightDateGeiranger){
+                    array_push($dateArrayGeiranger, $flightDateGeiranger["FlightDate"]);         
+                }
+
+                $GLOBALS["CalenderDatesGeiranger"] = $dateArrayGeiranger;
+
+                $dateArrayAakneset = array(); 
+                foreach($flightDatesAakneset as $flightDateAakneset){
+                    array_push($dateArrayAakneset, $flightDateAakneset["FlightDate"]);         
+                }
+
+                $GLOBALS["CalenderDatesAakneset"] = $dateArrayAakneset;
+
+                $dateArrayBriksdalen = array(); 
+                foreach($flightDatesBriksdalen as $flightDateBriksdalen){
+                    array_push($dateArrayBriksdalen, $flightDateBriksdalen["FlightDate"]);         
+                }
+
+                $GLOBALS["CalenderDatesBriksdalen"] = $dateArrayBriksdalen;
                 return $this->render("bookingstepOne");
                 
                 
@@ -62,7 +88,24 @@ class BookingController extends Controller {
                 break;
            
             case '2':
-                $givenGender        = $_REQUEST["givenGender"];
+                
+                //Data for å vise setereservasjon her!
+            
+                return $this->render("bookingstepTwo");
+                
+                
+                break;
+            
+            case '3':
+                // hente inn data FRA setereservasjon her!
+                
+                
+                 return $this->render("bookingstepThree");
+                
+                 break;
+             
+             case '4':
+                 $givenGender        = $_REQUEST["givenGender"];
                 $givenFirst_name    = $_REQUEST["givenFirst_name"];
                 $givenLast_name     = $_REQUEST["givenLast_name"];
                 $givenStreet_address= $_REQUEST["givenStreet_address"];
@@ -86,52 +129,6 @@ class BookingController extends Controller {
                 $_SESSION["givenEmail"]             = $givenEmail;
                 
                 
-                 $flightModel = $GLOBALS["flightModel"];
-                 $flights = $flightModel->getAll();
-                
-                 $flightModel = $GLOBALS["flightModel"];
-                 $flights = $flightModel->getAll();
-                 
-                 
-                $data = array(
-                    
-                    "flights" => $flights, 
-                );
-                
-                
-               // echo $_SESSION["givenGender"];,
-                $flightModel = $GLOBALS["flightModel"];
-        $flightDatesGeiranger = $flightModel->getAllDatesFor("Geiranger");
-        $flightDatesAakneset = $flightModel->getAllDatesFor("Aakneset");
-        $flightDatesBriksdalen = $flightModel->getAllDatesFor("Briksdalen");
-        
-        $dateArrayGeiranger = array(); 
-        foreach($flightDatesGeiranger as $flightDateGeiranger){
-            array_push($dateArrayGeiranger, $flightDateGeiranger["FlightDate"]);         
-        }
-        
-        $GLOBALS["CalenderDatesGeiranger"] = $dateArrayGeiranger;
-        
-        $dateArrayAakneset = array(); 
-        foreach($flightDatesAakneset as $flightDateAakneset){
-            array_push($dateArrayAakneset, $flightDateAakneset["FlightDate"]);         
-        }
-        
-        $GLOBALS["CalenderDatesAakneset"] = $dateArrayAakneset;
-        
-        $dateArrayBriksdalen = array(); 
-        foreach($flightDatesBriksdalen as $flightDateBriksdalen){
-            array_push($dateArrayBriksdalen, $flightDateBriksdalen["FlightDate"]);         
-        }
-        
-        $GLOBALS["CalenderDatesBriksdalen"] = $dateArrayBriksdalen;
-                
-                return $this->render("bookingstepTwo",$data);
-                
-                
-                break;
-            
-            case '3':
                 $givenTourType        = $_REQUEST["givenTourType"];
                 $givenFlightDate      = $_REQUEST["givenFlightDate"];
                 $givenDeparture       = $_REQUEST["givenDeparture"];
@@ -145,8 +142,7 @@ class BookingController extends Controller {
                 echo $_SESSION["givenFlightDate"];
                 echo $_SESSION["givenDeparture"];        
                 
-                 return $this->render("bookingstepThree");
-                
+                 return $this->render("bookingstepFour");
                  break;
         
         }
