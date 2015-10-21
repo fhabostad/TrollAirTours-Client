@@ -8,6 +8,7 @@ class ProductModel {
     const SELECT_QUERY = "SELECT * FROM " . ProductModel::TABLE;
     const INSERT_QUERY = "INSERT INTO " . ProductModel::TABLE . " (ProductID, ProductType, ProductName, ProductDescription) VALUES (:ProductID,:ProductType,:ProductName,:ProductDescription)";
      const SELECT_WHERE_QUERY = "SELECT * FROM " . ProductModel::TABLE . " WHERE ProductType = ?";
+     const SELECT_WHERE_ID_QUERY = "SELECT * FROM " . ProductModel::TABLE . " WHERE ProductID = ?";
      
     /** @var PDOStatement Statement for selecting all entries */
     private $selStmt;
@@ -22,7 +23,14 @@ class ProductModel {
         $this->selWhereStmt = $this->dbConn->prepare(ProductModel::SELECT_WHERE_QUERY);
         
     }
-
+    
+    public function getAllWhereProductID($productID) {
+        // Fetch all products as associative arrays
+        $this->selWhereIDStmt->execute(array($productID));
+        return $this->selWhereIDStmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    
     /**
      * Get all aircraft stored in the DB
      * @return array in associative form
