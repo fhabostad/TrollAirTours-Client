@@ -105,7 +105,7 @@ class BookingController extends Controller {
                  break;
              
              case '4':
-                 $givenGender        = $_REQUEST["givenGender"];
+                $givenGender        = $_REQUEST["givenGender"];
                 $givenFirst_name    = $_REQUEST["givenFirst_name"];
                 $givenLast_name     = $_REQUEST["givenLast_name"];
                 $givenStreet_address= $_REQUEST["givenStreet_address"];
@@ -129,19 +129,31 @@ class BookingController extends Controller {
                 $_SESSION["givenEmail"]             = $givenEmail;
                 
                 
-                $givenTourType        = $_REQUEST["givenTourType"];
-                $givenFlightDate      = $_REQUEST["givenFlightDate"];
-                $givenDeparture       = $_REQUEST["givenDeparture"];
+              //  $givenTourType        = $_REQUEST["givenTourType"];
+              //  $givenFlightDate      = $_REQUEST["givenFlightDate"];
+              //  $givenDeparture       = $_REQUEST["givenDeparture"];
                 
-                $_SESSION["givenTourType"]       = $givenTourType;
-                $_SESSION["givenFlightDate"]     = $givenFlightDate;
-                $_SESSION["givenDeparture"]      = $givenDeparture;
+             //   $_SESSION["givenTourType"]       = $givenTourType;
+             //   $_SESSION["givenFlightDate"]     = $givenFlightDate;
+             //   $_SESSION["givenDeparture"]      = $givenDeparture;
 
-
-                echo $_SESSION["givenTourType"];
-                echo $_SESSION["givenFlightDate"];
-                echo $_SESSION["givenDeparture"];        
                 
+             //   echo $_SESSION["givenTourType"];
+             //   echo $_SESSION["givenFlightDate"];
+            //    echo $_SESSION["givenDeparture"];        
+                
+             //  echo $_SESSION['givenGender'];
+             //  echo $_SESSION['givenFirst_name'];
+             //  echo $_SESSION['givenLast_name'];
+             //  echo $_SESSION['givenStreet_address'];
+             //  echo $_SESSION['givenZip_code'];
+             //  echo $_SESSION['givenCity'];
+             //  echo $_SESSION['givenCountry'];
+             //  echo $_SESSION['givenCountry_code'];
+             //  echo $_SESSION['givenPhone_number'];
+             //  echo $_SESSION['givenEmail'];
+               
+                             
                  return $this->render("bookingstepFour");
                  break;
         
@@ -153,7 +165,7 @@ class BookingController extends Controller {
         
     }
    
-    
+       
+}
         
     
-}

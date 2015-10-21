@@ -10,17 +10,16 @@
 //$Customers = $GLOBALS["customers"];
 //$CustomerName = $GLOBALS["customerName"];
 ?>
-<div id="main-top-booking">
-                    
+            
                     <div id="main-top-booking">
                     
                     <div id="main-top-overlay-booking">
-                        <form action="?page=bookingTwo" method="post">
+                        <form action="?page=bookingFour" method="post">
                             <div id="form-left-column">
                                 <label>Gender</label> <select name="givenGender" id="gender" size="1" required>
                                                         <option disabled selected> -- select gender -- </option>
-                                                        <option value="male" >Male</option>
-                                                        <option value="female">Female</option>
+                                                        <option value="Male" >Male</option>
+                                                        <option value="Female">Female</option>
                                 </select>
                                 <label>First name</label> <input type="text" name="givenFirst_name" placeholder="Enter first name" tabindex="2" required><br>
                                 <label>Birth date</label> <input type="date" name="givenBirth_date" placeholder="Enter birth date YYYY-MM-DD" max="2000-12-31" min="1899-01-01" tabindex="4" required><br>  
