@@ -46,38 +46,22 @@
                         <li id="geiranger-marked">
                             <a href="#" onclick="toggle_visibilityQuad('geiranger-info','briksdalen-info','Aakneset-info','egendefinert-info');">
                             <h3>Geiranger</h3>
-                            
                             </a>
                         </li>
-                            
                         <li id="briksdalen-marked">
                             <a href="#" onclick="toggle_visibilityQuad('briksdalen-info','geiranger-info','Aakneset-info','egendefinert-info');">
                                 <h3>Briksdalen</h3>
-                            
                             </a>
-                            
                         </li>
-                            
                         <li id="Aakneset-marked">
                             <a href="#" onclick="toggle_visibilityQuad('Aakneset-info','briksdalen-info','geiranger-info','egendefinert-info');">
                                 <h3>Åkneset</h3>
-                            
                             </a>
-                            
                         </li>
-                           
                         <li id="egendefinert-marked">
                             <a href="#" onclick="toggle_visibilityQuad('egendefinert-info','Aakneset-info','briksdalen-info','geiranger-info');">
                                 <h3>Egendefinert</h3>
-                            
                             </a>
                         </li> 
-                        
                     </ul>
-                        
-                    
-                    
-                    
-               
-                    
                 </div>

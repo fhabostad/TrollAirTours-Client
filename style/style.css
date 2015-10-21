@@ -191,12 +191,13 @@ main
 
 #main-bottom
 {
-    position:absolute;
-    clear:both;
+   position:absolute;
+   clear:both;
    width: 100%;
    height: 10%;
    bottom:0;
    background-color: black;
+   z-index: 15;  
 }
 
  #main-bottom h3:hover
@@ -223,11 +224,50 @@ main
 }
 
 
-
-
 #main-bottom li:last-child
 {
     border-right:none;
+}
+
+ #main-bottom-booking
+{  
+   position:absolute;
+   clear:both;
+   width: 100%;
+   height: 10%;
+   bottom:0;
+   background-color: black;
+   z-index: 15; 
+}
+
+ #main-bottom-booking h3:hover
+ {
+     color: greenyellow;
+ }
+ 
+#main-bottom-booking ul
+{
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+#main-bottom-booking li
+{
+    font-size: 1.6em;
+    float:left;
+    width: 49%;
+    height: 100%;
+    text-align: center;
+}
+
+
+#main-bottom-booking li:first-child
+{
+    border-right: 1px solid white;  
 }
 
 #nav-wrapper

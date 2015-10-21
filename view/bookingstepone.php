@@ -92,7 +92,7 @@ sel.appendChild(fragment);
 </div>
 
 
-<form action="?page=bookingTwo" method="post">
+<form action="?page=bookingTwo" id="bookingTwo" method="post">
                     <div id="product-form">
                         
                         <label for="inputProductID" >Select your desired products</label>
@@ -116,12 +116,26 @@ sel.appendChild(fragment);
                                      <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];  ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <button type="submit">Next</button>
+                        
                         </div>
                 
 </form>
 </div>
 </div>
+ 
+                <div id="main-bottom-booking">
+                    <ul>
+                        <li id="previous-booking-step">
+                            <a href="#">
+                                <h3>Previous</h3>
+                            </a>
+                        </li>
+                        <li id="next-booking-step">
+                            <a href="javascript:{}" onclick="document.getElementById('bookingTwo').submit();"><h3>Next</h3></a>
+                        </li>
+                        
+                    </ul>
+                </div>
                      
 
     
