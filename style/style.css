@@ -532,6 +532,16 @@ input[type="number"] {
      margin-left: 33%;
      max-height: 40em;
      float: left;
+
+}
+
+#product-form button
+{
+    margin-top: 5em;
+     width: 50%;
+     margin-right: 4em;
+     margin-left: auto;
+     background-color: greenyellow;
 }
 
 #destination-buttons
@@ -548,7 +558,7 @@ input[type="number"] {
 {
    margin-top: 3%;
     margin-left: 28%;
-    margin-right: auto;
+    margin-right: auto8;
     width: 40%;
     overflow: hidden;
     text-align: center;

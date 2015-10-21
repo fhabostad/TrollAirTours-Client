@@ -95,26 +95,28 @@ sel.appendChild(fragment);
                         
                         <label for="inputProductID" >Select your desired products</label>
                         <select name="givenFoodID" required>
-                           <option>Select food/snack</option>
+                           <option value="">Select food/snack</option>
                             <?php foreach($foods as $food): ?> 
                                      <option value="<?php echo $food["ProductID"]; ?>"><?php echo $food["ProductName"];  ?></option>
                             <?php endforeach; ?>
                         </select>
                         
                         <select name="givenDrinkID" required>
-                           <option>Select drink</option>
+                           <option value="">Select drink</option>
                             <?php foreach($drinks as $drink): ?> 
                            <option value="<?php echo $drink["ProductID"]; ?>"><?php echo $drink["ProductName"];  ?></option>
                             <?php endforeach; ?>
                         </select>
                         
                         <select name="givenDutyFreeID" required>
-                           <option>Select duty free</option>
+                           <option value="">Select duty free</option>
                             <?php foreach($dutyfrees as $dutyfree): ?> 
                                      <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];  ?></option>
                             <?php endforeach; ?>
                         </select>
+                        <button type="submit">Next</button>
                         </div>
+                
 </form>
                      
 
