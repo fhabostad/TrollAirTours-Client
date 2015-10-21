@@ -368,7 +368,7 @@ main
      color: black;
      float: right;
  }
-  label
+  #form-left-column label
  {
      display:block;
      margin-top: 2em;
@@ -381,30 +381,25 @@ main
      height: 2em;
      width: 20em;
      border-radius: 0.01em;
-     
  }
  
  #form-left-column
  {
-   
      padding: 0;
      margin-top: 4%;
      margin-left: 33%;
      float: left;
-     
-     
  }
  
   #form-right-column 
  {
-    
-
      padding: 0;
      margin-top: 8.5%;
      margin-bottom: 12em;
      margin-right: 33%;
      float: right;
  }
+ 
  #checkbox
  {
      float: right;
@@ -505,7 +500,17 @@ input[type="number"] {
 
 #product-form
 {
-    margin-left: 50em;
+    border: 1px solid red;
+}
+
+#destination-buttons
+{
+
+}
+
+#date-and-time
+{
+   
 }
 
  /*

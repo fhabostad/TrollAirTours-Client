@@ -105,17 +105,17 @@ sel.appendChild(fragment);
                                      <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];  ?></option>
                             <?php endforeach; ?>
                         </select>
-                        
-                        
+</form>
+                     
+<div id="destination-buttons">
+    <input type="radio" name="gender" id="Geiranger" value="Geiranger"> Geiranger </input>
+    <input type="radio" name="gender" id="Briksdalen" value="Briksdalen"> Briksdalen </input>
+    <input type="radio" name="gender" id="Aakneset" value="Aakneset"> Aakneset </input>
+</div>
+    
+<div id="date-and-time">
+    Date: <input type="text" id="datepicker">
+    <select id="CuisineList" onclick="timedrop()"></select>
+</div>
 
-<input type="radio" name="gender" id="Geiranger" value="Geiranger"> Geiranger </input>
-<input type="radio" name="gender" id="Briksdalen" value="Briksdalen"> Briksdalen </input>
-<input type="radio" name="gender" id="Aakneset" value="Aakneset"> Aakneset </input>
-
-<p>Date: <input type="text" id="datepicker"></p>
-
-
-<select id="CuisineList" onclick="timedrop()"></select>
-
-
-                    
+</div>  
