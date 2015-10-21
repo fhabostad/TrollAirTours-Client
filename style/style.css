@@ -376,6 +376,14 @@ main
      
  }
  
+  #form-right-column label
+ {
+     display:block;
+     margin-top: 2em;
+     font-size: 0.9em;
+     
+ }
+ 
  form input
  {
      height: 2em;
