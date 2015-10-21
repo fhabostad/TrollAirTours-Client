@@ -80,9 +80,9 @@ sel.appendChild(fragment);
 
 
 <form action="?page=bookingTwo" method="post">
-                    <div class="form-group">
+                    <div id="product-form">
                         
-                        <label for="inputProductID" >Product ID</label>
+                        <label for="inputProductID" >Products</label>
                         <select name="givenFoodID" required>
                            <option>Select food/snack</option>
                             <?php foreach($foods as $food): ?> 

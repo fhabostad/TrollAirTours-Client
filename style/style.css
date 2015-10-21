@@ -503,6 +503,11 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
+#product-form
+{
+    margin-left: 50em;
+}
+
  /*
  #geiranger-marked
  {
