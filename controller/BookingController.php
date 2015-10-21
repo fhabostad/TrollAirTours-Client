@@ -108,6 +108,7 @@ class BookingController extends Controller {
                 $givenGender        = $_REQUEST["givenGender"];
                 $givenFirst_name    = $_REQUEST["givenFirst_name"];
                 $givenLast_name     = $_REQUEST["givenLast_name"];
+                $givenBirth_date    = $_REQUEST["givenBirth_date"];
                 $givenStreet_address= $_REQUEST["givenStreet_address"];
                 $givenZip_code      = $_REQUEST["givenZip_code"];
                 $givenCity          = $_REQUEST["givenCity"];
@@ -120,6 +121,7 @@ class BookingController extends Controller {
                 $_SESSION["givenGender"]            = $givenGender;
                 $_SESSION["givenFirst_name"]        = $givenFirst_name;
                 $_SESSION["givenLast_name"]         = $givenLast_name;
+                $_SESSION["givenBirth_date"]        = $givenBirth_date;
                 $_SESSION["givenStreet_address"]    = $givenStreet_address;
                 $_SESSION["givenZip_code"]          = $givenZip_code;
                 $_SESSION["givenCity"]              = $givenCity;
