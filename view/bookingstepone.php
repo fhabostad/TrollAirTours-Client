@@ -9,7 +9,7 @@ $dutyfrees = $GLOBALS["dutyfrees"];
 ?>
 
 <div id="main-top-booking">
-
+<div id="main-top-overlay-booking">
 
 
 <script>
@@ -78,6 +78,8 @@ sel.appendChild(fragment);
 
 </script>
 
+
+
 <div id="destination-buttons"> 
     <input type="radio" name="gender" id="Geiranger" value="Geiranger"> Geiranger </input>
     <input type="radio" name="gender" id="Briksdalen" value="Briksdalen"> Briksdalen </input>
@@ -118,6 +120,8 @@ sel.appendChild(fragment);
                         </div>
                 
 </form>
+</div>
+</div>
                      
 
     

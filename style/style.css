@@ -169,9 +169,10 @@ main
   width: 100%;
   height: 100%;
   z-index: 2;
-  background-color: rgba(255, 255, 255, 0.64); /*dim the background*/
-
+  background-color: rgba(255, 255, 255, 0.38); /*dim the background*/
  }
+ 
+
  
  #main-top-overlay-booking button
  {
@@ -534,9 +535,6 @@ input[type="number"] {
      margin-top: 1.5%;
      margin-left: auto;
      margin-right: auto;
-     
-   
-
 }
 
 #product-form button
@@ -550,7 +548,7 @@ input[type="number"] {
 
 #destination-buttons
 {
-    margin-top: 10%;
+    padding-top: 10%;
     margin-left: 23.5%;
     margin-right: auto;
     width: 50%;
