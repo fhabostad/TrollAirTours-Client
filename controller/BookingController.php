@@ -55,6 +55,20 @@ class BookingController extends Controller {
         switch($casevalue)
         {
             case '1':
+                 $productModel = $GLOBALS["productModel"];
+                 $products = $productModel->getAll();
+                 
+                  $foods = $productModel->getAllWhereProductType(array("Food"));
+                  $drinks = $productModel->getAllWhereProductType(array("Drink"));
+                  $dutyfrees = $productModel->getAllWhereProductType(array("DutyFree"));
+        
+                 
+                   $data = array(
+                   "foods" => $foods,
+                   "drinks" => $drinks,
+                   "dutyfrees" => $dutyfrees,
+                    );
+                
                  $flightModel = $GLOBALS["flightModel"];
                  $flights = $flightModel->getAll();
                  $flightDatesGeiranger = $flightModel->getAllDatesFor("Geiranger");
@@ -81,7 +95,7 @@ class BookingController extends Controller {
                 }
 
                 $GLOBALS["CalenderDatesBriksdalen"] = $dateArrayBriksdalen;
-                return $this->render("bookingstepOne");
+                return $this->render("bookingstepOne",$data);
                 
                 
                 
@@ -89,8 +103,11 @@ class BookingController extends Controller {
            
             case '2':
                 
-                //Data for å vise setereservasjon her!
-            
+            $_SESSION["givenFoodID"]  =  $_REQUEST["givenFoodID"];
+            $_SESSION["givenDrinkID"]  = $_REQUEST["givenDrinkID"];
+            $_SESSION["givenDutyFreeID"]   = $_REQUEST["givenDutyFreeID"];
+                
+                
                 return $this->render("bookingstepTwo");
                 
                 
@@ -105,7 +122,7 @@ class BookingController extends Controller {
                  break;
              
              case '4':
-                 $givenGender        = $_REQUEST["givenGender"];
+                $givenGender        = $_REQUEST["givenGender"];
                 $givenFirst_name    = $_REQUEST["givenFirst_name"];
                 $givenLast_name     = $_REQUEST["givenLast_name"];
                 $givenStreet_address= $_REQUEST["givenStreet_address"];

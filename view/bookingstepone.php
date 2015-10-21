@@ -2,6 +2,10 @@
 $calenderDatesGerianger = $GLOBALS["CalenderDatesGeiranger"];
 $calenderDatesAakneset = $GLOBALS["CalenderDatesAakneset"];
 $calenderDatesBriksdalen = $GLOBALS["CalenderDatesBriksdalen"];
+
+$foods = $GLOBALS["foods"];
+$drinks = $GLOBALS["drinks"];
+$dutyfrees = $GLOBALS["dutyfrees"];
 ?>
 
 <div id="main-top-booking">
@@ -36,7 +40,7 @@ if(document.getElementById('Geiranger').checked) {
  
  var currentdate = d + "." + (m + 1) + "." + y; 
  for (var i = 0; i < disableddates.length; i++) {
- if ($.inArray(currentdate, disableddates) != -1 ) {
+ if ($.inArray(currentdate, disableddates) !== -1 ) {
  return [true];
  }else
  {
@@ -74,6 +78,35 @@ sel.appendChild(fragment);
 
 </script>
 
+
+<form action="?page=bookingTwo" method="post">
+                    <div class="form-group">
+                        
+                        <label for="inputProductID" >Product ID</label>
+                        <select name="givenFoodID" required>
+                           <option>Select food/snack</option>
+                            <?php foreach($foods as $food): ?> 
+                                     <option value="<?php echo $food["ProductID"]; ?>"><?php echo $food["ProductName"];  ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        
+                        <label for="inputDrinkID" PilotID</label>
+                        <select name="givenDrinkID" required>
+                           <option>Select drink</option>
+                            <?php foreach($drinks as $drink): ?> 
+                           <option value="<?php echo $drink["ProductID"]; ?>"><?php echo $drink["ProductName"];  ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        
+                        <label for="inputDutyFreeID" PilotID</label>
+                        <select name="givenDutyFreeID" required>
+                           <option>Select duty free</option>
+                            <?php foreach($dutyfrees as $dutyfree): ?> 
+                                     <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];  ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        
+                        
 
 <input type="radio" name="gender" id="Geiranger" value="Geiranger"> Geiranger </input>
 <input type="radio" name="gender" id="Briksdalen" value="Briksdalen"> Briksdalen </input>

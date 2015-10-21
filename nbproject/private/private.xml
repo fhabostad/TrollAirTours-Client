@@ -3,31 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/mobilenavigation.js</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/CustomerController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/HomeController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/BookingController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/controllers.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/home.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/.gitignore</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/calender.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/SeatController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/TourController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/Controller.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingstepthree.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/index.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingsteptwo.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/about.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/header.html</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/DestinationController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingsteptwo_1.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/AboutController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingstepone.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/model/FlightModel.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingAdd.php</file>
             <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/Router.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/calender.js</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/FlightController.php</file>
+            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/BookingController.php</file>
+            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/model/ProductModel.php</file>
+            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingstepone.php</file>
         </group>
     </open-files>
 </project-private>
