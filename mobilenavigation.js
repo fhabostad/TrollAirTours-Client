@@ -35,7 +35,7 @@
        
     }
    
-  function toggle_visibilityDest(id,id2,id3,id4) {
+  function toggle_visibilityQuad(id,id2,id3,id4) {
        var e = document.getElementById(id);
        var f = document.getElementById(id2);
        var g = document.getElementById(id3);
@@ -45,8 +45,8 @@
        f.style.display = 'none';
        g.style.display = 'none';
        h.style.display = 'none';
+       
        if(id == 'briksdalen-info')
-        
           document.getElementById('main-top').style.backgroundImage = "url('style/briksdalen.png')";
         //  document.getElementById('briksdalen-marked').style.borderTop = "2px solid greenyellow";
 
