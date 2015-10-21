@@ -101,16 +101,39 @@ class BookingController extends Controller {
                 
                 break;
            
+                
             case '2':
+            $productModel = $GLOBALS["productModel"];
                 
             $_SESSION["givenFoodID"]  =  $_REQUEST["givenFoodID"];
             $_SESSION["givenDrinkID"]  = $_REQUEST["givenDrinkID"];
             $_SESSION["givenDutyFreeID"]   = $_REQUEST["givenDutyFreeID"];
-                
-                
+            
+            $foodID = $productModel->getAllWhereProductID($_SESSION["givenFoodID"]);
+            $drinkID = $productModel->getAllWhereProductID($_SESSION["givenDrinkID"]);
+            $dutyFreeID = $productModel->getAllWhereProductID($_SESSION["givenDutyFreeID"]);
+            
+            foreach($foodID as $food)
+            {
+                $_SESSION["givenFoodName"] = $food["ProductName"];
+            }
+            
+            foreach($drinkID as $drink)
+            {
+                $_SESSION["givenDrinkName"] = $drink["ProductName"];
+            }
+            
+            foreach($dutyFreeID as $dutyfree)
+            {
+                $_SESSION["givenDutyFreeName"] = $dutyfree["ProductName"];
+            }
+            
+                    echo $_SESSION["givenFoodName"];
+                    echo $_SESSION["givenDrinkName"];
+                    echo $_SESSION["givenDutyFreeName"];
+            
                 return $this->render("bookingstepTwo");
-                
-                
+ 
                 break;
             
             case '3':

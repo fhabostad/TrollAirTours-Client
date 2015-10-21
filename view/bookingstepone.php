@@ -78,11 +78,22 @@ sel.appendChild(fragment);
 
 </script>
 
+<div id="destination-buttons"> 
+    <input type="radio" name="gender" id="Geiranger" value="Geiranger"> Geiranger </input>
+    <input type="radio" name="gender" id="Briksdalen" value="Briksdalen"> Briksdalen </input>
+    <input type="radio" name="gender" id="Aakneset" value="Aakneset"> Aakneset </input>
+</div>
+
+<div id="date-and-time">
+    Date: <input type="text" id="datepicker">
+    <select id="CuisineList" onclick="timedrop()"></select>
+</div>
+
 
 <form action="?page=bookingTwo" method="post">
                     <div id="product-form">
                         
-                        <label for="inputProductID" >Products</label>
+                        <label for="inputProductID" >Select your desired products</label>
                         <select name="givenFoodID" required>
                            <option>Select food/snack</option>
                             <?php foreach($foods as $food): ?> 
@@ -90,7 +101,6 @@ sel.appendChild(fragment);
                             <?php endforeach; ?>
                         </select>
                         
-                        <label for="inputDrinkID" PilotID</label>
                         <select name="givenDrinkID" required>
                            <option>Select drink</option>
                             <?php foreach($drinks as $drink): ?> 
@@ -98,24 +108,16 @@ sel.appendChild(fragment);
                             <?php endforeach; ?>
                         </select>
                         
-                        <label for="inputDutyFreeID" PilotID</label>
                         <select name="givenDutyFreeID" required>
                            <option>Select duty free</option>
                             <?php foreach($dutyfrees as $dutyfree): ?> 
                                      <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];  ?></option>
                             <?php endforeach; ?>
                         </select>
+                        </div>
 </form>
                      
-<div id="destination-buttons">
-    <input type="radio" name="gender" id="Geiranger" value="Geiranger"> Geiranger </input>
-    <input type="radio" name="gender" id="Briksdalen" value="Briksdalen"> Briksdalen </input>
-    <input type="radio" name="gender" id="Aakneset" value="Aakneset"> Aakneset </input>
-</div>
-    
-<div id="date-and-time">
-    Date: <input type="text" id="datepicker">
-    <select id="CuisineList" onclick="timedrop()"></select>
-</div>
 
-</div>  
+    
+
+
