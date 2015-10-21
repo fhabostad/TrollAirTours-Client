@@ -24,9 +24,9 @@
                             Email: <?php echo "".$_SESSION['givenEmail']?> 
                             <br>                           
                             <h2>Extra Products</h2>
-                            Drinks :<?php echo "".$_SESSION['ProductName']?><br>
+                            Drink :<?php echo "".$_SESSION['givenDrinkName']?><br>
                             Food :<?php echo "".$_SESSION['givenFoodName'];?><br>
-                            Dutyfree :<?php echo "".$_SESSION['ProductName']?><br>          
+                            Dutyfree :<?php echo "".$_SESSION['givenDutyFreeName']?><br>          
                             </div>
  <?php
 
