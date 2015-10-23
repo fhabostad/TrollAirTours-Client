@@ -88,7 +88,7 @@ main
 #main-top
 {
    background-color: black;
-   height: 90.6%;
+   height: 90%;
    width: 100%;
    position: absolute;
    background-image: url("geiranger.png");
@@ -109,7 +109,7 @@ main
    
 }
 
-#main-top-overlay
+/*#main-top-overlay  Home page info box
  {
   position: absolute;
   top: 100px;
@@ -117,20 +117,64 @@ main
   width: 30%;
   height: 50%;
   z-index: 10;
+  border:1px solid red;
+  border-radius: 0.5em;
+  background-color: rgba(255, 255, 255, 0.68); dim the background
+ }*/
+ 
+ #main-top-overlay /* Home page info box*/
+ {
+  display: block;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 7em;
+  width: 30%;
+  height: 50%;
+  z-index: 10;
   border-radius: 0.5em;
   background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
  }
  
- #main-top-overlay button
+ #BookingButtonHome  /* Booking button home page*/
  {
-     height: 4.5em;
-     width: 6.6em;
-     margin-top: 2.5em;
-     margin-left: 9em;
-     font-size: 1.5em;
+     display:block;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 1em;
+     height: 10%;
+     width: 10%;
+     margin-bottom: 2em;
+     
+ }
+ 
+ #BookingButtonHome a /* Booking button home page*/
+ {
+    text-decoration: none;
+ }
+ 
+ #BookingButtonHome a:hover /* Booking button home page*/
+ {
+     
+ }
+ 
+ #BookingButtonHome button
+ {
+     padding: 0;
+     margin:0;
+     display:block;
      background-color: greenyellow;
      border-radius: 0.4em;
+     height: 100%;
+     width: 100%;
+     text-decoration: none;
+     font-size: 1.5em;
+         
  }
+ 
+ 
+
+
  
   #main-top-overlay h2
  {
@@ -142,13 +186,11 @@ main
  
  #main-top-overlay p
  {
-     margin-top: 2em;
-     margin-left: 3em;
-     margin-right: 3em;
+     font-size: 1em;
      text-align: center;
  }
  
- #main-top-overlay a
+ #main-top-overlay  a
  {
      color: steelblue;
      margin-left: 13.5em;
@@ -175,20 +217,20 @@ main
  
 
  
- #main-top-overlay-booking button
+/* #main-top-overlay-booking button
  {
-     background-color: greenyellow;
+     background-color: red;
      height: 5em;
      width: 9em;
      margin-top: 5em;
      margin-left: 67em;
     
- }
+ }*/
 
-#main-top-booking img
+/*#main-top-booking img
 {
   
-}
+}*/
 
 #main-bottom
 {

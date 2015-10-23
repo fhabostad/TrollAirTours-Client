@@ -2,7 +2,7 @@
                     
                     <div id="main-top-overlay">
                         
-						<div id ="geiranger-info" >
+		       <div id ="geiranger-info" >
                             <h2> Geiranger </h2>
                             <p> Geiranger is a small tourist village in Sunnmøre region of Møre og Romsdal county in the western part of Norway. </p> 
                             <p> It lies in Stranda Municipality at the head of the Geirangerfjorden, which is a branch of the large Storfjorden. </p> 
@@ -32,11 +32,13 @@
                             <a href="https://no.wikipedia.org/wiki/Briksda"> More information </a>    
                         </div>
                      
-                    <form action="?page=bookingOne" method="post">
-                        <button type="booking">Booking</button>
-                    </form>
+                        
                     </div>
-                
+                    <div id="BookingButtonHome">
+                            <a href="?page=bookingOne">
+                                <button type="booking">Booking</button>
+                            </a>
+                        </div>
                     
                 </div>
                 
