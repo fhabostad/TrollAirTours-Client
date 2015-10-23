@@ -198,7 +198,7 @@ function switchForm()
                         </li>
                         <li id="next-booking-step">
                             <div id="preDefTourNext"><a href="javascript:{}" onclick="document.getElementById('bookingTwo').submit();"><h3>Next</h3></a></div>
-                            <div id="customNext"><a href="?page=home" onclick="document.getElementById('bookingCustom').submit();"><h3>Next</h3></a></div>
+                            <div id="customNext"><a href="?page=bookingCustom" onclick="document.getElementById('bookingCustom').submit();"><h3>Next</h3></a></div>
                         </li>
                         
                     </ul>
