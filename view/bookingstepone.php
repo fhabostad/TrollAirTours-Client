@@ -84,9 +84,10 @@ sel.appendChild(fragment);
     <input type="radio" name="gender" id="Geiranger" value="Geiranger"> Geiranger </input>
     <input type="radio" name="gender" id="Briksdalen" value="Briksdalen"> Briksdalen </input>
     <input type="radio" name="gender" id="Aakneset" value="Aakneset"> Aakneset </input>
+    <input type="radio" name="gender" id="Aakneset" value="Custom"> Custom </input>
 </div>
 
-<div id="date-and-time">
+<!--<div id="date-and-time">
     Date: <input type="text" id="datepicker">
     <select id="CuisineList" onclick="timedrop()"></select>
 </div>
@@ -119,7 +120,29 @@ sel.appendChild(fragment);
                         
                         </div>
                 
-</form>
+</form>-->
+
+</div>
+   <div id="Custom-form-stepone">
+    <form action="?page=bookingTwo" method="post">
+    <h2>Custom Form</h2>
+    <div id="Custom-form-left">
+        <label>Destination</label> <br> <input type="text" name="givenCustomDestination" placeholder="Enter preferred destinations" tabindex="1" required> <a href="http://localhost/TrollAirTours-Client/?page=about" target="blank">(Info)</a><br>
+        <label>Date</label> <br> <input type="text" name="givenPreferredDate" placeholder="Enter pref. (DD-MM-YYYY)" max="31-12-2030" min="10-12-2015" tabindex="2" required><a href="http://localhost/TrollAirTours-Client/?page=home" target="blank">(Tour Season)</a><br>
+        <label>Time</label> <br> <input type="text" name="givenPreferredTime" placeholder="Enter preferred (hh:mm)" max="23:59" min="00:00" tabindex="3" required><br>                                                  
+    <label>Guide</label> <br> <select id="DropdownGuide" type="email" name="givenGuide" placeholder="Select language" tabindex="4" required>
+     <option disabled selected> -- Select language -- </option>
+            <option value="None" >No guide</option>
+            <option value="English" >English</option>
+            <option value="Norwegian">Norwegian</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+    </select>
+    <br>
+    <button class="btn btn-default" type="submit">Next</button>
+    </div>
+    </form>
 </div>
 </div>
  

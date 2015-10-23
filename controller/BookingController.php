@@ -132,6 +132,26 @@ class BookingController extends Controller {
                     echo $_SESSION["givenDrinkName"];
                     echo $_SESSION["givenDutyFreeName"];
             
+            //Innhenting av data fra contact form
+                $givenCustomDestination  = $_REQUEST["givenCustomDestination"];
+                $givenPreferredDate      = $_REQUEST["givenPreferredDate"];
+                $givenPreferredTime      = $_REQUEST["givenPreferredTime"];
+                $givenGuide              = $_REQUEST["givenGuide"];
+                                               
+                $_SESSION["givenCustomDestination"] = $givenCustomDestination;
+                $_SESSION["givenPreferredDate"]     = $givenPreferredDate;
+                $_SESSION["givenPreferredTime"]     = $givenPreferredTime;
+                $_SESSION["givenGuide"]             = $givenGuide;
+                
+
+                
+                
+                //test av funksjonalitet stepone custom form
+                echo $_SESSION["givenCustomDestination"];
+               echo $_SESSION["givenPreferredDate"];
+                echo $_SESSION["givenPreferredTime"];
+                echo $_SESSION["givenGuide"];
+                
                 return $this->render("bookingstepTwo");
  
                 break;

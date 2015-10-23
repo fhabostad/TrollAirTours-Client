@@ -425,12 +425,13 @@ main
      
  }
  
- form input
+ #main-top-overlay-booking input
  {
      height: 2em;
      width: 20em;
      border-radius: 0.01em;
  }
+ 
  
  #form-left-column
  {
@@ -519,7 +520,7 @@ input[type="number"] {
 
 #destination-buttons
 {
-    padding-top: 10%;
+    padding-top: 5%;
     margin-left: 23.5%;
     margin-right: auto;
     width: 50%;
@@ -536,6 +537,61 @@ input[type="number"] {
     overflow: hidden;
     text-align: center;
 }
+
+/* //// Custom Form //// */
+#Custom-form-stepone
+{
+  position: absolute;
+  top: 200px;
+  left: 34.3%;
+  width: 30%;
+  height: 60%;
+  z-index: 10;
+  border-radius: 0.5em;
+  background-color: rgba(255, 255, 255, 0.80); /*dim the background*/
+}
+#Custom-form-stepone h2
+{
+    text-align: center;
+}
+#Custom-form-left
+{
+   
+    float: left;
+    margin-left: 8em;
+    height: 50%;
+}
+#Custom-form-left a
+{
+    margin-left: 1em;
+}
+#Custom-form-left a:hover
+ {
+     color: green;
+ }
+#Custom-form-left input
+{
+    margin-bottom: 3em;
+}
+
+
+ #DropdownGuide 
+ {  
+     
+    height: 20px;
+    width: 175px; 
+    
+ }
+ #Custom-form-stepone button
+ {
+     text-align: center;
+     width: 30%;
+     height: 40px;
+     border-radius: 0.5em;
+     background-color: greenyellow;
+     margin-top: 3em;
+     margin-left: 3em;
+ }
 
 /*
  #geiranger-marked
