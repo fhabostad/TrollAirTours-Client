@@ -148,7 +148,7 @@ class BookingController extends Controller {
                 
                 //test av funksjonalitet stepone custom form
                 echo $_SESSION["givenCustomDestination"];
-               echo $_SESSION["givenPreferredDate"];
+                echo $_SESSION["givenPreferredDate"];
                 echo $_SESSION["givenPreferredTime"];
                 echo $_SESSION["givenGuide"];
                 

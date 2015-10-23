@@ -98,14 +98,19 @@ sel.appendChild(fragment);
                         
                         <label for="inputProductID" >Select your desired products</label>
                         <select name="givenFoodID" required>
+                            
                            <option value="">Select food/snack</option>
+                             <option value="none">No food</option>
                             <?php foreach($foods as $food): ?> 
+                                   
                                      <option value="<?php echo $food["ProductID"]; ?>"><?php echo $food["ProductName"];  ?></option>
                             <?php endforeach; ?>
                         </select>
                         
                         <select name="givenDrinkID" required>
+                             
                            <option value="">Select drink</option>
+                           <option value="none">No drink</option>
                             <?php foreach($drinks as $drink): ?> 
                            <option value="<?php echo $drink["ProductID"]; ?>"><?php echo $drink["ProductName"];  ?></option>
                             <?php endforeach; ?>
@@ -113,6 +118,7 @@ sel.appendChild(fragment);
                         
                         <select name="givenDutyFreeID" required>
                            <option value="">Select duty free</option>
+                           <option value="none">No duty free</option>
                             <?php foreach($dutyfrees as $dutyfree): ?> 
                                      <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];  ?></option>
                             <?php endforeach; ?>
