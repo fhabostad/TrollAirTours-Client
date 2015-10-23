@@ -49,7 +49,7 @@ body h3
 
 header
 {
-    max-height: 20%;
+    //max-height: 15%;
     width:100%;
     float:left;
     background: black;
@@ -59,15 +59,17 @@ header
 
 #left-top
 {
+    
     float:left;
     padding-left: 1em;
-    
+    width: 40%;
+    height: 100%;
 }
 
 #left-top img
 {
     margin-top: 0.5em;
-    width: 25%;
+    width: 50%;
     height: 100%;
 
 }
@@ -75,9 +77,30 @@ header
 
 #right-top
 {
-    float:right;
-    padding-right: 4em;
+    float: right;
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
 }
+
+ #navbutton
+{
+    text-align: center;
+    float: right;
+    width: 30%;
+    height: 100%;
+    margin:0;
+    
+}
+
+ #navbutton img
+ {
+    margin-top: 7%;
+    margin-right: 25%;
+    width: 30%; 
+    height: 50%;
+ }
+
 
 
 main
@@ -88,7 +111,7 @@ main
 #main-top
 {
    background-color: black;
-   height: 90%;
+   height: 80%;
    width: 100%;
    position: absolute;
    background-image: url("geiranger.png");
@@ -329,7 +352,7 @@ main
     color: white;
     height: 82%;
     z-index: 3;
-    margin-top: 4.4%;
+    margin-top: 5%;
     -webkit-transition: width 1s, height 0s; /* Safari */
     transition: width 0.2s, height 0s;
 
@@ -388,32 +411,18 @@ main
 
  #closenav
  {
-     display:block;
+     display:none;
  }
  
-  #closenav img:hover
- {
+#closenav img:hover
+{
     border-radius:2em;
     box-shadow: 0px 0px 20px #ff0000;
- }
-
- #navbutton
-{
-    text-align: center;
-    float: right;
-    margin-top: 0.8em;
-    margin-right: 3em;
-    width: 4em;
-    height: 4em;
 }
 
- #navbutton img
- {
-     height: 4em;
-     width: 4em;
- }
 
- #topnav
+
+/* #topnav
  {
     width: 100%;
     height: 7em;
@@ -437,7 +446,7 @@ main
      text-align: center;
      margin:0;
      padding:0;
- }
+ }*/
  
 #countryCode
  {
