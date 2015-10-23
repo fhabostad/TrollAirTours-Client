@@ -31,6 +31,8 @@ class BookingController extends Controller {
            $this->showBookingAction(3);
        }else if(($page == "bookingFour")){
            $this->showBookingAction(4);
+       }else if(($page == "bookingThreeUpdate")){
+           $this->showBookingAction(6);
        }
     }
 
@@ -218,10 +220,12 @@ class BookingController extends Controller {
                              
                  return $this->render("bookingstepFour");
                  break;
-        
+             
+             case '6':
+                 return $this->render("bookingstepThreeUpdate");
+                 break;
         }
-        
-        
+                    
         
         
         
