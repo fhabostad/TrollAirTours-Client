@@ -159,6 +159,11 @@ main
   background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
  }
  
+  #main-top-overlay a
+  {
+      text-align: center;
+  }
+ 
  #BookingButtonHome  /* Booking button home page*/
  {
      display:block;
@@ -215,8 +220,10 @@ main
  
  #main-top-overlay  a
  {
+     
      color: steelblue;
      margin-left: 13.5em;
+     text-align: center;
      text-decoration: underline;
  }
  
@@ -273,18 +280,19 @@ main
  
 #main-bottom ul
 {
-    width:100%;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
     height: 100%;
-    overflow: hidden;
+    width: 100%;
+    text-align: center;
 }
 
 
 #main-bottom li
 {
-    margin:0;
     float:left;
-    padding-left:10%;
-    padding-right: 9.9%;
+    width: 24.8%;
     height: 100%;
     border-right: 1px solid white;  
 }
@@ -292,7 +300,7 @@ main
 
 #main-bottom li:last-child
 {
-    border-right:none;
+    border:none;
 }
 
  #main-bottom-booking
