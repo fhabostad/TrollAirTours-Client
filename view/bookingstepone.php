@@ -73,6 +73,27 @@ sel.appendChild(fragment);
  }
 
 
+function switchForm()
+{
+     var e = document.getElementById('preDefTour');
+       var f = document.getElementById('Custom-form-stepone');
+    
+    if(document.getElementById('Geiranger').checked) {
+            e.style.display = 'block';
+            f.style.display = 'none';
+    }else if(document.getElementById('Briksdalen').checked) {
+            e.style.display = 'block';
+            f.style.display = 'none';
+    }else if(document.getElementById('Aakneset').checked) {
+            e.style.display = 'block';
+            f.style.display = 'none';
+    }else if(document.getElementById('Custom').checked) {
+            e.style.display = 'none';
+            f.style.display = 'block';
+    }
+    
+    
+}
 
 
 </script>
@@ -80,16 +101,18 @@ sel.appendChild(fragment);
 <div id="main-top-booking">
 <div id="main-top-overlay-booking">
 
-<div id ="preDefTour">
+
     
 
 
     <div id="destination-buttons"> 
-        <input type="radio" name="gender" id="Geiranger" value="Geiranger" checked="checked" > Geiranger </input>
-        <input type="radio" name="gender" id="Briksdalen" value="Briksdalen"> Briksdalen </input>
-        <input type="radio" name="gender" id="Aakneset" value="Aakneset"> Aakneset </input>
-        <input type="radio" name="gender" id="Aakneset" value="Custom"> Custom </input>
+        <input type="radio" name="gender" id="Geiranger" value="Geiranger" checked="checked" onclick="switchForm()" > Geiranger </input>
+        <input type="radio" name="gender" id="Briksdalen" value="Briksdalen" onclick="switchForm()"> Briksdalen </input>
+        <input type="radio" name="gender" id="Aakneset" value="Aakneset" onclick="switchForm()"> Aakneset </input>
+        <input type="radio" name="gender" id="Custom" value="Custom" onclick="switchForm()"> Custom </input>
     </div>
+    
+    <div id ="preDefTour">
 
     <div id="date-and-time">
         Date: <input type="text" id="datepicker">

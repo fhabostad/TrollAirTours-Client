@@ -547,6 +547,7 @@ input[type="number"] {
 /* //// Custom Form //// */
 #Custom-form-stepone
 {
+  display:none;
   position: absolute;
   top: 200px;
   left: 34.3%;
@@ -599,6 +600,11 @@ input[type="number"] {
      margin-left: 3em;
  }
 
+ 
+#preDefTour
+{
+    display: block;
+}
 /*
  #geiranger-marked
  {
