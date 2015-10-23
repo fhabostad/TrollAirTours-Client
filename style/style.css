@@ -111,10 +111,10 @@ main
 #main-top
 {
    background-color: black;
-   height: 80%;
+   height: 85%;
    width: 100%;
    position: absolute;
-   background-image: url("geiranger.png");
+   background-image: url("geiranger9.png");
    background-repeat: no-repeat;
    background-size: cover;
 }
@@ -123,10 +123,10 @@ main
 {
    background-color: black;
    font-weight: bold;
-   height: 90.6%;
+   height: 85%;
    width: 100%;
    position: absolute;
-   background-image: url("geiranger5.png");
+   background-image: url("geiranger9.png");
    background-repeat: space;
    background-size: cover;
    

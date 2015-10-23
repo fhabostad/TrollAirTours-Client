@@ -51,7 +51,7 @@
         //  document.getElementById('briksdalen-marked').style.borderTop = "2px solid greenyellow";
 
        if(id == 'geiranger-info')
-          document.getElementById('main-top').style.backgroundImage = "url('style/geiranger5.png')";
+          document.getElementById('main-top').style.backgroundImage = "url('style/geiranger9.png')";
      // document.getElementById('geiranger-marked').style.borderTop = "2px solid greenyellow";
        if(id == 'Aakneset-info')
           document.getElementById('main-top').style.backgroundImage = "url('style/bolgen.png')";

@@ -8,11 +8,11 @@
 
 ?>
 
-<h1>Seteres!</h1>
+
 
 <div id="main-top-booking">
     <div id="main-top-overlay-booking">
-
+        <h1>Seteres!</h1>
     </div>
     
 </div>

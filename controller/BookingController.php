@@ -109,9 +109,9 @@ class BookingController extends Controller {
             case '2':
             $productModel = $GLOBALS["productModel"];
                 
-            $_SESSION["givenFoodID"]  =  $_REQUEST["givenFoodID"];
-            $_SESSION["givenDrinkID"]  = $_REQUEST["givenDrinkID"];
-            $_SESSION["givenDutyFreeID"]   = $_REQUEST["givenDutyFreeID"];
+            $_SESSION["givenFoodID"]     = filter_input(INPUT_POST, "givenFoodID");
+            $_SESSION["givenDrinkID"]    = filter_input(INPUT_POST, "givenDrinkID");
+            $_SESSION["givenDutyFreeID"] = filter_input(INPUT_POST, "givenDutyFreeID");
             
             $foodID = $productModel->getAllWhereProductID($_SESSION["givenFoodID"]);
             $drinkID = $productModel->getAllWhereProductID($_SESSION["givenDrinkID"]);
@@ -131,30 +131,15 @@ class BookingController extends Controller {
             {
                 $_SESSION["givenDutyFreeName"] = $dutyfree["ProductName"];
             }
-            
-                    echo $_SESSION["givenFoodName"];
-                    echo $_SESSION["givenDrinkName"];
-                    echo $_SESSION["givenDutyFreeName"];
+           
             
             //Innhenting av data fra contact form
-                $givenCustomDestination  = $_REQUEST["givenCustomDestination"];
-                $givenPreferredDate      = $_REQUEST["givenPreferredDate"];
-                $givenPreferredTime      = $_REQUEST["givenPreferredTime"];
-                $givenGuide              = $_REQUEST["givenGuide"];
-                                               
-                $_SESSION["givenCustomDestination"] = $givenCustomDestination;
-                $_SESSION["givenPreferredDate"]     = $givenPreferredDate;
-                $_SESSION["givenPreferredTime"]     = $givenPreferredTime;
-                $_SESSION["givenGuide"]             = $givenGuide;
-                
+               $_SESSION["givenCustomDestination"]  = filter_input(INPUT_POST, "givenPreferredDate");
+               $_SESSION["givenPreferredDate"]      = filter_input(INPUT_POST, "givenPreferredDate");
+               $_SESSION["givenPreferredTime"]      = filter_input(INPUT_POST, "givenPreferredTime");
+               $_SESSION["givenGuide"]              = filter_input(INPUT_POST, "givenGuide");
 
                 
-                
-                //test av funksjonalitet stepone custom form
-                echo $_SESSION["givenCustomDestination"];
-               echo $_SESSION["givenPreferredDate"];
-                echo $_SESSION["givenPreferredTime"];
-                echo $_SESSION["givenGuide"];
                 
                 return $this->render("bookingstepTwo");
  
