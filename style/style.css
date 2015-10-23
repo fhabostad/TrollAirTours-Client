@@ -547,6 +547,7 @@ input[type="number"] {
 /* //// Custom Form //// */
 #Custom-form-stepone
 {
+  display: none;
   position: absolute;
   top: 200px;
   left: 34.3%;
@@ -597,6 +598,11 @@ input[type="number"] {
      background-color: greenyellow;
      margin-top: 3em;
      margin-left: 3em;
+ }
+ 
+ #preDefTour
+ {
+     display: block;
  }
 
 /*
