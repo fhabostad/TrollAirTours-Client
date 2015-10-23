@@ -134,24 +134,23 @@ function switchForm()
                         <div id="product-form">
 
                             <label for="inputProductID" >Select your desired products</label>
+                         
                             <select name="givenFoodID" required>
-                               
-                               <option disabled selected>Select food/snack </option>
-                               <option value="None">None</option>
+                               <option value="None" selected>- no food selected -</option>
                                 <?php foreach($foods as $food): ?> 
                                          <option value="<?php echo $food["ProductID"]; ?>"><?php echo $food["ProductName"];  ?></option>
                                 <?php endforeach; ?>
                             </select>
 
                             <select name="givenDrinkID" required>
-                               <option value="">Select drink</option>
+                              <option value="None" selected>- no drink selected -</option>
                                 <?php foreach($drinks as $drink): ?> 
                                <option value="<?php echo $drink["ProductID"]; ?>"><?php echo $drink["ProductName"];  ?></option>
                                 <?php endforeach; ?>
                             </select>
 
                             <select name="givenDutyFreeID" required>
-                               <option value="">Select duty free</option>
+                              <option value="None" selected>- no duty free selected -</option>
                                 <?php foreach($dutyfrees as $dutyfree): ?> 
                                          <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];  ?></option>
                                 <?php endforeach; ?>
