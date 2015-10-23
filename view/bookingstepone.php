@@ -8,8 +8,7 @@ $drinks = $GLOBALS["drinks"];
 $dutyfrees = $GLOBALS["dutyfrees"];
 ?>
 
-<div id="main-top-booking">
-<div id="main-top-overlay-booking">
+
 
 
 <script>
@@ -78,52 +77,61 @@ sel.appendChild(fragment);
 
 </script>
 
+<div id="main-top-booking">
+<div id="main-top-overlay-booking">
+
+<div id ="preDefTour">
+    
 
 
-<div id="destination-buttons"> 
-    <input type="radio" name="gender" id="Geiranger" value="Geiranger"> Geiranger </input>
-    <input type="radio" name="gender" id="Briksdalen" value="Briksdalen"> Briksdalen </input>
-    <input type="radio" name="gender" id="Aakneset" value="Aakneset"> Aakneset </input>
-    <input type="radio" name="gender" id="Aakneset" value="Custom"> Custom </input>
+    <div id="destination-buttons"> 
+        <input type="radio" name="gender" id="Geiranger" value="Geiranger" checked="checked" > Geiranger </input>
+        <input type="radio" name="gender" id="Briksdalen" value="Briksdalen"> Briksdalen </input>
+        <input type="radio" name="gender" id="Aakneset" value="Aakneset"> Aakneset </input>
+        <input type="radio" name="gender" id="Aakneset" value="Custom"> Custom </input>
+    </div>
+
+    <div id="date-and-time">
+        Date: <input type="text" id="datepicker">
+        <select id="CuisineList" onclick="timedrop()"></select>
+    </div>
+
+
+    <form action="?page=bookingTwo" id="bookingTwo" method="post">
+                        <div id="product-form">
+
+                            <label for="inputProductID" >Select your desired products</label>
+                            <select name="givenFoodID" required>
+                               <option value="">Select food/snack</option>
+                                <?php foreach($foods as $food): ?> 
+                                         <option value="<?php echo $food["ProductID"]; ?>"><?php echo $food["ProductName"];  ?></option>
+                                <?php endforeach; ?>
+                            </select>
+
+                            <select name="givenDrinkID" required>
+                               <option value="">Select drink</option>
+                                <?php foreach($drinks as $drink): ?> 
+                               <option value="<?php echo $drink["ProductID"]; ?>"><?php echo $drink["ProductName"];  ?></option>
+                                <?php endforeach; ?>
+                            </select>
+
+                            <select name="givenDutyFreeID" required>
+                               <option value="">Select duty free</option>
+                                <?php foreach($dutyfrees as $dutyfree): ?> 
+                                         <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];  ?></option>
+                                <?php endforeach; ?>
+                            </select>
+
+                            </div>
+
+    </form>
+
 </div>
+    
+    
+  
 
-<div id="date-and-time">
-    Date: <input type="text" id="datepicker">
-    <select id="CuisineList" onclick="timedrop()"></select>
-</div>
-
-
-<form action="?page=bookingTwo" id="bookingTwo" method="post">
-                    <div id="product-form">
-                        
-                        <label for="inputProductID" >Select your desired products</label>
-                        <select name="givenFoodID" required>
-                           <option value="">Select food/snack</option>
-                            <?php foreach($foods as $food): ?> 
-                                     <option value="<?php echo $food["ProductID"]; ?>"><?php echo $food["ProductName"];  ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        
-                        <select name="givenDrinkID" required>
-                           <option value="">Select drink</option>
-                            <?php foreach($drinks as $drink): ?> 
-                           <option value="<?php echo $drink["ProductID"]; ?>"><?php echo $drink["ProductName"];  ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        
-                        <select name="givenDutyFreeID" required>
-                           <option value="">Select duty free</option>
-                            <?php foreach($dutyfrees as $dutyfree): ?> 
-                                     <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];  ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        
-                        </div>
-                
-</form>
-
-</div>
-<!--   <div id="Custom-form-stepone">
+<div id="Custom-form-stepone">
     <form action="?page=bookingTwo" method="post">
     <h2>Custom Form</h2>
     <div id="Custom-form-left">
@@ -143,7 +151,10 @@ sel.appendChild(fragment);
     <button class="btn btn-default" type="submit">Next</button>
     </div>
     </form>
-</div>-->
+</div>
+
+
+</div>
 </div>
  
                 <div id="main-bottom-booking">
