@@ -125,7 +125,9 @@ function switchForm()
 
                             <label for="inputProductID" >Select your desired products</label>
                             <select name="givenFoodID" required>
-                               <option value="">Select food/snack</option>
+                               
+                               <option disabled selected>Select food/snack </option>
+                               <option value="None">None</option>
                                 <?php foreach($foods as $food): ?> 
                                          <option value="<?php echo $food["ProductID"]; ?>"><?php echo $food["ProductName"];  ?></option>
                                 <?php endforeach; ?>
