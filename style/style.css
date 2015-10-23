@@ -614,6 +614,16 @@ input[type="number"] {
      display: block;
  }
 
+  #preDefTourNext
+ {
+     display: block;
+ }
+ #customTourNext
+ {
+     display: none;
+ }
+
+
  
  
 /*

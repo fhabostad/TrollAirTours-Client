@@ -77,19 +77,29 @@ function switchForm()
 {
      var e = document.getElementById('preDefTour');
        var f = document.getElementById('Custom-form-stepone');
+       var g = document.getElementById('preDefTourNext');
+       var h = document.getElementById('customNext');
     
     if(document.getElementById('Geiranger').checked) {
             e.style.display = 'block';
             f.style.display = 'none';
+            g.style.display = 'block';
+            h.style.display = 'none';
     }else if(document.getElementById('Briksdalen').checked) {
             e.style.display = 'block';
             f.style.display = 'none';
+            g.style.display = 'block';
+            h.style.display = 'none';
     }else if(document.getElementById('Aakneset').checked) {
             e.style.display = 'block';
             f.style.display = 'none';
+            g.style.display = 'block';
+            h.style.display = 'none';
     }else if(document.getElementById('Custom').checked) {
             e.style.display = 'none';
             f.style.display = 'block';
+            g.style.display = 'none';
+            h.style.display = 'block';
     }
     
     
@@ -188,7 +198,8 @@ function switchForm()
                             </a>
                         </li>
                         <li id="next-booking-step">
-                            <a href="javascript:{}" onclick="document.getElementById('bookingTwo').submit();"><h3>Next</h3></a>
+                            <div id="preDefTourNext"><a href="javascript:{}" onclick="document.getElementById('bookingTwo').submit();"><h3>Next</h3></a></div>
+                            <div id="customNext"><a href="?page=home" onclick="document.getElementById('bookingTwo').submit();"><h3>Next</h3></a></div>
                         </li>
                         
                     </ul>
