@@ -1,5 +1,5 @@
 <?php
-$calenderDatesGerianger = $GLOBALS["CalenderDatesGeiranger"];
+$calenderDatesGeiranger = $GLOBALS["CalenderDatesGeiranger"];
 $calenderDatesAakneset = $GLOBALS["CalenderDatesAakneset"];
 $calenderDatesBriksdalen = $GLOBALS["CalenderDatesBriksdalen"];
 
@@ -24,7 +24,7 @@ function EnableSpecificDates(date) {
 
 
 if(document.getElementById('Geiranger').checked) {
-  var disableddates = [<?php foreach($calenderDatesGeiranger as $calenderDatesGeiranger){ echo  "\"$calenderDatesGeiranger\"" . ",";} ?>];
+  var disableddates = [<?php foreach($calenderDatesGeiranger as $calenderDateGeiranger){ echo  "\"$calenderDateGeiranger\"" . ",";} ?>];
 }else if(document.getElementById('Briksdalen').checked) {
   var disableddates = [<?php foreach($calenderDatesBriksdalen as $calenderDateBriksdalen){ echo  "\"$calenderDateBriksdalen\"" . ",";} ?>];
 }else if(document.getElementById('Aakneset').checked) {
