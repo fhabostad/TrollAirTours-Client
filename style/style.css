@@ -99,6 +99,7 @@ main
 #main-top-booking
 {
    background-color: black;
+   font-weight: bold;
    height: 90.6%;
    width: 100%;
    position: absolute;
@@ -169,7 +170,7 @@ main
   width: 100%;
   height: 100%;
   z-index: 2;
-  background-color: rgba(255, 255, 255, 0.38); /*dim the background*/
+  background-color: rgba(255, 255, 255, 0.70); /*dim the background*/
  }
  
 
@@ -521,7 +522,9 @@ input[type="number"] {
 #destination-buttons
 {
     padding-top: 5%;
-    margin-left: 23.5%;
+    display:block;
+    font-weight: bold;
+    margin-left: auto;
     margin-right: auto;
     width: 50%;
     overflow: hidden;
@@ -548,14 +551,20 @@ input[type="number"] {
 #Custom-form-stepone
 {
   display: none;
-  position: absolute;
-  top: 200px;
-  left: 34.3%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
   width: 30%;
-  height: 60%;
-  z-index: 10;
-  border-radius: 0.5em;
-  background-color: rgba(255, 255, 255, 0.80); /*dim the background*/
+  overflow:hidden;
+  
+  //position: relative;
+  //top: 200px;
+  //left: 34.3%;
+  //width: 30%;
+  //height: 60%;
+  //z-index: 10;
+  //border-radius: 0.5em;
+  //background-color: rgba(255, 255, 255, 0.80); /*dim the background*/
 }
 #Custom-form-stepone h2
 {
@@ -605,6 +614,8 @@ input[type="number"] {
      display: block;
  }
 
+ 
+ 
 /*
  #geiranger-marked
  {
