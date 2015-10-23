@@ -87,7 +87,7 @@ sel.appendChild(fragment);
     <input type="radio" name="gender" id="Aakneset" value="Custom"> Custom </input>
 </div>
 
-<!--<div id="date-and-time">
+<div id="date-and-time">
     Date: <input type="text" id="datepicker">
     <select id="CuisineList" onclick="timedrop()"></select>
 </div>
@@ -120,10 +120,10 @@ sel.appendChild(fragment);
                         
                         </div>
                 
-</form>-->
+</form>
 
 </div>
-   <div id="Custom-form-stepone">
+<!--   <div id="Custom-form-stepone">
     <form action="?page=bookingTwo" method="post">
     <h2>Custom Form</h2>
     <div id="Custom-form-left">
@@ -143,7 +143,7 @@ sel.appendChild(fragment);
     <button class="btn btn-default" type="submit">Next</button>
     </div>
     </form>
-</div>
+</div>-->
 </div>
  
                 <div id="main-bottom-booking">
