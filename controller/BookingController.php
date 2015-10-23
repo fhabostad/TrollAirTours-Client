@@ -31,6 +31,8 @@ class BookingController extends Controller {
            $this->showBookingAction(3);
        }else if(($page == "bookingFour")){
            $this->showBookingAction(4);
+       }else if(($page == "bookingCustom")){
+           $this->showBookingAction(5);
        }else if(($page == "bookingThreeUpdate")){
            $this->showBookingAction(6);
        }
@@ -221,6 +223,27 @@ class BookingController extends Controller {
                  return $this->render("bookingstepFour");
                  break;
              
+             case '5':
+                //Innhenting av data fra contact form
+                $givenCustomDestination  = $_REQUEST["givenCustomDestination"];
+                $givenPreferredDate      = $_REQUEST["givenPreferredDate"];
+                $givenPreferredTime      = $_REQUEST["givenPreferredTime"];
+                $givenGuide              = $_REQUEST["givenGuide"];
+                                               
+                $_SESSION["givenCustomDestination"] = $givenCustomDestination;
+                $_SESSION["givenPreferredDate"]     = $givenPreferredDate;
+                $_SESSION["givenPreferredTime"]     = $givenPreferredTime;
+                $_SESSION["givenGuide"]             = $givenGuide;
+                                               
+                //test av funksjonalitet stepone custom form
+                echo $_SESSION["givenCustomDestination"];
+                echo $_SESSION["givenPreferredDate"];
+                echo $_SESSION["givenPreferredTime"];
+                echo $_SESSION["givenGuide"];
+                
+                return $this->render("bookingCustom");
+                break;
+            
              case '6':
                  return $this->render("bookingstepThreeUpdate");
                  break;
