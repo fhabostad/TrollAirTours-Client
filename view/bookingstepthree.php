@@ -14,7 +14,8 @@
                     <div id="main-top-booking">
                     
                     <div id="main-top-overlay-booking">
-                        <form action="?page=bookingFour" method="post">
+                        
+                        <form id="bookingstepthreeform" action="?page=bookingFour" method="post">
                             <div id="form-left-column">
                                 <label>Gender</label> <select name="givenGender" id="gender" size="1" required>
                                                         <option disabled selected> -- select gender -- </option>
@@ -22,7 +23,7 @@
                                                         <option value="Female">Female</option>
                                 </select>
                                 <label>First name</label> <input type="text" name="givenFirst_name" value="<?php print "".$_SESSION['givenFirst_name']?>" placeholder="Enter first name" tabindex="2" ><br>
-                                <label>Birth date</label> <input type="date" name="givenBirth_date" value="<?php print "".$_SESSION['givenBirth_name']?>" placeholder="Enter birth date YYYY-MM-DD" max="2000-12-31" min="1899-01-01" tabindex="4" required><br>  
+                                <label>Birth date</label> <input type="date" name="givenBirth_date" value="<?php print "".$_SESSION['givenBirth_date']?>" placeholder="Enter birth date YYYY-MM-DD" max="2000-12-31" min="1899-01-01" tabindex="4" required><br>  
                                 <label>City</label> <input type="text" name="givenCity" value="<?php print "".$_SESSION['givenCity']?>" placeholder="Enter City" tabindex="6" required><br>                   
                                 <label>ZIP code</label> <input type="number" name="givenZip_code" value="<?php print "".$_SESSION['givenZip_code']?>" placeholder="Enter ZIP code" min="0" tabindex="8" required><br>        
                                 <label>Country code</label> <input type="text" name="givenCountry_code" value="<?php print "".$_SESSION['givenCountry_code']?>" placeholder="Enter country code" tabindex="10" required><br> 
@@ -37,10 +38,23 @@
                                       
                                  
                             </div>
-                            <button class="btn btn-default" type="submit">Next</button>
+                            
                         </form>
                     </div>
                 
                     
                 </div>   
+
+                <div id="main-bottom-booking">
+                    <ul>
+                        <li id="previous-booking-step">
+                            <a href="?page=bookingTwo"> <h3>Previous</h3></a>
+                        </li>
+                        <li id="next-booking-step">
+                            
+                           <a href="javascript:{}" onclick="document.getElementById('bookingstepthreeform').submit();"><h3>Next</h3></a>
+                        </li>
+                        
+                    </ul>
+                </div>
                

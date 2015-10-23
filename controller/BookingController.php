@@ -45,7 +45,7 @@ class BookingController extends Controller {
         
         
         
-        session_start();
+        $this->initSession();
             // Try to add new customer, Set action response code - success or not
         /** @var CustomerModel $customerModel */
        // $customerModel = $GLOBALS["customerModel"];
@@ -252,6 +252,29 @@ class BookingController extends Controller {
         
         
         
+    }
+    
+       
+    function initSession()
+    {
+        session_start();
+        
+        if(!isset($_SESSION["givenFirst_name"]))
+        {
+                $_SESSION["givenGender"]         = "";            
+                $_SESSION["givenFirst_name"]     = "";   
+                $_SESSION["givenLast_name"]      = "";    
+                $_SESSION["givenBirth_date"]     = "";    
+                $_SESSION["givenStreet_address"] = "";    
+                $_SESSION["givenZip_code"]       = "";    
+                $_SESSION["givenCity"]           = "";    
+                $_SESSION["givenCountry"]        = "";   
+                $_SESSION["givenCountry_code"]   = "";   
+                $_SESSION["givenPhone_number"]   = "";    
+                $_SESSION["givenEmail"]          = "";    
+           
+        }
+       
     }
    
        
