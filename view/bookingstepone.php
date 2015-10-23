@@ -12,7 +12,9 @@ $dutyfrees = $GLOBALS["dutyfrees"];
 
 
 <script>
-   
+
+
+
 function test()
 {
     window.alert("yo");
@@ -112,7 +114,6 @@ function switchForm()
 <div id="main-top-overlay-booking">
 
 
-    
 
 
     <div id="destination-buttons"> 

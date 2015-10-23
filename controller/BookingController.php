@@ -139,7 +139,8 @@ class BookingController extends Controller {
                $_SESSION["givenPreferredTime"]      = filter_input(INPUT_POST, "givenPreferredTime");
                $_SESSION["givenGuide"]              = filter_input(INPUT_POST, "givenGuide");
 
-                
+            
+               
                 
                 return $this->render("bookingstepTwo");
  
