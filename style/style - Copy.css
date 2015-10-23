@@ -1,0 +1,618 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15.sep.2015, 08:40:11
+    Author     : Nesjen
+*/
+
+body, html { 
+    overflow-x: hidden; 
+    overflow-y: auto;
+}
+body
+{
+    margin:0;
+    padding:0;
+    background-color: #bababa;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+}
+
+body ul,li
+{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+
+body a
+{
+    text-decoration: none;
+}
+
+body a:visited,a:link 
+{
+    color:inherit;
+}
+
+body h1
+{
+    color:white;
+}
+
+body h3
+{
+    color:white;
+}
+
+header
+{
+    max-height: 20%;
+    width:100%;
+    float:left;
+    background: black;
+    margin:0;
+    overflow:hidden;
+}
+
+#left-top
+{
+    float:left;
+    padding-left: 1em;
+    
+}
+
+#left-top img
+{
+    margin-top: 0.5em;
+    width: 25%;
+    height: 100%;
+
+}
+
+
+#right-top
+{
+    float:right;
+    padding-right: 4em;
+}
+
+
+main
+{
+    clear:both;
+}
+
+#main-top
+{
+   background-color: black;
+   height: 90.6%;
+   width: 100%;
+   position: absolute;
+   background-image: url("geiranger.png");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+#main-top-booking
+{
+   background-color: black;
+   height: 90.6%;
+   width: 100%;
+   position: absolute;
+   background-image: url("geiranger5.png");
+   background-repeat: space;
+   background-size: cover;
+   
+}
+
+#main-top-overlay
+ {
+  position: absolute;
+  top: 100px;
+  left: 34.3%;
+  width: 30%;
+  height: 50%;
+  z-index: 10;
+  border-radius: 0.5em;
+  background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
+ }
+ 
+ #main-top-overlay button
+ {
+     height: 4.5em;
+     width: 6.6em;
+     margin-top: 2.5em;
+     margin-left: 9em;
+     font-size: 1.5em;
+     background-color: greenyellow;
+     border-radius: 0.4em;
+ }
+ 
+  #main-top-overlay h2
+ {
+     text-decoration: underline;
+     text-align: center;
+ }
+ 
+ 
+ 
+ #main-top-overlay p
+ {
+     margin-top: 2em;
+     margin-left: 3em;
+     margin-right: 3em;
+     text-align: center;
+ }
+ 
+ #main-top-overlay a
+ {
+     color: steelblue;
+     margin-left: 13.5em;
+     text-decoration: underline;
+ }
+ 
+ #main-top-overlay a:hover
+ {
+     color: darkblue;
+ }
+
+ 
+ 
+ #main-top-overlay-booking
+ {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.38); /*dim the background*/
+ }
+ 
+
+ 
+ #main-top-overlay-booking button
+ {
+     background-color: greenyellow;
+     height: 5em;
+     width: 9em;
+     margin-top: 5em;
+     margin-left: 67em;
+    
+ }
+
+#main-top-booking img
+{
+  
+}
+
+#main-bottom
+{
+   position:absolute;
+   clear:both;
+   width: 100%;
+   height: 10%;
+   bottom:0;
+   background-color: black;
+   z-index: 15;  
+}
+
+ #main-bottom h3:hover
+ {
+     color: greenyellow;
+ }
+ 
+#main-bottom ul
+{
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+#main-bottom li
+{
+    margin:0;
+    float:left;
+    padding-left:10%;
+    padding-right: 9.9%;
+    height: 100%;
+    border-right: 1px solid white;  
+}
+
+
+#main-bottom li:last-child
+{
+    border-right:none;
+}
+
+ #main-bottom-booking
+{  
+   position:absolute;
+   clear:both;
+   width: 100%;
+   height: 10%;
+   bottom:0;
+   background-color: black;
+   z-index: 15; 
+}
+
+ #main-bottom-booking h3:hover
+ {
+     color: greenyellow;
+ }
+ 
+#main-bottom-booking ul
+{
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+#main-bottom-booking li
+{
+    font-size: 1.6em;
+    float:left;
+    width: 49%;
+    height: 100%;
+    text-align: center;
+}
+
+
+#main-bottom-booking li:first-child
+{
+    border-right: 1px solid white;  
+}
+
+#nav-wrapper
+{
+    display:none;
+    background-color: black;
+}
+
+#navigation 
+{
+    position: fixed;
+    right:0;
+    top:0;
+    background-color: black;
+    width: 0;
+    color: white;
+    height: 82%;
+    z-index: 3;
+    margin-top: 4.4%;
+    -webkit-transition: width 1s, height 0s; /* Safari */
+    transition: width 0.2s, height 0s;
+
+}
+
+
+ #navigation:target
+ {
+     width: 15%;
+ }
+
+ #navigation ul
+ {
+     margin: 0;
+     padding:0;
+ }
+
+ #navigation li
+ {
+     list-style: none;
+     padding: 0px;
+     margin: 0;
+     width: 100%;
+
+     overflow:hidden;
+     text-align: center;
+
+ }
+ 
+ #navigation li:hover
+ {
+     color: greenyellow;
+ }
+
+ #navigation li a
+{
+    width: 100%;
+    display:block;
+    padding:3% 0 3% 0;
+    vertical-align: middle;
+
+}
+
+
+ #opennav
+ {
+     display: block;
+ }
+
+  #opennav img:hover
+ {
+      border-radius:2em;
+      box-shadow: 0px 0px 20px #00ff00;
+ }
+
+
+ #closenav
+ {
+     display:block;
+ }
+ 
+  #closenav img:hover
+ {
+    border-radius:2em;
+    box-shadow: 0px 0px 20px #ff0000;
+ }
+
+ #navbutton
+{
+    text-align: center;
+    float: right;
+    margin-top: 0.8em;
+    margin-right: 3em;
+    width: 4em;
+    height: 4em;
+}
+
+ #navbutton img
+ {
+     height: 4em;
+     width: 4em;
+ }
+
+ #topnav
+ {
+    width: 100%;
+    height: 7em;
+    background: #1A1A1A;
+ }
+ 
+ #topnav img
+ {
+     height: 4em;
+     width: 4em;
+ }
+ 
+ #topnav img:hover
+ {
+     border-radius:2em;
+     box-shadow: 0px 0px 20px #ff0000;
+ }
+
+ #topnav h2
+ {
+     text-align: center;
+     margin:0;
+     padding:0;
+ }
+ 
+#countryCode
+ {
+     width: 8.1em;
+     height: 1.6em;
+ }
+ 
+ #countryCode optgroup option
+ {
+     width: 8.1em;
+     height: 1.6em;
+     color: black;
+     float: right;
+ }
+  #form-left-column label
+ {
+     display:block;
+     margin-top: 2em;
+     font-size: 0.9em;
+     
+ }
+ 
+  #form-right-column label
+ {
+     display:block;
+     margin-top: 2em;
+     font-size: 0.9em;
+     
+ }
+ 
+ #main-top-overlay-booking input
+ {
+     height: 2em;
+     width: 20em;
+     border-radius: 0.01em;
+ }
+ 
+ 
+ #form-left-column
+ {
+     padding: 0;
+     margin-top: 4%;
+     margin-left: 33%;
+     max-height: 40em;
+     float: left;
+ }
+ 
+  #form-right-column 
+ {
+     padding: 0;
+     margin-top: 8.5%;
+     margin-bottom: 12em;
+     margin-right: 33%;
+     max-height: 40em;
+     float: right;
+ }
+ 
+ #geiranger-info
+ {
+     display:block;
+ }
+ 
+ #briksdalen-info
+ {
+     display:none;
+ }
+ 
+ #Aakneset-info
+ {
+     display:none;
+ }
+ 
+ #egendefinert-info
+ {
+     display: none;
+ }
+ 
+ select
+ {   width: 20.5em;
+     height: 2.5em;
+ }
+ 
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+#product-form
+{
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    overflow: hidden;
+
+    text-align: center;
+}
+
+#product-form label
+{
+    display: block;
+     margin-top: 2%;
+     min-width: 100%;
+     
+}
+
+#product-form select
+{
+    display: block;
+    width: 40%;
+     margin-top: 1.5%;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+#product-form button
+{
+     margin-top: 5em;
+     width: 50%;
+     margin-right: auto;
+     margin-left: auto;
+     background-color: greenyellow;
+}
+
+#destination-buttons
+{
+    padding-top: 5%;
+    margin-left: 23.5%;
+    margin-right: auto;
+    width: 50%;
+    overflow: hidden;
+    text-align: center;
+}
+
+#date-and-time
+{
+   margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* //// Custom Form //// */
+#Custom-form-stepone
+{
+  position: absolute;
+  top: 200px;
+  left: 34.3%;
+  width: 30%;
+  height: 60%;
+  z-index: 10;
+  border-radius: 0.5em;
+  background-color: rgba(255, 255, 255, 0.80); /*dim the background*/
+}
+#Custom-form-stepone h2
+{
+    text-align: center;
+}
+#Custom-form-left
+{
+   
+    float: left;
+    margin-left: 8em;
+    height: 50%;
+}
+#Custom-form-left a
+{
+    margin-left: 1em;
+}
+#Custom-form-left a:hover
+ {
+     color: green;
+ }
+#Custom-form-left input
+{
+    margin-bottom: 3em;
+}
+
+
+ #DropdownGuide 
+ {  
+     
+    height: 20px;
+    width: 175px; 
+    
+ }
+ #Custom-form-stepone button
+ {
+     text-align: center;
+     width: 30%;
+     height: 40px;
+     border-radius: 0.5em;
+     background-color: greenyellow;
+     margin-top: 3em;
+     margin-left: 3em;
+ }
+
+/*
+ #geiranger-marked
+ {
+     border-top: 2px solid greenyellow;
+
+ }
+ 
+ #briksdalen-marked
+ {
+     border-top: none;
+ }
+ 
+ #egendefinert-marked
+ {
+     border-top: none;
+
+ }
+ 
+ #Aakneset-marked
+ {
+     border-top: none;
+ }
+*/
