@@ -6,8 +6,9 @@ class FlightModel {
 
     const TABLE = "Flight"; //Flight table
     const SELECT_QUERY = "SELECT * FROM " . FlightModel::TABLE; //Select all from Flight 
+    const SELECT_TIME_WHERE_FLIGHTID_QUERY = "SELECT Departure FROM " . FlightModel::TABLE . " WHERE FlightID = ?";
     const SELECT_DATE_QUERY = "SELECT FlightDate FROM " . FlightModel::TABLE . " WHERE TourType = ?"; //Select all FlightDate where TourType = given parameter.
-    const SELECT_DATE_TIME_QUERY = "SELECT Flight.FlightDate, Flight.Departure, Flight.TourType FROM " . FlightModel::TABLE; 
+    const SELECT_DATE_TIME_QUERY = "SELECT Flight.FlightDate, Flight.Departure, Flight.TourType, Flight.FlightID FROM " . FlightModel::TABLE; 
     const INSERT_QUERY = "INSERT INTO " . FlightModel::TABLE . " (FlightID,RegID,FlightDate,Departure,TourType) VALUES (:FlightID,:RegID,:FlightDate,:Departure,:TourType)"; //Insert complete flight from parameter
     const DELETE_QUERY = "DELETE FROM" . FlightModel::TABLE . " WHERE FlightID= ?"; //Delete Flight where flightID equals given parameter
     
@@ -15,12 +16,14 @@ class FlightModel {
     private $selStmt;
     private $selDateStmt;
     private $selDateTimeStmt;
+    private $selTimeWhrId;
     private $addStmt;
 
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
         $this->addStmt = $this->dbConn->prepare(FlightModel::INSERT_QUERY);
         $this->selDateStmt = $this->dbConn->prepare(FlightModel::SELECT_DATE_QUERY);
+        $this->selTimeWhrId = $this->dbConn->prepare(FlightModel::SELECT_TIME_WHERE_FLIGHTID_QUERY);
         $this->selDateTimeStmt = $this->dbConn->prepare(FlightModel::SELECT_DATE_TIME_QUERY);
         $this->selStmt = $this->dbConn->prepare(FlightModel::SELECT_QUERY);
         $this->delStmt = $this->dbConn->prepare(FlightModel::DELETE_QUERY);
@@ -48,6 +51,11 @@ class FlightModel {
         return $this->selDateTimeStmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
+    public function getTimeForFlightID($flightID)
+    {
+        $this->selTimeWhrId->execute(array($flightID));
+        return $this->selTimeWhrId->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     /**
      * Try to add a new aircraft

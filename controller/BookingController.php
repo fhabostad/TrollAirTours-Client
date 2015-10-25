@@ -39,6 +39,19 @@ class BookingController extends Controller {
                 
             case '2':
             $productModel = $GLOBALS["productModel"];
+            $flightModel = $GLOBALS["flightModel"];
+            
+            
+            $_SESSION["selectedFlightID"]     = filter_input(INPUT_POST, "selectedFlightID");
+            $_SESSION["givenDate"]     = filter_input(INPUT_POST, "givenDate");    
+            
+            $FlightIDs = $flightModel->getTimeForFlightID( $_SESSION["selectedFlightID"] );
+            $FlightID = $FlightIDs[0];
+            
+            $_SESSION["givenTime"] = $FlightID["Departure"];
+             
+
+            echo $_SESSION["givenDate"] . "  " . $_SESSION["selectedFlightID"]  . "  " . $_SESSION["givenTime"];
                 
             $_SESSION["givenFoodID"]     = filter_input(INPUT_POST, "givenFoodID");
             $_SESSION["givenDrinkID"]    = filter_input(INPUT_POST, "givenDrinkID");
@@ -47,21 +60,25 @@ class BookingController extends Controller {
             $foodID = $productModel->getAllWhereProductID($_SESSION["givenFoodID"]);
             $drinkID = $productModel->getAllWhereProductID($_SESSION["givenDrinkID"]);
             $dutyFreeID = $productModel->getAllWhereProductID($_SESSION["givenDutyFreeID"]);
-            
-            foreach($foodID as $food)
-            {
-                $_SESSION["givenFoodName"] = $food["ProductName"];
+            if(isset($foodID[0])){
+                $food = $foodID[0];
+                $_SESSION["givenFoodName"] = $food["ProductName"];  
             }
             
-            foreach($drinkID as $drink)
+            if(isset($drinkID[0]))
             {
-                $_SESSION["givenDrinkName"] = $drink["ProductName"];
+                $drink = $drinkID[0];
+                $_SESSION["givenDrinkName"] = $drink["ProductName"];  
             }
             
-            foreach($dutyFreeID as $dutyfree)
+            if(isset($dutyFreeID[0]))
             {
-                $_SESSION["givenDutyFreeName"] = $dutyfree["ProductName"];
+                $dutyfree = $dutyFreeID[0];
+                $_SESSION["givenDutyFreeName"] = $dutyfree["ProductName"]; 
             }
+               
+                    
+                   
            
             
             //Innhenting av data fra contact form

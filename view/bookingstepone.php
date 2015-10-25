@@ -99,6 +99,7 @@ dateFormat: "dd.mm.yy",
         if( ( "<?php echo $flightTimeAndDate["FlightDate"] ?>" ==  selectedDate ) && ( "<?php echo $flightTimeAndDate["TourType"] ?>" ==  selectedTourType ))
         {
             var option = document.createElement("option");
+            option.value = "<?php echo $flightTimeAndDate["FlightID"] ?>";
             option.text = "<?php echo $flightTimeAndDate["Departure"] ?>";
             x.add(option);
         }
@@ -167,13 +168,14 @@ function switchForm()
     <div id="date-and-time">
         
         <label for="inputDate" >Select date</label>
-        <input readonly  type="text" id="datepicker" placeholder="Select Date" onchange="timedrop()" >
+        <input readonly  type="text" id="datepicker" name="givenDate" placeholder="Select Date" onchange="timedrop()" >
         
-        <label for="inputDate" >Select time</label>
-        <select id="TimeList" onclick="">
+        <label for="inputTime" >Select time</label>
+        <select id="TimeList" name="selectedFlightID">
             <option disabled selected>- Select time -</option>
-            
         </select>
+       
+        
     </div>
 
 
