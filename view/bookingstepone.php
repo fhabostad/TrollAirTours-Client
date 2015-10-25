@@ -50,6 +50,7 @@ if(document.getElementById('Geiranger').checked) {
      return [false];
  }
  }
+  
 }
 
 $(function() {
@@ -58,13 +59,21 @@ dateFormat: "dd.mm.yy",
  beforeShowDay: EnableSpecificDates
  });
 
- 
+
  });
 
  function timedrop()
  {
-    var times = [];
     var x = document.getElementById("TimeList");
+    var i;
+    for(i=x.options.length-1;i>=0;i--)
+    {
+        x.remove(i);
+    } 
+     
+     
+    var times = [];
+    
     var  selectedDate = document.getElementById('datepicker').value;
     
     <?php foreach($flightTimesAndDates as $flightTimeAndDate)
@@ -84,10 +93,11 @@ dateFormat: "dd.mm.yy",
 
 function switchForm()
 {
-     var e = document.getElementById('preDefTour');
-       var f = document.getElementById('Custom-form-stepone');
-       var g = document.getElementById('preDefTourNext');
-       var h = document.getElementById('customNext');
+    
+    var e = document.getElementById('preDefTour');
+    var f = document.getElementById('Custom-form-stepone');
+    var g = document.getElementById('preDefTourNext');
+    var h = document.getElementById('customNext');
     
     if(document.getElementById('Geiranger').checked) {
             e.style.display = 'block';
@@ -121,7 +131,7 @@ function switchForm()
 <div id="main-top-overlay-booking">
 
 
-
+<form action="?page=bookingTwo" id="bookingTwo" method="post">
 
     <div id="destination-buttons"> 
         <input type="radio" name="gender" id="Geiranger" value="Geiranger" checked="checked" onclick="switchForm()" > Geiranger </input>
@@ -138,7 +148,7 @@ function switchForm()
     </div>
 
 
-    <form action="?page=bookingTwo" id="bookingTwo" method="post">
+
                         <div id="product-form">
 
                             <label for="inputProductID" >Select your desired products</label>
