@@ -153,7 +153,8 @@ main
   margin-right: auto;
   margin-top: 7em;
   width: 30%;
-  height: 50%;
+  min-height: 50%;
+  max-height: 50%;
   z-index: 10;
   border-radius: 0.5em;
   background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
@@ -730,28 +731,138 @@ input[type="number"] {
     height: 20px;
 }
 
- 
- 
-/*
- #geiranger-marked
+@media screen and (max-width: 1730px){
+#main-top-overlay /* Home page info box*/
  {
-     border-top: 2px solid greenyellow;
+  width: 50%;
+  height: 80%;
+ }
+   
+}
+
+@media screen and (max-width: 1500px){
+#main-top-overlay /* Home page info box*/
+ {
+  margin-top: 2em;
+  width: 80%;
+  height: 80%;
+ }
+   
+}
+
+@media screen and (max-width: 1200px){
+#main-top-overlay /* Home page info box*/
+ {
+  margin-top: 2em;
+  width: 100%;
 
  }
+   
+}
+
+
+
+
  
- #briksdalen-marked
+@media screen and (max-width: 1024px){
+    
+ #navigation {
+position: fixed;
+right:0;
+top:0;
+width: 0;
+color: white;
+height: 100%;
+z-index: 17;
+-webkit-transition: width 1s, height 0s; /* Safari */
+transition: width 1s, height 0s;
+
+}
+
+
+ #navigation:target
  {
-     border-top: none;
+     width: 100%;
  }
- 
- #egendefinert-marked
+
+ #navigation ul
  {
-     border-top: none;
+     height: 100%;
+     margin: 0;
+     padding:0;
 
  }
- 
- #Aakneset-marked
+
+ #navigation li
  {
-     border-top: none;
+     
+     list-style: none;
+     padding: 0;
+     margin: 0;
+     width: 100%;
+     overflow:hidden;
+     text-align: center;
  }
-*/
+
+ #navigation li a
+{
+    width: 100%;
+    display:block;
+    padding:1.5% 0 1.5% 0;
+    vertical-align: middle;
+
+}
+
+
+#navigation a:hover
+{
+    background-color: black;
+}
+    
+
+#main-top-overlay /* Home page info box*/
+ {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  width: 100%;
+  min-height: 50%;
+  max-height: 100%;
+  font-size: 0.8em;
+  z-index: 10;
+  border-radius: 0.5em;
+  background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
+ }
+ 
+  #main-top-overlay a
+  {
+      text-align: center;
+  }
+ 
+ #BookingButtonHome  /* Booking button home page*/
+ {
+     display:block;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 1em;
+     height: 10%;
+     width: 50%;
+     margin-bottom: 1em;
+     }
+#main-top
+{
+   background-color: black;
+   height: 85%;
+   width: 100%;
+   position: absolute;
+   background-image: none;
+}
+
+    
+    
+}
+
+
+@media screen and (max-width: 768px){  
+    
+}
