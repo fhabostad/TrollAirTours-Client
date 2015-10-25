@@ -57,23 +57,27 @@ $(function() {
  $( "#datepicker" ).datepicker({
 dateFormat: "dd.mm.yy",
  beforeShowDay: EnableSpecificDates
+ 
  });
-
+timedrop();
 
  });
-
- function timedrop()
+ 
+ 
+ function clearTimeDrop()
  {
-    var x = document.getElementById("TimeList");
+     var x = document.getElementById("TimeList");
     var i;
     for(i=x.options.length-1;i>=0;i--)
     {
         x.remove(i);
     } 
-     
-     
-    var times = [];
-    
+ }
+
+ function timedrop()
+ {
+    clearTimeDrop();
+     var x = document.getElementById("TimeList");
     var  selectedDate = document.getElementById('datepicker').value;
     
     <?php foreach($flightTimesAndDates as $flightTimeAndDate)
@@ -93,7 +97,9 @@ dateFormat: "dd.mm.yy",
 
 function switchForm()
 {
-    
+    document.getElementById('datepicker').value = "";
+    document.getElementById('datepicker').value = "";
+    clearTimeDrop();
     var e = document.getElementById('preDefTour');
     var f = document.getElementById('Custom-form-stepone');
     var g = document.getElementById('preDefTourNext');
@@ -144,7 +150,7 @@ function switchForm()
 
     <div id="date-and-time">
         Date: <input type="text" id="datepicker">
-        <select id="TimeList" onclick="timedrop()"></select>
+        <select id="TimeList"></select>
     </div>
 
 
