@@ -7,7 +7,7 @@ class FlightModel {
     const TABLE = "Flight"; //Flight table
     const SELECT_QUERY = "SELECT * FROM " . FlightModel::TABLE; //Select all from Flight 
     const SELECT_DATE_QUERY = "SELECT FlightDate FROM " . FlightModel::TABLE . " WHERE TourType = ?"; //Select all FlightDate where TourType = given parameter.
-    const SELECT_DATE_TIME_QUERY = "SELECT Flight.FlightDate, Flight.Departure FROM " . FlightModel::TABLE; 
+    const SELECT_DATE_TIME_QUERY = "SELECT Flight.FlightDate, Flight.Departure, Flight.TourType FROM " . FlightModel::TABLE; 
     const INSERT_QUERY = "INSERT INTO " . FlightModel::TABLE . " (FlightID,RegID,FlightDate,Departure,TourType) VALUES (:FlightID,:RegID,:FlightDate,:Departure,:TourType)"; //Insert complete flight from parameter
     const DELETE_QUERY = "DELETE FROM" . FlightModel::TABLE . " WHERE FlightID= ?"; //Delete Flight where flightID equals given parameter
     

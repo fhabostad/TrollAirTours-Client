@@ -35,7 +35,7 @@ if(document.getElementById('Geiranger').checked) {
   var disableddates = [<?php foreach($calenderDatesAakneset as $calenderDateAakneset){ echo  "\"$calenderDateAakneset\"" . ",";} ?>];
 }     
       
-disableddates.push("10.10.9999");
+disableddates.push("10.10.9999"); //Adds a date to prevent calender crash.
         
  var m = date.getMonth();
  var d = date.getDate();
@@ -61,7 +61,6 @@ dateFormat: "dd.mm.yy",
  beforeShowDay: EnableSpecificDates
  
  });
-timedrop();
 
  });
  
@@ -79,12 +78,25 @@ timedrop();
  function timedrop()
  {
     clearTimeDrop();
-     var x = document.getElementById("TimeList");
+    
+    var selectedTourType = "";
+    if(document.getElementById('Geiranger').checked) {
+        selectedTourType = "Geiranger";
+    }else if(document.getElementById('Briksdalen').checked) {
+        selectedTourType = "Briksdalen";
+    }else if(document.getElementById('Aakneset').checked) {
+        selectedTourType = "Aakneset";
+    }   
+    
+    
+    
+    
+    var x = document.getElementById("TimeList");
     var  selectedDate = document.getElementById('datepicker').value;
     
     <?php foreach($flightTimesAndDates as $flightTimeAndDate)
     {?>
-        if( "<?php echo $flightTimeAndDate["FlightDate"] ?>" ==  selectedDate)
+        if( ( "<?php echo $flightTimeAndDate["FlightDate"] ?>" ==  selectedDate ) && ( "<?php echo $flightTimeAndDate["TourType"] ?>" ==  selectedTourType ))
         {
             var option = document.createElement("option");
             option.text = "<?php echo $flightTimeAndDate["Departure"] ?>";
@@ -130,6 +142,8 @@ function switchForm()
     }
     
     
+
+    
 }
 
 
@@ -151,8 +165,8 @@ function switchForm()
     <div id ="preDefTour">
 
     <div id="date-and-time">
-        Date: <input type="text" id="datepicker">
-        <select id="TimeList" onclick="timedrop()"></select>
+        Date: <input readonly  type="text" id="datepicker" onchange="timedrop()" >
+        <select id="TimeList" onclick=""></select>
     </div>
 
 
