@@ -4,23 +4,24 @@ class FlightModel {
     
     private $dbConn;
 
-    const TABLE = "Flight";
-    const SELECT_QUERY = "SELECT * FROM " . FlightModel::TABLE;
-    const SELECT_DATE_QUERY = "SELECT FlightDate FROM " . FlightModel::TABLE . " WHERE TourType = ?";
-    const INSERT_QUERY = "INSERT INTO " . FlightModel::TABLE . " (FlightID,RegID,FlightDate,Departure,TourType) VALUES (:FlightID,:RegID,:FlightDate,:Departure,:TourType)";
-    const DELETE_QUERY = "DELETE FROM" . FlightModel::TABLE . " WHERE FlightID= ?";
+    const TABLE = "Flight"; //Flight table
+    const SELECT_QUERY = "SELECT * FROM " . FlightModel::TABLE; //Select all from Flight 
+    const SELECT_DATE_QUERY = "SELECT FlightDate FROM " . FlightModel::TABLE . " WHERE TourType = ?"; //Select all FlightDate where TourType = given parameter.
+    const SELECT_DATE_TIME_QUERY = "SELECT Flight.FlightDate, Flight.Departure FROM " . FlightModel::TABLE; 
+    const INSERT_QUERY = "INSERT INTO " . FlightModel::TABLE . " (FlightID,RegID,FlightDate,Departure,TourType) VALUES (:FlightID,:RegID,:FlightDate,:Departure,:TourType)"; //Insert complete flight from parameter
+    const DELETE_QUERY = "DELETE FROM" . FlightModel::TABLE . " WHERE FlightID= ?"; //Delete Flight where flightID equals given parameter
     
 
-    /** @var PDOStatement Statement for selecting all entries */
     private $selStmt;
     private $selDateStmt;
-    /** @var PDOStatement Statement for adding new entries */
+    private $selDateTimeStmt;
     private $addStmt;
 
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
         $this->addStmt = $this->dbConn->prepare(FlightModel::INSERT_QUERY);
         $this->selDateStmt = $this->dbConn->prepare(FlightModel::SELECT_DATE_QUERY);
+        $this->selDateTimeStmt = $this->dbConn->prepare(FlightModel::SELECT_DATE_TIME_QUERY);
         $this->selStmt = $this->dbConn->prepare(FlightModel::SELECT_QUERY);
         $this->delStmt = $this->dbConn->prepare(FlightModel::DELETE_QUERY);
     }
@@ -39,6 +40,12 @@ class FlightModel {
         // Fetch all Aircraft as associative arrays
         $this->selDateStmt->execute(array($TourType));
         return $this->selDateStmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    public function getAllDatesAndTimes()
+    {
+        $this->selDateTimeStmt->execute();
+        return $this->selDateTimeStmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
 

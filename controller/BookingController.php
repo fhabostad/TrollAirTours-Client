@@ -2,27 +2,10 @@
 
 require_once("Controller.php");
 
-// Represents home page
 class BookingController extends Controller {
 
-    /**
-     * Render "Home" View
-     *
-     * @param string $page
-     */
-   // public function show($page) {
-   //    $this->render("BookingStepOne");
+    public function show($page) {
       
-   // }
-    
-      public function show($page) {
-        
-        
-     //   $this->render("bookingsteptwo");   
-          
-          
-          
-          
        if ($page == "bookingOne") {
            $this->showBookingAction(1);
        }else if(($page == "bookingTwo")){
@@ -41,69 +24,17 @@ class BookingController extends Controller {
 
 
     private function showBookingAction($casevalue) {
-        // Find "customerName" parameter in request,
-        
-        
+
         
         $this->initSession();
-            // Try to add new customer, Set action response code - success or not
-        /** @var CustomerModel $customerModel */
-       // $customerModel = $GLOBALS["customerModel"];
-        //$added = $customerModel->add($givenGender,$givenFirst_name,$givenLast_name, $givenPhone_number);
-
-        // Render the page
-        //$data = array(
-        //    "added" => $added,
-        //    "givenFirst_name" => $givenFirst_name
-       // );
+        
         switch($casevalue)
         {
             case '1':
-                 $productModel = $GLOBALS["productModel"];
-                 $products = $productModel->getAll();
-                 
-                  $foods = $productModel->getAllWhereProductType(array("Food"));
-                  $drinks = $productModel->getAllWhereProductType(array("Drink"));
-                  $dutyfrees = $productModel->getAllWhereProductType(array("DutyFree"));
-        
-                 
-                   $data = array(
-                   "foods" => $foods,
-                   "drinks" => $drinks,
-                   "dutyfrees" => $dutyfrees,
-                    );
+ 
+                $this->showBookingOne();   
                 
-                 $flightModel = $GLOBALS["flightModel"];
-                 $flights = $flightModel->getAll();
-                 $flightDatesGeiranger = $flightModel->getAllDatesFor("Geiranger");
-                 $flightDatesAakneset = $flightModel->getAllDatesFor("Aakneset");
-                 $flightDatesBriksdalen = $flightModel->getAllDatesFor("Briksdalen");
-        
-                $dateArrayGeiranger = array(); 
-                foreach($flightDatesGeiranger as $flightDateGeiranger){
-                    array_push($dateArrayGeiranger, $flightDateGeiranger["FlightDate"]);         
-                }
-
-                $GLOBALS["CalenderDatesGeiranger"] = $dateArrayGeiranger;
-
-                $dateArrayAakneset = array(); 
-                foreach($flightDatesAakneset as $flightDateAakneset){
-                    array_push($dateArrayAakneset, $flightDateAakneset["FlightDate"]);         
-                }
-
-                $GLOBALS["CalenderDatesAakneset"] = $dateArrayAakneset;
-
-                $dateArrayBriksdalen = array(); 
-                foreach($flightDatesBriksdalen as $flightDateBriksdalen){
-                    array_push($dateArrayBriksdalen, $flightDateBriksdalen["FlightDate"]);         
-                }
-
-                $GLOBALS["CalenderDatesBriksdalen"] = $dateArrayBriksdalen;
-                return $this->render("bookingstepOne",$data);
-                
-                
-                
-                break;
+            break;
            
                 
             case '2':
@@ -180,32 +111,7 @@ class BookingController extends Controller {
                 $_SESSION["givenPhone_number"]      = $givenPhone_number;
                 $_SESSION["givenEmail"]             = $givenEmail;
                 
-                
-              //  $givenTourType        = $_REQUEST["givenTourType"];
-              //  $givenFlightDate      = $_REQUEST["givenFlightDate"];
-              //  $givenDeparture       = $_REQUEST["givenDeparture"];
-                
-             //   $_SESSION["givenTourType"]       = $givenTourType;
-             //   $_SESSION["givenFlightDate"]     = $givenFlightDate;
-             //   $_SESSION["givenDeparture"]      = $givenDeparture;
-
-                
-             //   echo $_SESSION["givenTourType"];
-             //   echo $_SESSION["givenFlightDate"];
-            //    echo $_SESSION["givenDeparture"];        
-                
-             //  echo $_SESSION['givenGender'];
-             //  echo $_SESSION['givenFirst_name'];
-             //  echo $_SESSION['givenLast_name'];
-             //  echo $_SESSION['givenStreet_address'];
-             //  echo $_SESSION['givenZip_code'];
-             //  echo $_SESSION['givenCity'];
-             //  echo $_SESSION['givenCountry'];
-             //  echo $_SESSION['givenCountry_code'];
-             //  echo $_SESSION['givenPhone_number'];
-             //  echo $_SESSION['givenEmail'];
-               
-                             
+            
                  return $this->render("bookingstepFour");
                  break;
              
@@ -261,6 +167,51 @@ class BookingController extends Controller {
            
         }
        
+    }
+    
+    
+    
+    function showBookingOne()
+    {
+        $productModel = $GLOBALS["productModel"]; //Gets the productmodel
+        $foods = $productModel->getAllWhereProductType(array("Food")); //Fetches an array of all Food products
+        $drinks = $productModel->getAllWhereProductType(array("Drink")); //Fetches an array of all Drink products
+        $dutyfrees = $productModel->getAllWhereProductType(array("DutyFree")); //Fetches an array of all Dutyfree products
+        $data = array( // Puts food,drink and dutyfree in a array variable
+        "foods" => $foods,
+        "drinks" => $drinks,
+        "dutyfrees" => $dutyfrees,
+         );
+        
+        $flightModel = $GLOBALS["flightModel"];
+        $FlightDateAndTimes = $flightModel->getAllDatesAndTimes();
+        
+        $GLOBALS["flightDateAndTimes"] = $FlightDateAndTimes;
+        
+        $flightDatesGeiranger = $flightModel->getAllDatesFor("Geiranger");
+        $flightDatesAakneset = $flightModel->getAllDatesFor("Aakneset");
+        $flightDatesBriksdalen = $flightModel->getAllDatesFor("Briksdalen");
+
+        $dateArrayGeiranger = array(); 
+        foreach($flightDatesGeiranger as $flightDateGeiranger){
+            array_push($dateArrayGeiranger, $flightDateGeiranger["FlightDate"]);         
+        }
+        $GLOBALS["CalenderDatesGeiranger"] = $dateArrayGeiranger;
+
+        $dateArrayAakneset = array(); 
+        foreach($flightDatesAakneset as $flightDateAakneset){
+            array_push($dateArrayAakneset, $flightDateAakneset["FlightDate"]);         
+        }
+
+        $GLOBALS["CalenderDatesAakneset"] = $dateArrayAakneset;
+
+        $dateArrayBriksdalen = array(); 
+        foreach($flightDatesBriksdalen as $flightDateBriksdalen){
+            array_push($dateArrayBriksdalen, $flightDateBriksdalen["FlightDate"]);         
+        }
+        $GLOBALS["CalenderDatesBriksdalen"] = $dateArrayBriksdalen;
+        
+        return $this->render("bookingstepOne",$data);
     }
    
        
