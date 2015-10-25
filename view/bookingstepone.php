@@ -3,9 +3,11 @@ $calenderDatesGeiranger = $GLOBALS["CalenderDatesGeiranger"];
 $calenderDatesAakneset = $GLOBALS["CalenderDatesAakneset"];
 $calenderDatesBriksdalen = $GLOBALS["CalenderDatesBriksdalen"];
 
+$flightTimesAndDates = $GLOBALS["flightDateAndTimes"];
 $foods = $GLOBALS["foods"];
 $drinks = $GLOBALS["drinks"];
 $dutyfrees = $GLOBALS["dutyfrees"];
+
 ?>
 
 
@@ -61,17 +63,22 @@ dateFormat: "dd.mm.yy",
 
  function timedrop()
  {
-    var cuisines = ["Chinese","Indian"];     
-
-    var sel = document.getElementById('CuisineList');
-    var fragment = document.createDocumentFragment();
-    cuisines.forEach(function(cuisine, index) {
-    var opt = document.createElement('option');
-    opt.innerHTML = cuisine;
-    opt.value = cuisine;
-    fragment.appendChild(opt);
-});
-sel.appendChild(fragment);
+    var times = [];
+    var x = document.getElementById("TimeList");
+    var  selectedDate = document.getElementById('datepicker').value;
+    
+    <?php foreach($flightTimesAndDates as $flightTimeAndDate)
+    {?>
+        if( "<?php echo $flightTimeAndDate["FlightDate"] ?>" ==  selectedDate)
+        {
+            var option = document.createElement("option");
+            option.text = "<?php echo $flightTimeAndDate["Departure"] ?>";
+            x.add(option);
+        }
+        
+    <?php } ?>
+    
+     
  }
 
 
@@ -127,7 +134,7 @@ function switchForm()
 
     <div id="date-and-time">
         Date: <input type="text" id="datepicker">
-        <select id="CuisineList" onclick="timedrop()"></select>
+        <select id="TimeList" onclick="timedrop()"></select>
     </div>
 
 
