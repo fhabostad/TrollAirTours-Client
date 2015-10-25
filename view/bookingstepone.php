@@ -30,27 +30,29 @@ if(document.getElementById('Geiranger').checked) {
   var disableddates = [<?php foreach($calenderDatesGeiranger as $calenderDateGeiranger){ echo  "\"$calenderDateGeiranger\"" . ",";} ?>];
 }else if(document.getElementById('Briksdalen').checked) {
   var disableddates = [<?php foreach($calenderDatesBriksdalen as $calenderDateBriksdalen){ echo  "\"$calenderDateBriksdalen\"" . ",";} ?>];
+  
 }else if(document.getElementById('Aakneset').checked) {
   var disableddates = [<?php foreach($calenderDatesAakneset as $calenderDateAakneset){ echo  "\"$calenderDateAakneset\"" . ",";} ?>];
 }     
- 
-            
+      
+disableddates.push("10.10.9999");
         
-           
  var m = date.getMonth();
  var d = date.getDate();
  var y = date.getFullYear();
  
  var currentdate = d + "." + (m + 1) + "." + y; 
  for (var i = 0; i < disableddates.length; i++) {
- if ($.inArray(currentdate, disableddates) !== -1 ) {
+ if ($.inArray(currentdate, disableddates) !== -1) {
  return [true];
  }else
  {
      return [false];
  }
  }
-  
+
+ 
+ 
 }
 
 $(function() {
@@ -150,7 +152,7 @@ function switchForm()
 
     <div id="date-and-time">
         Date: <input type="text" id="datepicker">
-        <select id="TimeList"></select>
+        <select id="TimeList" onclick="timedrop()"></select>
     </div>
 
 
