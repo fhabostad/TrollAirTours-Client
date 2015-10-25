@@ -140,12 +140,10 @@ function switchForm()
             f.style.display = 'block';
             g.style.display = 'none';
             h.style.display = 'block';
-    }
-    
-    
-
-    
+    } 
 }
+
+
 
 
 </script>
@@ -246,8 +244,9 @@ function switchForm()
                             </a>
                         </li>
                         <li id="next-booking-step">
-                            <div id="preDefTourNext"><a href="javascript:{}" onclick="document.getElementById('bookingTwo').submit();"><h3>Next</h3></a></div>
-                            <div id="customNext"><a href="?page=bookingCustom" onclick="document.getElementById('bookingCustom').submit();"><h3>Next</h3></a></div>
+                            <!--<div id="preDefTourNext"><a href="javascript:{}" onclick="document.getElementById('bookingTwo').submit();"><h3>Next</h3></a></div> -->
+                            <div id="preDefTourNext"><a href="#" onclick="validateFormStepOne()" ><h3>Next</h3></a></div>
+                            <div id="customNext"><a href="?page=bookingCustom" onclick="validateForm()"><h3>Next</h3></a></div>
                         </li>
                         
                     </ul>

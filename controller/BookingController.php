@@ -60,6 +60,7 @@ class BookingController extends Controller {
             $foodID = $productModel->getAllWhereProductID($_SESSION["givenFoodID"]);
             $drinkID = $productModel->getAllWhereProductID($_SESSION["givenDrinkID"]);
             $dutyFreeID = $productModel->getAllWhereProductID($_SESSION["givenDutyFreeID"]);
+           
             if(isset($foodID[0])){
                 $food = $foodID[0];
                 $_SESSION["givenFoodName"] = $food["ProductName"];  
