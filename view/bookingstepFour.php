@@ -13,6 +13,13 @@
                             <br>
                             Phone: <?php echo "+".$_SESSION['givenCountry_code']. " ". $_SESSION['givenPhone_number']?><br>
                             Email: <?php echo "".$_SESSION['givenEmail']?> 
+                            <br>
+                            <h2>Flight Information</h2>
+                            Destination: <?php echo $_SESSION["selectedFlightID"]?><br>
+                            Date: <?php echo $_SESSION["givenDate"]?><br>
+                            Departure: <?php echo $_SESSION["givenTime"]?><br>
+                            
+                            
                             <br>                           
                             <h2>Extra Products</h2>
                             Drink :<?php echo "".$_SESSION['givenDrinkName']?><br>
@@ -30,7 +37,7 @@
                             <a href="?page=bookingThree"> <h3>Previous</h3></a>
                         </li>
                         <li id="next-booking-step">
-                             <a href="?page=bookingFive"> <h3>Next</h3></a>
+                             <a href="?page=bookingConfirmation"> <h3>Next</h3></a>
                           <!-- <a href="javascript:{}" onclick="document.getElementById('bookingstepthree').submit();"><h3>Next</h3></a>-->
                         </li>
                         
