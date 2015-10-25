@@ -570,14 +570,18 @@ input[type="number"] {
      margin-right: auto;
 }
 
-#product-form button
+
+
+
+
+/*#product-form button
 {
      margin-top: 5em;
      width: 50%;
      margin-right: auto;
      margin-left: auto;
      background-color: greenyellow;
-}
+}*/
 
 #destination-buttons
 {
@@ -599,13 +603,32 @@ input[type="number"] {
 }
 #date-and-time
 {
-   margin-top: 3%;
+    margin-top: 1%;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 50%;
     overflow: hidden;
     text-align: center;
 }
+
+#date-and-time label
+{
+    display: block;
+     margin-top: 2%;
+     min-width: 100%;
+}
+
+#date-and-time input
+{
+   width: 40%;
+}
+
+#date-and-time select
+{
+   width: 40%;
+}
+
+
 
 /* //// Custom Form //// */
 #Custom-form-stepone

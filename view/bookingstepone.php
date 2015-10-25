@@ -165,8 +165,15 @@ function switchForm()
     <div id ="preDefTour">
 
     <div id="date-and-time">
-        Date: <input readonly  type="text" id="datepicker" onchange="timedrop()" >
-        <select id="TimeList" onclick=""></select>
+        
+        <label for="inputDate" >Select date</label>
+        <input readonly  type="text" id="datepicker" placeholder="Select Date" onchange="timedrop()" >
+        
+        <label for="inputDate" >Select time</label>
+        <select id="TimeList" onclick="">
+            <option disabled selected>- Select time -</option>
+            
+        </select>
     </div>
 
 
