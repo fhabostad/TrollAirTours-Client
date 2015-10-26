@@ -1,12 +1,14 @@
 function validateFormStepOne() {
     var date = document.getElementById('datepicker').value;
     var time = document.getElementById('TimeList').value;
+    var f = document.getElementById('datepicker');
+    var g = document.getElementById('TimeList');
     if (date == null || date == "") {
-        alert("You have to select a date!");
+        f.style.border = "2px solid red";
         return false;
     }else if(time == null || time == "")
     {
-        alert("You have to select a Time!");
+        g.style.border = "1px solid red";
         return false;
     }else
     {
