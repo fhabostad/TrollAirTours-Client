@@ -6,7 +6,7 @@ require_once('ProductModel.php');
 
 // TODO - change the DB connection here (if it's Microsoft SQL server or other non-MySQL DB)
 // Create DB connection
-$dbConn = new PDO("sqlsrv:Server=localhost;Database=BookingSystem", 'booking' , 'booking1234');
+$dbConn = new PDO('sqlsrv:Server=localhost;Database=BookingSystem', 'booking' , 'booking1234');
 
 
 // Create data models
