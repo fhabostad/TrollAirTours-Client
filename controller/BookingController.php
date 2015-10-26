@@ -121,19 +121,19 @@ class BookingController extends Controller {
                  break;
              
              case '4':
-                $givenGender        = $_REQUEST["givenGender"];
-                $givenFirst_name    = $_REQUEST["givenFirst_name"];
-                $givenLast_name     = $_REQUEST["givenLast_name"];
-                $givenBirth_date    = $_REQUEST["givenBirth_date"];
-                $givenStreet_address= $_REQUEST["givenStreet_address"];
-                $givenZip_code      = $_REQUEST["givenZip_code"];
-                $givenCity          = $_REQUEST["givenCity"];
-                $givenCountry       = $_REQUEST["givenCountry"];
-                $givenCountry_code  = $_REQUEST["givenCountry_code"];
-                $givenPhone_number  = $_REQUEST["givenPhone_number"];
-                $givenEmail         = $_REQUEST["givenEmail"];
+                $_SESSION["givenGender"]         = filter_input(INPUT_POST, "givenGender");
+                $_SESSION["givenFirst_name"]     = filter_input(INPUT_POST, "givenFirst_name");
+                $_SESSION["givenLast_name"]      = filter_input(INPUT_POST, "givenLast_name");
+                $_SESSION["givenBirth_date"]     = filter_input(INPUT_POST, "givenBirth_date");
+                $_SESSION["givenStreet_address"] = filter_input(INPUT_POST, "givenStreet_address");
+                $_SESSION["givenZip_code"]       = filter_input(INPUT_POST, "givenZip_code");
+                $_SESSION["givenCity"]           = filter_input(INPUT_POST, "givenCity");
+                $_SESSION["givenCountry"]        = filter_input(INPUT_POST, "givenCountry");
+                $_SESSION["givenCountry_code"]   = filter_input(INPUT_POST, "givenCountry_code");
+                $_SESSION["givenPhone_number"]   = filter_input(INPUT_POST, "givenPhone_number");
+                $_SESSION["givenEmail"]          = filter_input(INPUT_POST, "givenEmail");
                 
-                                
+                /*                
                 $_SESSION["givenGender"]            = $givenGender;
                 $_SESSION["givenFirst_name"]        = $givenFirst_name;
                 $_SESSION["givenLast_name"]         = $givenLast_name;
@@ -145,7 +145,7 @@ class BookingController extends Controller {
                 $_SESSION["givenCountry_code"]      = $givenCountry_code;
                 $_SESSION["givenPhone_number"]      = $givenPhone_number;
                 $_SESSION["givenEmail"]             = $givenEmail;
-                
+                */
             
                  return $this->render("bookingstepFour");
                  break;
