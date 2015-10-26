@@ -216,7 +216,7 @@ function switchForm()
     <form action="?page=bookingTwo" method="post">
   
     <div id="Custom-form-left">
-        <label>Destination</label> <br> <input type="text" name="givenCustomDestination" placeholder="Enter preferred destinations" tabindex="1" required> <a href="http://localhost/TrollAirTours-Client/?page=about" target="blank">(Info)</a><br>
+        <label>Destination</label> <br> <input id="input-grow" type="text" name="givenCustomDestination" placeholder="Enter preferred destinations" tabindex="1" required draggable="true"> <a href="http://localhost/TrollAirTours-Client/?page=about" target="blank">(Info)</a><br>
         <label>Date</label> <br> <input type="text" name="givenPreferredDate" placeholder="Enter pref. (DD-MM-YYYY)" max="31-12-2030" min="10-12-2015" tabindex="2" required><a href="http://localhost/TrollAirTours-Client/?page=home" target="blank">(Tour Season)</a><br>
         <label>Time</label> <br> <input type="text" name="givenPreferredTime" placeholder="Enter preferred (hh:mm)" max="23:59" min="00:00" tabindex="3" required><br>                                                  
     <label>Guide</label> <br> <select id="DropdownGuide" type="email" name="givenGuide" placeholder="Select language" tabindex="4" required>

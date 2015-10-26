@@ -36,8 +36,10 @@ class Router {
             case "bookingOneUpdate":
             case "bookingTwoUpdate":    
             case "bookingThreeUpdate":
-            case "bookingCustom";
-            case "bookingFourUpdate":    
+            case "bookingCustom":
+            case "bookingFourUpdate":  
+            case "bookingCustomSummary":
+            case "bookingSuccess":
                 return new BookingController();
              //   return new FlightController();
             case "bookingConfirmation";

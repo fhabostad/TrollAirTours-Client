@@ -490,8 +490,10 @@ main
  #main-top-overlay-booking input
  {
      height: 2em;
-     width: 20em;
+     width: 20em;    
      border-radius: 0.01em;
+
+     
  }
  
  
@@ -683,6 +685,13 @@ input[type="number"] {
     width: 175px; 
     
  }
+ 
+ #input-grow
+ {
+     max-width: 30em;
+     width: auto;
+     display: inline;
+ }
  #Custom-form-stepone button
  {
      text-align: center;
@@ -711,7 +720,7 @@ input[type="number"] {
 #bookingCustom
 {
   position: absolute;
-  top: 50px;
+  top: 3em;
   left: 34.3%;
   width: 30%;
   height: 80%;
@@ -725,11 +734,11 @@ input[type="number"] {
  {
      text-align: center;
      width: 30%;
-     height: 40px;
+     height: 3em;
      border-radius: 0.5em;
      background-color: greenyellow;
      margin-top: 1em;
-     margin-left: 15em;
+     margin-left: 14em;
  }
  #bookingCustom-column
  {
@@ -739,21 +748,33 @@ input[type="number"] {
      max-height: 20em;
      float: left;
  }
-#Cb 
+ #bookingCustomcolumn input
+ {
+     border-radius: 0.01em;
+     margin-left: 10em;
+     margin-bottom: 1em;
+     width: 20em;
+     height: 2em;
+     border-radius: 0.1em;
+ }
+
+#bookingCustomcolumn label 
 {
-    margin-left: 12em;
-    width: 300px;
-    height: 30px;;
+    margin-left: 8.5em;
+
 }
-#Cbl 
+#bookingCustomcolumn select
 {
     margin-left: 10em;
+    margin-bottom: 1em;
+    width: 20.5em;
+    height: 2em;;
 }
-#Cbs
+#bookingCustomcolumn h3
 {
-    margin-left: 12em;
-    width: 270px;
-    height: 20px;
+    color: black;
+    font-weight: bold;
+    margin-left: 5em;
 }
 
 @media screen and (max-width: 1730px){

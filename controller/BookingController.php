@@ -18,6 +18,10 @@ class BookingController extends Controller {
            $this->showBookingAction(5);
        }else if(($page == "bookingConfirmation")){
            $this->showBookingAction(6);
+       }else if(($page == "bookingCustomSummary")){
+           $this->showBookingAction(7);
+       }else if(($page == "bookingSuccess")){
+           $this->showBookingAction(8);
        }
     }
 
@@ -174,6 +178,29 @@ class BookingController extends Controller {
              case '6':
                  return $this->render("bookingConfirmationPDF");
                  break;
+            case '7':
+                
+                $_SESSION["givenGender"]       = filter_input(INPUT_POST, "givenGender");
+                $_SESSION["givenFirst_name"]   = filter_input(INPUT_POST, "givenFirst_name");
+                $_SESSION["givenLast_name"]    = filter_input(INPUT_POST, "givenLast_name");
+                $_SESSION["givenBirth_date"]   = filter_input(INPUT_POST, "givenBirth_date");
+                $_SESSION["givenCompany"]      = filter_input(INPUT_POST, "givenCompany");
+                $_SESSION["givenEmail"]        = filter_input(INPUT_POST, "givenEmail");
+                $_SESSION["givenPhone_number"] = filter_input(INPUT_POST, "givenPhone_number");
+                
+                echo $_SESSION["givenGender"]; 
+                echo $_SESSION["givenFirst_name"];    
+                echo $_SESSION["givenLast_name"];    
+                echo $_SESSION["givenBirth_date"];         
+                echo $_SESSION["givenCompany"];          
+                echo $_SESSION["givenEmail"];            
+                echo $_SESSION["givenPhone_number"];  
+                
+                return $this->render("bookingCustomSummary");
+                break;
+            case '8':
+                
+                return $this->render("bookingSuccess");
         }
                     
         
