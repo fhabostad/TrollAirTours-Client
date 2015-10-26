@@ -135,21 +135,21 @@ class BookingController extends Controller {
              
              case '5':
                 //Innhenting av data fra contact form
-                $givenCustomDestination  = $_REQUEST["givenCustomDestination"];
-                $givenPreferredDate      = $_REQUEST["givenPreferredDate"];
-                $givenPreferredTime      = $_REQUEST["givenPreferredTime"];
-                $givenGuide              = $_REQUEST["givenGuide"];
+                $_SESSION["givenCustomDestination"] = filter_input(INPUT_POST, "givenCustomDestination");
+                $_SESSION["givenPreferredDate"]     = filter_input(INPUT_POST, "givenPreferredDate");
+                $_SESSION["givenPreferredTime"]     = filter_input(INPUT_POST, "givenPreferredTime");
+                $_SESSION["givenGuide"]             = filter_input(INPUT_POST, "givenGuide");
                                                
-                $_SESSION["givenCustomDestination"] = $givenCustomDestination;
-                $_SESSION["givenPreferredDate"]     = $givenPreferredDate;
-                $_SESSION["givenPreferredTime"]     = $givenPreferredTime;
-                $_SESSION["givenGuide"]             = $givenGuide;
-                                               
-                //test av funksjonalitet stepone custom form
-                echo $_SESSION["givenCustomDestination"];
-                echo $_SESSION["givenPreferredDate"];
-                echo $_SESSION["givenPreferredTime"];
-                echo $_SESSION["givenGuide"];
+//                $_SESSION["givenCustomDestination"] = $givenCustomDestination;
+//                $_SESSION["givenPreferredDate"]     = $givenPreferredDate;
+//                $_SESSION["givenPreferredTime"]     = $givenPreferredTime;
+//                $_SESSION["givenGuide"]             = $givenGuide;
+//                                               
+//                //test av funksjonalitet stepone custom form
+//                echo $_SESSION["givenCustomDestination"];
+//                echo $_SESSION["givenPreferredDate"];
+//                echo $_SESSION["givenPreferredTime"];
+//                echo $_SESSION["givenGuide"];
                 
                 return $this->render("bookingCustom");
                 break;

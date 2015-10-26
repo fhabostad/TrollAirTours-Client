@@ -35,6 +35,21 @@
     </div> 
 </div>
  
+<div id="main-bottom-booking">
+                    <ul>
+                        <li id="previous-booking-step">
+                            <a href="#">
+                                <h3>Previous</h3>
+                            </a>
+                        </li>
+                        <li id="next-booking-step">
+                            <!--<div id="preDefTourNext"><a href="javascript:{}" onclick="document.getElementById('bookingTwo').submit();"><h3>Next</h3></a></div> -->
+                            <div id="preDefTourNext"><a href="#" onclick="validateFormStepOne()" ><h3>Next</h3></a></div>
+                            <div id="customNext"><a href="?page=bookingCustom" onclick="validateForm()"><h3>Next</h3></a></div>
+                        </li>
+                        
+                    </ul>
+                </div>
                
                      
 
