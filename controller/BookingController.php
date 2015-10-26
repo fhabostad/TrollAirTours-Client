@@ -51,31 +51,48 @@ class BookingController extends Controller {
             $_SESSION["givenTime"] = $FlightID["Departure"];
              
 
-            echo $_SESSION["givenDate"] . "  " . $_SESSION["selectedFlightID"]  . "  " . $_SESSION["givenTime"];
                 
             $_SESSION["givenFoodID"]     = filter_input(INPUT_POST, "givenFoodID");
             $_SESSION["givenDrinkID"]    = filter_input(INPUT_POST, "givenDrinkID");
             $_SESSION["givenDutyFreeID"] = filter_input(INPUT_POST, "givenDutyFreeID");
             
+            
+           
             $foodID = $productModel->getAllWhereProductID($_SESSION["givenFoodID"]);
+          
+            
+            
             $drinkID = $productModel->getAllWhereProductID($_SESSION["givenDrinkID"]);
             $dutyFreeID = $productModel->getAllWhereProductID($_SESSION["givenDutyFreeID"]);
            
+            echo $_SESSION["givenDate"] . "  " . $_SESSION["selectedFlightID"]  . "  " . $_SESSION["givenTime"] . " Food:" . $_SESSION["givenFoodID"];
+
+            
+            
             if(isset($foodID[0])){
                 $food = $foodID[0];
                 $_SESSION["givenFoodName"] = $food["ProductName"];  
+            }else
+            {
+                $_SESSION["givenFoodName"] = "None";
             }
             
             if(isset($drinkID[0]))
             {
                 $drink = $drinkID[0];
                 $_SESSION["givenDrinkName"] = $drink["ProductName"];  
+            }else
+            {
+                $_SESSION["givenDrinkName"] = "None";
             }
             
             if(isset($dutyFreeID[0]))
             {
                 $dutyfree = $dutyFreeID[0];
                 $_SESSION["givenDutyFreeName"] = $dutyfree["ProductName"]; 
+            }else
+            {
+                $_SESSION["givenDutyFreeName"] = "None";
             }
                
                     

@@ -22,9 +22,9 @@
                             
                             <br>                           
                             <h2>Extra Products</h2>
-                            Drink :<?php echo "".$_SESSION['givenDrinkName']?><br>
-                            Food :<?php echo "".$_SESSION['givenFoodName'];?><br>
-                            Dutyfree :<?php echo "".$_SESSION['givenDutyFreeName']?><br>          
+                            Drink: <?php echo "".$_SESSION['givenDrinkName']?><br>
+                            Food: <?php echo "".$_SESSION['givenFoodName'];?><br>
+                            Dutyfree: <?php echo "".$_SESSION['givenDutyFreeName']?><br>          
                             </div>
 
  </div>
