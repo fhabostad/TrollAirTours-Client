@@ -40,9 +40,9 @@ class CustomerModel {
      *
      * @return bool true on success, false otherwise
      */
-    //public function add($givenGender,$givenFirst_name,$givenLast_name, $givenStreet_address, $givenPhone_number) {
-    //    return $this->addStmt->execute(array("Gender" => $givenGender, "FirstName" => $givenFirst_name, "LastName" => $givenLast_name, "StreetAdress"=>$givenStreet_address));
-   // }
+    public function add($givenGender,$givenFirst_name,$givenLast_name, $givenStreet_address) {
+       return $this->addStmt->execute(array("Gender" => $givenGender, "FirstName" => $givenFirst_name, "LastName" => $givenLast_name, "StreetAdress"=>$givenStreet_address));
+    }
 
     // TODO - create additional functions for customer model here
 
