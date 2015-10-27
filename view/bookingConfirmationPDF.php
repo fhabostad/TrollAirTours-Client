@@ -77,7 +77,7 @@ $mail->SMTPAuth = true;
 $mail->Username = "trollairtours@gmail.com";
 $mail->Password = "Hallo1234";
 $mail->setFrom('trollairtours@gmail.com', 'Customer Support');
-$mail->addAddress(/*'trollairtours@gmail.com'*/$Email, $FirstName.$LastName);
+$mail->addAddress('trollairtours@gmail.com'/*$Email, $FirstName.$LastName*/);
 $mail->Subject = 'Your travel documents';
 $mail->AltBody = 'This is a plain-text message body';
 $mail->Body='Here is your travel documents';
