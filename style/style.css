@@ -717,7 +717,7 @@ input[type="number"] {
      display: none;
  }
  /* --- Custom form second step --- */
-#bookingCustom
+/*#bookingCustom
 {
   position: absolute;
   top: 3em;
@@ -725,21 +725,24 @@ input[type="number"] {
   width: 30%;
   height: 80%;
   
+}*/
+
+#bookingCustom
+{
+  position: relative;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  
+  
 }
+
 #bookingCustom h2
 {
     text-align: center;
 }
-#bookingCustom button
- {
-     text-align: center;
-     width: 30%;
-     height: 3em;
-     border-radius: 0.5em;
-     background-color: greenyellow;
-     margin-top: 1em;
-     margin-left: 14em;
- }
+
  #bookingCustom-column
  {
      padding: 0;
@@ -776,27 +779,32 @@ input[type="number"] {
     font-weight: bold;
     margin-left: 7.2em;
     margin-top: 2em;
+
 }
 #bookingCustomSummary 
  {
-     border: 1px solid red;
+     height: 100%;
  }
 
 #bookingCustomSummary label 
 {
-    margin-left: 10em;
-    margin-right: auto;;
-;
+    display:block;
+    width: 90%;
     padding: 0;
-
+    margin:0;
+    margin-bottom: 0.5em;
+    padding-left: 4.99%;
+    padding-right: 4.99%;
+    
 }
 
 #bookingCustomSummary h3
 {
-    color: black;
+    color: green;
     font-weight: bold;
-    margin-left: 0em;
-    text-align: center;
+    margin-left: 1.5em;
+    margin-bottom: 0;
+        
 }
 #bookingCustomSummary h2
 {
@@ -804,8 +812,22 @@ input[type="number"] {
 }
 #bookingCustomSummary p
 {
-    margin-left: 5em;
+    margin-left: 1.7em;
 }
+#main-top-overlay-summary /* Home page info box*/
+ {
+  display: block;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 7em;
+  width: 30%;
+  min-height: 50%;
+  max-height: 50%;
+  z-index: 10;
+  border-radius: 0.5em;
+  background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
+ }
 #bookingSuccess h3
 {
     color: black;
