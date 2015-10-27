@@ -1,31 +1,30 @@
 <div id="main-top-booking">
     <div id="main-top-overlay-booking">
-                        
-            
-                            <div id="bookingCustom">
-                             <h2>Please review your information</h2> 
-                             <div id="bookingCustomSummary">
-                                 
+        <div id="bookingCustom">
+            <div id="main-top-overlay-summary">    
+        <div id="bookingCustomSummary">
+                            <h2>Please review your information</h2>      
                             <h3>Personal details:</h3>    
-                            Gender : <?php echo "".$_SESSION['givenGender']?> Born: <?php echo "".$_SESSION['givenBirth_date']?><br>
-                            Name : <?php echo $_SESSION['givenLast_name'] . ", " . $_SESSION['givenFirst_name']?><br>
-                            Address : <?php echo "".$_SESSION['givenStreet_address'] . ", ".$_SESSION['givenZip_code'] . ", " . $_SESSION['givenCity']?><br>    
-                            Country : <?php echo "".$_SESSION['givenCountry']?><br>
-                            Phone: <?php echo "+".$_SESSION['givenCountry_code']. " ". $_SESSION['givenPhone_number']?><br>
-                            Email: <?php echo "".$_SESSION['givenEmail']?><br>
+                            <label>Gender : <?php echo "".$_SESSION['givenGender']?> Born: <?php echo "".$_SESSION['givenBirth_date']?></label>
+                            <label>Name : <?php echo $_SESSION['givenLast_name'] . ", " . $_SESSION['givenFirst_name']?></label>
+                            <label>Address : <?php echo "".$_SESSION['givenStreet_address'] . ", ".$_SESSION['givenZip_code'] . ", " . $_SESSION['givenCity']?></label>    
+                            <label>Country : <?php echo "".$_SESSION['givenCountry']?></label>
+                            <label>Phone: <?php echo "+".$_SESSION['givenCountry_code']. " ". $_SESSION['givenPhone_number']?></label>
+                            <label>Email: <?php echo "".$_SESSION['givenEmail']?></label>
                             
                             <h3>Flight Information</h3>
-                            Destination: <?php echo $_SESSION["selectedFlightID"]?><br>
-                            Date: <?php echo $_SESSION["givenDate"]?><br>
-                            Departure: <?php echo $_SESSION["givenTime"]?><br>
+                            <label>Destination: <?php echo $_SESSION["selectedFlightID"]?></label>
+                            <label>Date: <?php echo $_SESSION["givenDate"]?></label>
+                            <label>Departure: <?php echo $_SESSION["givenTime"]?></label>
                                          
                             <h3>Extra Products</h3>
-                            Drink: <?php echo "".$_SESSION['givenDrinkName']?><br>
-                            Food: <?php echo "".$_SESSION['givenFoodName'];?><br>
-                            Dutyfree: <?php echo "".$_SESSION['givenDutyFreeName']?><br>          
+                            <label>Drink: <?php echo "".$_SESSION['givenDrinkName']?></label>
+                            <label>Food: <?php echo "".$_SESSION['givenFoodName'];?></label>
+                            <label>Dutyfree: <?php echo "".$_SESSION['givenDutyFreeName']?></label>       
                             </div>
  </div>
  </div>
+</div>
 </div>
        
         
