@@ -31,7 +31,7 @@ require 'controller/Fpdf.php';
 require 'vendor/phpmailer/phpmailer/PHPMailerautoload.php';
 $pdf = new FPDF();
 $filename="bookings/{$LastName}_{$FirstName}_Booking.pdf";
-$image = "image/logo.png";
+$image = "image/logov2.png";
 $pdf->Image($image);
 $pdf->AddPage(); 
 $pdf->SetFont("Helvetica", "B", 14);
