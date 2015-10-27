@@ -820,8 +820,8 @@ input[type="number"] {
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 7em;
-  width: 30%;
+  margin-top: 2em;
+  width: 100%;
   min-height: 50%;
   max-height: 50%;
   z-index: 10;
