@@ -6,8 +6,8 @@
         <form action="?page=home" method="post">
         <h2>Success</h2>
          <div id="bookingCustomcolumn">
-             <h3>You have now ordered a free tour!! <br>
-             The order has been sent to your email.</h3> 
+             <h3>You have now Sent a request for your customized tour! <br>
+             You will get an answer on your email within a few weekdays.</h3> 
                                                                           
                                  
                                  

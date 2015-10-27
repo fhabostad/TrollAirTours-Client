@@ -5,21 +5,22 @@
         <div id="bookingCustom">
         <form action="?page=bookingSuccess" method="post">
         <h2>Summary</h2>
-         <div id="bookingCustomcolumn">
-                                <label>Gender: </label><br> 
-                                <label>First name: </label><br> 
-                                <label>Last name: </label><br> 
-                                <label>Birth date: </label><br> 
-                                <label>Company: </label><br> 
-                                <label>E-mail: </label><br> 
-                                <label>Telephone: </label><br> 
+         <div id="bookingCustomSummary">
+                                <h3>Peronal details</h3>
+                                <label>Company: </label> <?php echo $_SESSION["givenCompany"];?><br> 
+                                <label>First name: </label> <?php echo $_SESSION["givenFirst_name"];?><br> 
+                                <label>Last name: </label> <?php echo $_SESSION["givenLast_name"];?><br> 
+                                 
+                                <h3>Contact information</h3>
+                                <label>E-mail: </label> <?php echo $_SESSION["givenEmail"];?><br> 
+                                <label>Telephone: </label> <?php echo $_SESSION["givenPhone_number"];?><br> 
                                                                           
                                  
                                  
                                       
                                  
          </div>
-        <button class="btn btn-default" type="submit">Send</button>
+        <button class="btn btn-default" type="submit">Send request</button>
         </form>
         </div>       
     </div> 

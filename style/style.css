@@ -776,6 +776,31 @@ input[type="number"] {
     font-weight: bold;
     margin-left: 5em;
 }
+#bookingCustomSummary 
+ {
+     border: 1px solid red;
+ }
+
+#bookingCustomSummary label 
+{
+    margin-left: 10em;
+    margin-right: auto;;
+;
+    padding: 0;
+
+}
+
+#bookingCustomSummary h3
+{
+    color: black;
+    font-weight: bold;
+    margin-left: 0em;
+    text-align: center;
+}
+#bookingCustomSummary h2
+{
+    text-align: center;
+}
 
 @media screen and (max-width: 1730px){
 #main-top-overlay /* Home page info box*/
