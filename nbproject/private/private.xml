@@ -3,54 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/swiftmailer/swiftmailer/lib/swift_required.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/CustomerController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/BookingController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/HomeController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingstepTwo.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/controllers.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/font/courieri.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/swiftmailer/swiftmailer/lib/dependency_maps/transport_deps.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/swiftmailer/swiftmailer/lib/dependency_maps/message_deps.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/phpmailer/phpmailer/class.pop3.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/SeatController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/model/CustomerModel.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/font/helveticab.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/swiftmailer/swiftmailer/lib/swift_init.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/newEmptyPHP.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/font/helvetica.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/TourController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/model/ProductModel.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingstepthree.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/index.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/swiftmailer/swiftmailer/lib/preferences.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/header.html</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/about.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/model/DestinationModel.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/swiftmailer/swiftmailer/lib/dependency_maps/mime_deps.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/DestinationController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingsteptwo_1.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/phpmailer/phpmailer/class.phpmaileroauth.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/Fpdf.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/flightstep2.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingstepone.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/AboutController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/font/helveticai.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingAdd.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/model/FlightModel.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/font/courier.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/Router.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/autoload.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/flightAdd.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingCustom.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/font/courierbi.php</file>
             <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingConfirmationPDF.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/swiftmailer/swiftmailer/lib/swiftmailer_generate_mimes_config.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/FlightController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/phpmailer/phpmailer/class.phpmailer.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingstepFour.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/phpmailer/phpmailer/class.phpmaileroauthgoogle.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/swiftmailer/swiftmailer/lib/swift_required_pear.php</file>
         </group>
     </open-files>
 </project-private>
