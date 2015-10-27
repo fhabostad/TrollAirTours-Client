@@ -188,13 +188,13 @@ class BookingController extends Controller {
                 $_SESSION["givenEmail"]        = filter_input(INPUT_POST, "givenEmail");
                 $_SESSION["givenPhone_number"] = filter_input(INPUT_POST, "givenPhone_number");
                 
-                echo $_SESSION["givenGender"]; 
-                echo $_SESSION["givenFirst_name"];    
-                echo $_SESSION["givenLast_name"];    
-                echo $_SESSION["givenBirth_date"];         
-                echo $_SESSION["givenCompany"];          
-                echo $_SESSION["givenEmail"];            
-                echo $_SESSION["givenPhone_number"];  
+//                echo $_SESSION["givenGender"]; 
+//                echo $_SESSION["givenFirst_name"];    
+//                echo $_SESSION["givenLast_name"];    
+//                echo $_SESSION["givenBirth_date"];         
+//                echo $_SESSION["givenCompany"];          
+//                echo $_SESSION["givenEmail"];            
+//                echo $_SESSION["givenPhone_number"];  
                 
                 return $this->render("bookingCustomSummary");
                 break;

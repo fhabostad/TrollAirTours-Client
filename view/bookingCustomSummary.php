@@ -3,7 +3,6 @@
 <div id="main-top-booking">
     <div id="main-top-overlay-booking">
         <div id="bookingCustom">
-        <form action="?page=bookingSuccess" method="post">
         <h2>Summary</h2>
          <div id="bookingCustomSummary">
                                 <h3>Peronal details</h3>
@@ -14,14 +13,13 @@
                                 <h3>Contact information</h3>
                                 <label>E-mail: </label> <?php echo $_SESSION["givenEmail"];?><br> 
                                 <label>Telephone: </label> <?php echo $_SESSION["givenPhone_number"];?><br> 
+                                <p>Please check that all the details are correct. :)</p>
                                                                           
                                  
                                  
                                       
                                  
          </div>
-        <button class="btn btn-default" type="submit">Send request</button>
-        </form>
         </div>       
     </div> 
 </div>
@@ -29,14 +27,13 @@
 <div id="main-bottom-booking">
                     <ul>
                         <li id="previous-booking-step">
-                            <a href="#">
-                                <h3>Previous</h3>
+                            <a href="?page=home"><h3>Cancel</h3></a>
                             </a>
                         </li>
                         <li id="next-booking-step">
                             <!--<div id="preDefTourNext"><a href="javascript:{}" onclick="document.getElementById('bookingTwo').submit();"><h3>Next</h3></a></div> -->
-                            <div id="preDefTourNext"><a href="#" onclick="validateFormStepOne()" ><h3>Next</h3></a></div>
-                            <div id="customNext"><a href="?page=bookingCustom" onclick="validateForm()"><h3>Next</h3></a></div>
+                            
+                            <div id="preDefTourNext"><a href="?page=bookingSuccess" onclick="validateForm()"><h3>Send Request</h3></a></div>
                         </li>
                         
                     </ul>

@@ -703,7 +703,7 @@ input[type="number"] {
      margin-left: 3em;
  }
  
- #preDefTour
+ #Tour
  {
      display: block;
  }
@@ -774,7 +774,8 @@ input[type="number"] {
 {
     color: black;
     font-weight: bold;
-    margin-left: 5em;
+    margin-left: 7.2em;
+    margin-top: 2em;
 }
 #bookingCustomSummary 
  {
@@ -801,7 +802,22 @@ input[type="number"] {
 {
     text-align: center;
 }
-
+#bookingCustomSummary p
+{
+    margin-left: 5em;
+}
+#bookingSuccess h3
+{
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+#bookingSuccess h2
+{
+    color: green;
+    text-align: center;
+    font-weight: bold;
+}
 @media screen and (max-width: 1730px){
 #main-top-overlay /* Home page info box*/
  {
