@@ -114,7 +114,7 @@ class BookingController extends Controller {
                 
                 return $this->render("bookingstepTwo");
  
-                break;
+               
             
             case '3':
                 // hente inn data FRA setereservasjon her!
