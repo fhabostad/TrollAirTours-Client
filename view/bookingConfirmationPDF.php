@@ -1,6 +1,6 @@
 <div id="main-top-booking">
 <div id="main-top-overlay-booking">
-Your booking information is sendt to <?php echo "".$_SESSION['givenEmail']?>
+    Your booking information is sendt to <?php echo "".$_SESSION['givenEmail']?><br>
 Your booking ref is: ???
 
 </div>
@@ -76,7 +76,7 @@ $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 $mail->Username = "trollairtours@gmail.com";
 $mail->Password = "Hallo1234";
-$mail->setFrom('trollairtours@gmail.com', 'Customer Support');
+$mail->setFrom('trollairtours@gmail.com', 'noreply');
 $mail->addAddress('trollairtours@gmail.com'/*$Email, $FirstName.$LastName*/);
 $mail->Subject = 'Your travel documents';
 $mail->AltBody = 'This is a plain-text message body';
