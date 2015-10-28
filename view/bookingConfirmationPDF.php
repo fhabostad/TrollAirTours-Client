@@ -5,12 +5,14 @@
         <div id="bookingCustomSummary">
             <h3>Thank You!</h3>   
     <label>Your booking information is sendt to <?php echo "".$_SESSION['givenEmail']?></label>
-    <label>Your Customer ID is: <?php echo $_SESSION["CustomerID"] ?></label>
+    <label>Your BookingID ID is: TAT<?php echo $_SESSION['BookingID'] ?> </label>
+    <label>Your Customer  ID is: <?php echo $_SESSION['CustomerID'] ?> </label>
     <label>NB! For your added security our tickets are password protected.</label> 
     <label>Please use your birthdate dd.mm.yyyy as password</label>
 
 </div></div></div></div></div>
 <?php 
+$Ref            = $_SESSION['BookingID'];
 $Gender         = $_SESSION['givenGender'];
 $Birth          = $_SESSION['givenBirth_date'];
 $FirstName      = $_SESSION['givenFirst_name'];
@@ -22,7 +24,7 @@ $Country        = $_SESSION['givenCountry'];
 $CountryCode    = $_SESSION['givenCountry_code'].
 $Phone          = $_SESSION['givenPhone_number'];
 $Email          = $_SESSION['givenEmail'];
-$Dest           = $_SESSION["selectedFlightID"];
+$Dest           = $_SESSION['selectedFlightID'];
 $Date           = $_SESSION['givenDate'];
 $Time           = $_SESSION['givenTime'];
 $Drink          = $_SESSION['givenDrinkName'];
@@ -34,7 +36,7 @@ require 'vendor/phpmailer/phpmailer/PHPMailerautoload.php';
 require_once('vendor/mpdf/mpdf.php');
 $mpdf = new mPDF();
 $date = date("d-m-Y");
-$mpdf->SetProtection(array(), 'UserPassword', $Birth);
+//$mpdf->SetProtection(array(), 'UserPassword', $Birth);
 $filename="bookings/{$LastName}_{$FirstName}_Booking.pdf";
 $mpdf->Image('/style/booking.png',0,0,105,143,'png','',true, false);
 // the last "false" allows a full page picture
@@ -53,6 +55,7 @@ $html.= "<img src='style/booking.png',0,0,210,297,'png' alt=''>";
 $html .= '<table class = "bpmTopnTailC" align="center"><thead>
          <tr class="headerrow">
          <th>Electronic Ticket Itinerary and Receipt</th></table>';
+$html.=  "<p><b>Booking Reference:</b> TAT{$Ref}</p>";
 $html.=  "<p><b>Date of Issue:</b> {$date}</p>";
 $html .= "<p><b>Name:</b> {$FirstName} {$LastName}</p>";
 $html .= "<p><b>Tour:</b> {$Dest} <b>Date</b> {$Date} <b>Departure</b> {$Time}</p>";
@@ -62,30 +65,6 @@ $mpdf->WriteHTML($html);
 $mpdf->Output($filename);
 
 
-//$pdf = new FPDF();
-//$date = date("d-m-Y");
-//$filename="bookings/{$LastName}_{$FirstName}_Booking.pdf";
-//$image = "style/booking.png";
-//$pdf->Image($image);
-//$pdf->AddPage();
-//$pdf->SetFont("Helvetica", "B", 12);
-//$pdf->Cell(40, 10, $pdf->Image($image, 90,10,40,20), 30, 20, 'C');
-//$pdf->Ln();
-//$pdf->Cell(0, 5, "Electronic Ticket Itinerary and Receipt", 0, 0, 'C');
-//$pdf->Ln();
-//$pdf->Ln();
-//$pdf->Cell(0,5, "Name: {$FirstName} {$LastName}", 0, 0, 'L');
-//$pdf->Cell(0,5, "Date of Issue: {$date}", 0, 0, 'R');
-//$pdf->Ln();
-//$pdf->Ln();
-//$pdf->Cell(0,5, "Tour: {$Dest}", 0,0, 'L');
-//$pdf->Cell(0,5, "Departure: {$Date} {$Time}", 0,0, 'R');
-//$pdf->Ln();
-//$pdf->Cell(0,5, "Extra Orders:", 0,0, "C");
-//$pdf->Ln();
-//$pdf->Cell(0,5, "{$Drink}, {$Food}, {$DutyFree}", 0,0,'C');
-//$pdf->Output($filename);
-  
 date_default_timezone_set('Etc/UTC');
 
 

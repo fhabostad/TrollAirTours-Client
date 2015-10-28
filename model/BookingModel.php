@@ -32,8 +32,9 @@ class BookingModel {
     public function add($customerID){
     // $_SESSION["CustomerID"]
      $this->addStmt->execute(array("CustomerID" =>$customerID));
-        
-        
+     $lastID = $this->dbConn->lastInsertId('Booking');
+      return $lastID;
+               
    }
         
 

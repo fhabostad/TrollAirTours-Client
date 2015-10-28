@@ -173,12 +173,12 @@ class BookingController extends Controller {
 //                echo $_SESSION["givenGuide"];
                 
                 return $this->render("bookingCustom");
-                break;
+              
             
              case '6':
                  $this->addBooking();
                  return $this->render("bookingConfirmationPDF");
-                 break;
+              
             case '7':
                 
                 $_SESSION["givenGender"]       = filter_input(INPUT_POST, "givenGender");
@@ -281,7 +281,8 @@ class BookingController extends Controller {
         $_SESSION["CustomerID"] = $customerModel->add($_SESSION["givenGender"], $_SESSION["givenFirst_name"], $_SESSION["givenLast_name"], $_SESSION["givenStreet_address"], $_SESSION["givenCountry_code"], $_SESSION["givenPhone_number"], $_SESSION["givenCity"], $_SESSION["givenZip_code"],  $_SESSION["givenEmail"], $_SESSION["givenCountry"]);              
         
         $bookingModel = $GLOBALS["bookingModel"];
-        $bookingModel->add($_SESSION["CustomerID"]);
+        $_SESSION["BookingID"] = $bookingModel->add($_SESSION["CustomerID"]);
+        
        
    }
        
