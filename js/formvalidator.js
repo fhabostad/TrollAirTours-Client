@@ -131,28 +131,19 @@ function validateStepOneCustom() {
    
 
     
+    
     if (destination == null || destination == "") {
         h.style.border = "2px solid red";
         valid = false;
-    }
-    else if (date == null || date == "") {
-        f.style.border = "2px solid red";
-        valid = false;
-    }
-    else if(time == null || time == "")
-    {
-        g.style.border = "2px solid red";
-        valid = false;
-    }
-    if (destination == null || destination == "") {
-        h.style.border = "2px solid red";
     }
     if (date == null || date == "") {
         f.style.border = "2px solid red";
+        valid = false;
     }
     if(time == null || time == "")
     {
         g.style.border = "2px solid red";
+        valid = false;
     }
 //    if(selectedguide > 0)
 //    {   
@@ -163,6 +154,7 @@ function validateStepOneCustom() {
         document.getElementById('bookingStepOneCustom').submit();
         
     }
+    return valid;
 }
 
 function validateBookingCustom() {
