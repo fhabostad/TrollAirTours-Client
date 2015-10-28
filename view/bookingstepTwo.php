@@ -12,7 +12,7 @@
 
 <div id="main-top-booking">
     <div id="main-top-overlay-booking">
-
+<div id="planechart">
     <ul class="select-seat-row-one">
         <li>
             <input type="radio" id="A1" value="A1" name="seatnumber" />
@@ -64,12 +64,16 @@
             <input type="radio" id="B6" value="B6" name="seatnumber"/>
             <label for="B6">B6</label>
         </li>
+    </ul> 
+</div>
 
-    </ul>  
+
+   
+        
  </div>
     
 </div>
-
+    
 <div id="main-bottom-booking">
                     <ul>
                         <li id="previous-booking-step">
