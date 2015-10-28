@@ -22,7 +22,7 @@ function validateFormStepOne() {
 }
 function validateFormStepThree() {
     var valid = true;
-    var gender = document.getElementById('Gender').value;
+//    var gender = document.getElementById('Gender').value;
     var firstname = document.getElementById('Firstname').value;
     var birthdate = document.getElementById('Birthdate').value;
     var city = document.getElementById('City').value;
@@ -34,7 +34,7 @@ function validateFormStepThree() {
     var email = document.getElementById('Email').value;
     var phonenumber = document.getElementById('Phonenumber').value;
 
-    var f = document.getElementById('Gender');
+//    var f = document.getElementById('Gender');
 
     var g = document.getElementById('Firstname');
     g.style.border = "2px solid green";
@@ -56,10 +56,10 @@ function validateFormStepThree() {
     r.style.border = "2px solid green";
     var s = document.getElementById('Phonenumber');
     s.style.border = "2px solid green";
-    if (gender == null || gender == "") {
-        f.style.border = "2px solid green";
-        valid = false;
-    } 
+//    if (gender == null || gender == "") {
+//        f.style.border = "2px solid green";
+//        valid = false;
+//    } 
     if(firstname == null || firstname == "")
     {
         g.style.border = "2px solid red";
