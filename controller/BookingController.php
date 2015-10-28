@@ -277,27 +277,9 @@ class BookingController extends Controller {
         return $this->render("bookingstepOne",$data);
     }
         private function addBooking(){
-            $givenGender         = $_SESSION['givenGender'];
-            //$Birth          = $_SESSION['givenBirth_date'];
-            $givenFirst_name      = $_SESSION['givenFirst_name'];
-            $givenLast_name       = $_SESSION['givenLast_name'];
-            $givenStreet_address  = $_SESSION['givenStreet_address'];
-//$ZipCode        = $_SESSION['givenZip_code'];
-//$City           = $_SESSION['givenCity'];
-//$Country        = $_SESSION['givenCountry'];
-//$CountryCode    = $_SESSION['givenCountry_code'].
-//$Phone          = $_SESSION['givenPhone_number'];
-//$Email          = $_SESSION['givenEmail'];
-//$Dest           = $_SESSION["selectedFlightID"];
-//$Date           = $_SESSION['givenDate'];
-//$Time           = $_SESSION['givenTime'];
-//$Drink          = $_SESSION['givenDrinkName'];
-//$Food           = $_SESSION['givenFoodName'];
-//$DutyFree       = $_SESSION['givenDutyFreeName'];     
-                           
-                $customerModel = $GLOBALS["customerModel"];
-                $customerModel->add($givenGender,$givenFirst_name,$givenLast_name, $givenStreet_address);
-                
+           
+        $customerModel = $GLOBALS["customerModel"];
+        $customerModel->add($_SESSION["givenGender"], $_SESSION["givenFirst_name"], $_SESSION["givenLast_name"], $_SESSION["givenStreet_address"], $_SESSION["givenCountry_code"], $_SESSION["givenPhone_number"], $_SESSION["givenCity"], $_SESSION["givenZip_code"],  $_SESSION["givenEmail"], $_SESSION["givenCountry"]);              
             
        
    }

@@ -6,7 +6,7 @@ class CustomerModel {
 
     const TABLE = "customer";
     const SELECT_QUERY = "SELECT * FROM " . CustomerModel::TABLE;
-    const INSERT_QUERY = " INSERT INTO " . CustomerModel::TABLE . " (Gender,FirstName,LastName,StreetAddress)VALUES( :Gender,:FirstName,:LastName,:StreetAddress)";
+    const INSERT_QUERY = " INSERT INTO " . CustomerModel::TABLE . " ( Gender, FirstName, LastName, AreaCode, TelephoneNumber, StreetAddress, City, ZipCode, Email, Country) VALUES ( :Gender,:FirstName,:LastName,:AreaCode,:TelephoneNumber,:StreetAddress,:City,:ZipCode,:Email,:Country)";
       
     // const INSERT_QUERY = " INSERT INTO " . CustomerModel::TABLE . "(Gender,
    //     FirstName, LastName, TelephoneNumber, StreetAddress, ZipCode, Email, Country
@@ -40,12 +40,14 @@ class CustomerModel {
      *
      * @return bool true on success, false otherwise
      */
-    public function add($givenGender,$givenFirst_name,$givenLast_name, $givenStreet_address) {
-       return $this->addStmt->execute(array("Gender" =>$givenGender, "FirstName" => $givenFirst_name, "LastName" => $givenLast_name, "StreetAddress" => $givenStreet_address));
-       
-        
+    public function add($givenGender, $givenFirst_name, $givenLast_name, $givenStreet_address, $givenCountry_code, $givenPhone_number, $givenCity, $givenZip_code, $givenEmail, $givenCountry) {
+       return $this->addStmt->execute(array("Gender" =>$givenGender, "FirstName" => $givenFirst_name, "LastName" => $givenLast_name, "AreaCode" => $givenCountry_code, "TelephoneNumber" => $givenPhone_number, "StreetAddress" => $givenStreet_address, "City" => $givenCity, "ZipCode" => $givenZip_code, "Email" => $givenEmail, "Country" => $givenCountry));
+
     }
 
+              
+          //      $_SESSION["givenBirth_date"]     = "";    
+                  
     // TODO - create additional functions for customer model here
 
 }
