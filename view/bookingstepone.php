@@ -218,14 +218,14 @@ function switchForm()
         <label>Destination</label> <br> <input id="input-grow" type="text" name="givenCustomDestination" placeholder="Enter preferred destinations" tabindex="1" required draggable="true"> <a href="http://localhost/TrollAirTours-Client/?page=about" target="blank">(Info)</a><br>
         <label>Date</label> <br> <input id="date" type="text" name="givenPreferredDate" placeholder="Enter pref. (DD-MM-YYYY)" max="31-12-2030" min="10-12-2015" tabindex="2" required><a href="http://localhost/TrollAirTours-Client/?page=home" target="blank">(Tour Season)</a><br>
         <label>Time</label> <br> <input id="time" type="text" name="givenPreferredTime" placeholder="Enter preferred (hh:mm)" max="23:59" min="00:00" tabindex="3" required><br>                                                  
-    <label>Guide</label> <br> <select id="DropdownGuide" type="email" name="givenGuide" placeholder="Select language" tabindex="4" required>
-     <option disabled selected> -- Select language -- </option>
-            <option value="None" >No guide</option>
-            <option value="English" >English</option>
-            <option value="Norwegian">Norwegian</option>
-            <option value="Chinese">Chinese</option>
-            <option value="Spanish">Spanish</option>
-            <option value="French">French</option>
+    <label>Guide</label> <br> <select id="DropdownGuide" type="text" name="givenGuide" placeholder="Select language" tabindex="4" required>
+     <option id="0" index="0" value="select" > -- Select language -- </option>
+            <option id="1" index="1" value="1" >No guide</option>
+            <option id="2" index="2" value="2" >English</option>
+            <option id="3" index="3" value="3">Norwegian</option>
+            <option id="4" index="4" value="4">Chinese</option>
+            <option id="5" index="5" value="5">Spanish</option>
+            <option id="6" index="6" value="6">French</option>
     </select>
     </div>
     </form>
