@@ -845,13 +845,16 @@ input[type="number"] {
      
 .select-seat-row-one {
      list-style-type:none;
-     margin:25px 0 0 0;
-     padding:0;
+     width:25%;
+     margin-top: 25em;
+     margin-left: auto;
+     margin-right: auto;
 }
+
 
 .select-seat-row-one li {
     float:left;
-    margin:0 5px 0 0;
+    margin:0.8em;
     width:50px;
     height:40px;
     position:relative;
@@ -880,27 +883,31 @@ input[type="number"] {
 
 .select-seat-row-one label {
      padding:5px;
-     border:1px solid #CCC; 
+     border:1px solid #AAA; 
      cursor:pointer;
      z-index:300;
 }
 
 .select-seat-row-one label:hover {
-     background:#DDD;
+     background: #AAA;
 }
 
 .select-seat-row-two {
      list-style-type:none;
-     margin:25px 0 0 0;
-     padding:0;
+     width:25%;
+     margin-top: 25em;
+     margin-left: auto;
+     margin-right: auto;
+     clear:both;
 }
 
 .select-seat-row-two li {
     float:left;
-    margin:0 5px 0 0;
+    margin:0.8em;
     width:50px;
     height:40px;
-    position:relative;
+    overflow: hidden;
+    position: relative;
     text-align: center;
 
 }
@@ -926,13 +933,13 @@ input[type="number"] {
 
 .select-seat-row-two label {
      padding:5px;
-     border:1px solid #CCC; 
+     border:1px solid #AAA; 
      cursor:pointer;
      z-index:300;
 }
 
 .select-seat-row-two label:hover {
-     background:#DDD;
+     background:#AAA;
 }
 
 

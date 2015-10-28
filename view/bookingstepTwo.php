@@ -13,7 +13,7 @@
 <div id="main-top-booking">
     <div id="main-top-overlay-booking">
 
-    <ul class="select-seat">
+    <ul class="select-seat-row-one">
         <li>
             <input type="radio" id="A1" value="A1" name="seatnumber" />
             <label for="A1">A1</label>
@@ -38,6 +38,8 @@
             <input type="radio" id="A6" value="A6" name="seatnumber"/>
             <label for="A6">A6</label>
         </li>
+    </ul>
+     <ul class="select-seat-row-two">
         <li>
             <input type="radio" id="B1" value="B1" name="seatnumber"/>
             <label for="B1">B1</label>
