@@ -1,6 +1,7 @@
 {
     "require": {
         "phpmailer/phpmailer": "^5.2",
-        "swiftmailer/swiftmailer": "^5.4"
+        "swiftmailer/swiftmailer": "^5.4",
+        "setasign/fpdi": "1.6"
     }
 }

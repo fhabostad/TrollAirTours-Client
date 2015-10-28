@@ -176,17 +176,6 @@ class BookingController extends Controller {
                 break;
             
              case '6':
-                $_SESSION["givenGender"]         = filter_input(INPUT_POST, "givenGender");
-                $_SESSION["givenFirst_name"]     = filter_input(INPUT_POST, "givenFirst_name");
-                $_SESSION["givenLast_name"]      = filter_input(INPUT_POST, "givenLast_name");
-                $_SESSION["givenBirth_date"]     = filter_input(INPUT_POST, "givenBirth_date");
-                $_SESSION["givenStreet_address"] = filter_input(INPUT_POST, "givenStreet_address");
-                $_SESSION["givenZip_code"]       = filter_input(INPUT_POST, "givenZip_code");
-                $_SESSION["givenCity"]           = filter_input(INPUT_POST, "givenCity");
-                $_SESSION["givenCountry"]        = filter_input(INPUT_POST, "givenCountry");
-                $_SESSION["givenCountry_code"]   = filter_input(INPUT_POST, "givenCountry_code");
-                $_SESSION["givenPhone_number"]   = filter_input(INPUT_POST, "givenPhone_number");
-                $_SESSION["givenEmail"]          = filter_input(INPUT_POST, "givenEmail");
                  $this->addBooking();
                  return $this->render("bookingConfirmationPDF");
                  break;
