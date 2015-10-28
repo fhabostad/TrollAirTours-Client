@@ -5,7 +5,7 @@
         <div id="bookingCustomSummary">
             <h3>Thank You!</h3>   
     <label>Your booking information is sendt to <?php echo "".$_SESSION['givenEmail']?></label>
-    <label>Your booking ref is: ???</label>
+    <label>Your Customer ID is: <?php echo $_SESSION["CustomerID"] ?></label>
     <label>NB! For your added security our tickets are password protected.</label> 
     <label>Please use your birthdate dd.mm.yyyy as password</label>
 
@@ -95,7 +95,7 @@ $mail = new PHPMailer;
 
 //Tell PHPMailer to use SMTP
 $mail->isSMTP();
-//$mail->Host = 'smtp.gmail.com';
+$mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;

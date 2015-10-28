@@ -6,9 +6,8 @@ class BookingModel {
 
     const TABLE = "Booking";
     const SELECT_QUERY = "SELECT * FROM " . BookingModel::TABLE;
-    const INSERT_QUERY = "INSERT INTO " . BookingModel::TABLE . " (DestinationName) VALUES (:DestinationName)";
-    const DELETE_QUERY = "DELETE FROM" . BookingModel::TABLE . " WHERE RegID= ?";
-
+    const INSERT_QUERY = "INSERT INTO " . BookingModel::TABLE . " (CustomerID) VALUES (:CustomerID)";
+    const DELETE_QUERY = "DELETE FROM" . BookingModel::TABLE; 
     /** @var PDOStatement Statement for selecting all entries */
     private $selStmt;
     /** @var PDOStatement Statement for adding new entries */
@@ -16,9 +15,9 @@ class BookingModel {
 
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
-        $this->addStmt = $this->dbConn->prepare(DestinationModel::INSERT_QUERY);
-        $this->selStmt = $this->dbConn->prepare(DestinationModel::SELECT_QUERY);
-        $this->delStmt = $this->dbConn->prepare(DestinationModel::DELETE_QUERY);
+        $this->addStmt = $this->dbConn->prepare(BookingModel::INSERT_QUERY);
+        $this->selStmt = $this->dbConn->prepare(BookingModel::SELECT_QUERY);
+        $this->delStmt = $this->dbConn->prepare(BookingModel::DELETE_QUERY);
     }
 
     /**
@@ -30,16 +29,12 @@ class BookingModel {
         return $this->selStmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /**
-     * Try to add a new aircraft
-     *
-     * @param 
-     *
-     * @return bool true on success, false otherwise
-     */
-    public function add($givenDestinationName) {
-        return $this->addStmt->execute(array("DestinationName" => $givenDestinationName));
-    }
-    
+    public function add($customerID){
+    // $_SESSION["CustomerID"]
+     $this->addStmt->execute(array("CustomerID" =>$customerID));
+        
+        
+   }
+        
 
 }

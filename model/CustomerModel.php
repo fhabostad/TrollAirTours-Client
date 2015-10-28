@@ -41,8 +41,9 @@ class CustomerModel {
      * @return bool true on success, false otherwise
      */
     public function add($givenGender, $givenFirst_name, $givenLast_name, $givenStreet_address, $givenCountry_code, $givenPhone_number, $givenCity, $givenZip_code, $givenEmail, $givenCountry) {
-       return $this->addStmt->execute(array("Gender" =>$givenGender, "FirstName" => $givenFirst_name, "LastName" => $givenLast_name, "AreaCode" => $givenCountry_code, "TelephoneNumber" => $givenPhone_number, "StreetAddress" => $givenStreet_address, "City" => $givenCity, "ZipCode" => $givenZip_code, "Email" => $givenEmail, "Country" => $givenCountry));
-
+      $this->addStmt->execute(array("Gender" =>$givenGender, "FirstName" => $givenFirst_name, "LastName" => $givenLast_name, "AreaCode" => $givenCountry_code, "TelephoneNumber" => $givenPhone_number, "StreetAddress" => $givenStreet_address, "City" => $givenCity, "ZipCode" => $givenZip_code, "Email" => $givenEmail, "Country" => $givenCountry));
+      $lastID = $this->dbConn->lastInsertId('customer');
+      return $lastID;
     }
 
               
