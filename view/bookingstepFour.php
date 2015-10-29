@@ -13,7 +13,7 @@
                             <label>Email: <?php echo "".$_SESSION['givenEmail']?></label>
                             
                             <h3>Flight Information</h3>
-                            <label>Destination: <?php echo $_SESSION["selectedFlightID"]?></label>
+                            <label>Destination: <?php echo $_SESSION["givenDestination"]?></label>
                             <label>Date: <?php echo $_SESSION["givenDate"]?></label>
                             <label>Departure: <?php echo $_SESSION["givenTime"]?></label>
                                          
