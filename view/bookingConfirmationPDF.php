@@ -79,7 +79,7 @@ $mpdf->Image('/style/booking.png',0,0,105,143,'png','',true, false);
      
 $html = '<html><body>';
 //$html.= "<img src='style/booking.png',0,0,210,297,'png' alt=''>";
-$html.= '<div style="text-align:center;"><img src="image/test2.png"/></div>'; // Troll Logo
+$html.= '<div style="text-align:center;"><img src="image/test.png"/></div>'; // Troll Logo
 $html .= '<table class = "bpmTopnTailC" align="center"><thead>
          <tr class="headerrow">
          <th>Electronic Ticket Itinerary and Receipt</th></table>';

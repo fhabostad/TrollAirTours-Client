@@ -38,4 +38,10 @@ class SeatReservationModel {
         $this->selSeatsStmt->execute(array($flightID));
         return $this->selSeatsStmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
+    public function add($givenSeatNumber, $givenCutomerID, $givenBookingID, $givenRegID ,$givenFlightID) {
+      $this->addStmt->execute(array("SeatNumber" => $givenSeatNumber, "CustomerID" => $givenCutomerID, "BookingID" => $givenBookingID, "RegID" => $givenRegID, "FlightID" => $givenFlightID));
+    }
+      
 }
+    
