@@ -72,7 +72,7 @@ class BookingController extends Controller {
             $drinkID = $productModel->getAllWhereProductID($_SESSION["givenDrinkID"]);
             $dutyFreeID = $productModel->getAllWhereProductID($_SESSION["givenDutyFreeID"]);
            
-          //  echo $_SESSION["givenDate"] . "  " . $_SESSION["selectedFlightID"]  . "  " . $_SESSION["givenTime"] . " Food:" . $_SESSION["givenFoodID"];
+          // echo $_SESSION["givenDate"] . "  " . $_SESSION["selectedFlightID"]  . "  " . $_SESSION["givenTime"] . " Food:" . $_SESSION["givenFoodID"];
 
             
             
@@ -126,7 +126,7 @@ class BookingController extends Controller {
             
             case '3':
                 $_SESSION["givenSeatNumber"]         = filter_input(INPUT_POST, "givenSeatNumber");
-                echo $_SESSION["givenSeatNumber"];
+               // echo $_SESSION["givenSeatNumber"];
                 
                  return $this->render("bookingstepThree");
                 
@@ -296,7 +296,10 @@ class BookingController extends Controller {
         $_SESSION["BookingID"] = $bookingModel->add($_SESSION["CustomerID"], "0");
         
         $seatReservationModel = $GLOBALS["seatReservationModel"];
-        $seatReservationModel->add($_SESSION["givenSeatNumber"], $_SESSION["CustomerID"], $_SESSION["BookingID"], $_SESSION["givenRegID"], $_SESSION["selectedFlightID"] );
+        $seatReservationModel->add($_SESSION["givenSeatNumber"], $_SESSION["CustomerID"], $_SESSION["BookingID"], "DKA88", $_SESSION["selectedFlightID"] );
+        
+        $seatReservation_ProductModel = $GLOBALS["seatReservation_ProductModel"];
+        $_SESSION["ProductID"] = $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"], $_SESSION["selectedFlightID"] );
       
    }
        

@@ -51,7 +51,7 @@ class ProductModel {
     public function add($givenProductName) {
         return $this->addStmt->execute(array("ProductName" => $givenProductName));
     }
-    
+        
     public function getAllWhereProductType($productType) {
         // Fetch all products as associative arrays
         $this->selWhereStmt->execute($productType);

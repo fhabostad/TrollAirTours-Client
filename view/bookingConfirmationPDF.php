@@ -24,6 +24,7 @@
 
 <?php 
 $Ref            = $_SESSION['BookingID'];
+$RefCust        = $_SESSION['CustomerID'];
 $Gender         = $_SESSION['givenGender'];
 $Birth          = $_SESSION['givenBirth_date'];
 $FirstName      = $_SESSION['givenFirst_name'];
@@ -49,7 +50,7 @@ require_once ('vendor/phpqrcode/qrlib.php');
 
 // This makes the QR code
 $tempDir = 'bookings/';
-$codeContents = "{$Ref} -- {$Gender} - {$Birth} - {$FirstName} - {$LastName} - {$Adress} - {$ZipCode} - {$City} - {$Country} - {$CountryCode} - {$Phone} - {$Email} - {$Dest} - {$Date} - {$Time} - {$Drink} - {$Food} - {$DutyFree}";
+$codeContents = "{$Ref} -- {$RefCust} - {$Gender} - {$Birth} - {$FirstName} - {$LastName} - {$Adress} - {$ZipCode} - {$City} - {$Country} - {$CountryCode} - {$Phone} - {$Email} - {$Dest} - {$Date} - {$Time} - {$Drink} - {$Food} - {$DutyFree}";
 $qfileName = '005_file_'.md5($codeContents).'.png';
 $pngAbsoluteFilePath = $tempDir.$qfileName;
 $urlRelativeFilePath = "bookings/$qfileName";
