@@ -48,7 +48,7 @@ class BookingController extends Controller {
             $flightModel = $GLOBALS["flightModel"];
             $SeatReservationModel = $GLOBALS["seatReservationModel"];
             
-            
+            $_SESSION["givenDestination"]     = filter_input(INPUT_POST, "givenDestination");
             $_SESSION["selectedFlightID"]     = filter_input(INPUT_POST, "selectedFlightID");
             $_SESSION["givenDate"]     = filter_input(INPUT_POST, "givenDate");    
             
@@ -282,15 +282,19 @@ class BookingController extends Controller {
         }
         $GLOBALS["CalenderDatesBriksdalen"] = $dateArrayBriksdalen;
         
+        
         return $this->render("bookingstepOne",$data);
     }
-        private function addBooking(){
+    
+    
+    
+    private function addBooking(){
         $customerModel = $GLOBALS["customerModel"];
         $_SESSION["CustomerID"] = $customerModel->add($_SESSION["givenGender"], $_SESSION["givenFirst_name"], $_SESSION["givenLast_name"], $_SESSION["givenStreet_address"], $_SESSION["givenCountry_code"], $_SESSION["givenPhone_number"], $_SESSION["givenCity"], $_SESSION["givenZip_code"],  $_SESSION["givenEmail"], $_SESSION["givenCountry"]);              
-        
+
         $bookingModel = $GLOBALS["bookingModel"];
         $_SESSION["BookingID"] = $bookingModel->add($_SESSION["CustomerID"]);
-        
+
        
    }
        

@@ -155,10 +155,10 @@ function switchForm()
 <form action="?page=bookingTwo" id="bookingTwo" method="post">
 
     <div id="destination-buttons"> 
-        <input type="radio" name="gender" id="Geiranger" value="Geiranger" checked="checked" onclick="switchForm()" > Geiranger </input>
-        <input type="radio" name="gender" id="Briksdalen" value="Briksdalen" onclick="switchForm()"> Briksdalen </input>
-        <input type="radio" name="gender" id="Aakneset" value="Aakneset" onclick="switchForm()"> Aakneset </input>
-        <input type="radio" name="gender" id="Custom" value="Custom" onclick="switchForm()"> Custom </input>
+        <input type="radio" name="givenDestination" id="Geiranger" value="Geiranger" checked="checked" onclick="switchForm()" > Geiranger </input>
+        <input type="radio" name="givenDestination" id="Briksdalen" value="Briksdalen" onclick="switchForm()"> Briksdalen </input>
+        <input type="radio" name="givenDestination" id="Aakneset" value="Aakneset" onclick="switchForm()"> Aakneset </input>
+        <input type="radio" name="givenCustom" id="Custom" value="Custom" onclick="switchForm()"> Custom </input>
     </div>
     
     <div id ="preDefTour">
