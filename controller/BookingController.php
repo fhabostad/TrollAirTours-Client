@@ -208,7 +208,7 @@ class BookingController extends Controller {
                 return $this->render("bookingCustomSummary");
                 break;
             case '8':
-                
+                $this->addCustomBooking();
                 return $this->render("bookingSuccess");
         }
                     
@@ -297,6 +297,18 @@ class BookingController extends Controller {
 
        
    }
+    private function addCustomBooking()
+    {
+        $customerModel = $GLOBALS["customerModel"];
+        $name = $_SESSION["givenFirst_name"];
+        //$name = $_SESSION["givenFirst_name"] . " " . $_SESSION["givenLast_name"];
+        $_SESSION["CustomerID"] = $customerModel->addCustom($_SESSION["givenCompany"],$name , $_SESSION["givenEmail"], $_SESSION["givenPhone_number"]);              
+
+        $CustomerRequest = "Destination: " . $_SESSION["givenCustomDestination"] . ". Date: " . $_SESSION["givenPreferredDate"] . ". Time: " . $_SESSION["givenPreferredTime"] . " Language: " . $_SESSION["givenGuide"] . ".";
+            
+        $bookingModel = $GLOBALS["bookingModel"];
+        $_SESSION["BookingID"] = $bookingModel->add($_SESSION["CustomerID"],$CustomerRequest);
+    }
        
 }
         

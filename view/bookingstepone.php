@@ -158,7 +158,7 @@ function switchForm()
         <input type="radio" name="givenDestination" id="Geiranger" value="Geiranger" checked="checked" onclick="switchForm()" > Geiranger </input>
         <input type="radio" name="givenDestination" id="Briksdalen" value="Briksdalen" onclick="switchForm()"> Briksdalen </input>
         <input type="radio" name="givenDestination" id="Aakneset" value="Aakneset" onclick="switchForm()"> Aakneset </input>
-        <input type="radio" name="givenCustom" id="Custom" value="Custom" onclick="switchForm()"> Custom </input>
+        <input type="radio" name="givenDestination" id="Custom" value="Custom" onclick="switchForm()"> Custom </input>
     </div>
     
     <div id ="preDefTour">
@@ -220,12 +220,12 @@ function switchForm()
         <label>Time</label> <br> <input id="time" type="text" name="givenPreferredTime" placeholder="Enter preferred (hh:mm)" max="23:59" min="00:00" tabindex="3" required><br>                                                  
     <label>Guide</label> <br> <select id="DropdownGuide" type="text" name="givenGuide" placeholder="Select language" tabindex="4" required>
      <option id="0" index="0" value="select" > -- Select language -- </option>
-            <option id="1" index="1" value="1" >No guide</option>
-            <option id="2" index="2" value="2" >English</option>
-            <option id="3" index="3" value="3">Norwegian</option>
-            <option id="4" index="4" value="4">Chinese</option>
-            <option id="5" index="5" value="5">Spanish</option>
-            <option id="6" index="6" value="6">French</option>
+            <option id="1" index="1" value="No guide" >No guide</option>
+            <option id="2" index="2" value="English" >English</option>
+            <option id="3" index="3" value="Norwegian">Norwegian</option>
+            <option id="4" index="4" value="Chinese">Chinese</option>
+            <option id="5" index="5" value="Spanish">Spanish</option>
+            <option id="6" index="6" value="French">French</option>
     </select>
     </div>
     </form>

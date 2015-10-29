@@ -7,7 +7,8 @@ class CustomerModel {
     const TABLE = "customer";
     const SELECT_QUERY = "SELECT * FROM " . CustomerModel::TABLE;
     const INSERT_QUERY = " INSERT INTO " . CustomerModel::TABLE . " ( Gender, FirstName, LastName, AreaCode, TelephoneNumber, StreetAddress, City, ZipCode, Email, Country, BirthDate) VALUES ( :Gender,:FirstName,:LastName,:AreaCode,:TelephoneNumber,:StreetAddress,:City,:ZipCode,:Email,:Country, :BirthDate)";
-      
+    const INSERT_CUSTOM_QUERY = " INSERT INTO " . CustomerModel::TABLE . " (FirstName, LastName, Email, TelephoneNumber) VALUES (:FirstName,:LastName,:Email,:TelephoneNumber)";
+  
     // const INSERT_QUERY = " INSERT INTO " . CustomerModel::TABLE . "(Gender,
    //     FirstName, LastName, TelephoneNumber, StreetAddress, ZipCode, Email, Country
      //   )VALUES( :Gender, :First_name, :Last_name, :Phone_number, :Address, :Zip_code, :Email, : Country)";
@@ -16,10 +17,12 @@ class CustomerModel {
     private $selStmt;
     /** @var PDOStatement Statement for adding new entries */
     private $addStmt;
+    private $addCustStmt;
 
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
         $this->addStmt = $this->dbConn->prepare(CustomerModel::INSERT_QUERY);
+        $this->addCustStmt = $this->dbConn->prepare(CustomerModel::INSERT_CUSTOM_QUERY);
         $this->selStmt = $this->dbConn->prepare(CustomerModel::SELECT_QUERY);
     }
 
@@ -46,6 +49,12 @@ class CustomerModel {
       return $lastID;
     }
 
+    public function addCustom($givenCompany, $name, $givenEmail, $givenPhone_number) {
+        $this->addCustStmt->execute(array("FirstName" => $givenCompany, "LastName" => $name, "Email" => $givenEmail, "TelephoneNumber" => $givenPhone_number));
+      $lastID = $this->dbConn->lastInsertId('customer');
+      
+      return $lastID;
+    }
               
           //      $_SESSION["givenBirth_date"]     = "";    
                   

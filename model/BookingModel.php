@@ -6,7 +6,7 @@ class BookingModel {
 
     const TABLE = "Booking";
     const SELECT_QUERY = "SELECT * FROM " . BookingModel::TABLE;
-    const INSERT_QUERY = "INSERT INTO " . BookingModel::TABLE . " (CustomerID) VALUES (:CustomerID)";
+    const INSERT_QUERY = "INSERT INTO " . BookingModel::TABLE . " (CustomerID,CustomRequest) VALUES (:CustomerID,:CustomRequest)";
     const DELETE_QUERY = "DELETE FROM" . BookingModel::TABLE; 
     /** @var PDOStatement Statement for selecting all entries */
     private $selStmt;
@@ -29,13 +29,13 @@ class BookingModel {
         return $this->selStmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function add($customerID){
+    public function add($customerID,$customerRequest){
     // $_SESSION["CustomerID"]
-     $this->addStmt->execute(array("CustomerID" =>$customerID));
+     $this->addStmt->execute(array("CustomerID" =>$customerID,"CustomRequest" => $customerRequest));
      $lastID = $this->dbConn->lastInsertId('Booking');
       return $lastID;
                
    }
-        
+    
 
 }
