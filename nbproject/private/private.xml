@@ -3,27 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/mpdf/lang2fonts.css</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/model/DestinationModel.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/BookingController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/HomeController.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingstepTwo.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/mpdf/mpdf.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/model/FlightModel.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingAdd.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/model/CustomerModel.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/autoload.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/mpdf/progbar.css</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingSuccess.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/mpdf/config.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/controller/Controller.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingCustom.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingCustomSummary.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/model/db.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingConfirmationPDF.php</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/vendor/mpdf/mpdf.css</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/style/style.css</file>
-            <file>file:/C:/xampp/htdocs/TrollAirTours-Client/view/bookingstepFour.php</file>
+            <file>file:/C:/xampp/htdocs/github/TrollAirTours-Client/model/db.php</file>
+            <file>file:/C:/xampp/htdocs/github/TrollAirTours-Client/model/SeatReservationModel.php</file>
+            <file>file:/C:/xampp/htdocs/github/TrollAirTours-Client/view/header.html</file>
+            <file>file:/C:/xampp/htdocs/github/TrollAirTours-Client/model/ProductModel.php</file>
+            <file>file:/C:/xampp/htdocs/github/TrollAirTours-Client/style/style.css</file>
         </group>
     </open-files>
 </project-private>

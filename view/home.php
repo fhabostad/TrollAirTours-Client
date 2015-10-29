@@ -13,7 +13,8 @@
                         
                         <div id="briksdalen-info">
                             <h2> Briksdalen </h2>
-                            <p>Briksdalen er en nydelig plass i Stryn kommune, jallatext atext atext </p>
+                            <p>Briksdalsbreen (English: the Briksdal glacier) is one of the most accessible and best known arms of the Jostedalsbreen glacier. Briksdalsbreen is located in the municipality of Stryn in Sogn og Fjordane county, Norway. 
+                                It is located inside Jostedalsbreen National Park. Briksdalsbreen terminates in a small glacial lake, Briksdalsbrevatnet, which lies 346 metres (1,135 ft) above sea level.[1]
                             <a href="https://no.wikipedia.org/wiki/Briksdalen"> More information </a>    
                         </div>
                         
@@ -27,7 +28,7 @@
                         
                         
                         <div id="egendefinert-info">
-                            <h2> Egendefinert </h2>
+                            <h2> Custom destination </h2>
                             <p>Egendefinert er en nydelig plass i Stryn kommune, jallatext atext atext </p>
                             <a href="https://no.wikipedia.org/wiki/Briksda"> More information </a>    
                         </div>
@@ -62,7 +63,7 @@
                         </li>
                         <li id="egendefinert-marked">
                             <a href="#" onclick="toggle_visibilityQuad('egendefinert-info','Aakneset-info','briksdalen-info','geiranger-info');">
-                                <h3>Egendefinert</h3>
+                                <h3>Custom destination</h3>
                             </a>
                         </li> 
                     </ul>
