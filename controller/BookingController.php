@@ -290,13 +290,17 @@ class BookingController extends Controller {
     
     private function addBooking(){
         $customerModel = $GLOBALS["customerModel"];
-        $_SESSION["CustomerID"] = $customerModel->add($_SESSION["givenGender"], $_SESSION["givenFirst_name"], $_SESSION["givenLast_name"], $_SESSION["givenStreet_address"], $_SESSION["givenCountry_code"], $_SESSION["givenPhone_number"], $_SESSION["givenCity"], $_SESSION["givenZip_code"],  $_SESSION["givenEmail"], $_SESSION["givenCountry"]);              
+        $_SESSION["CustomerID"] = $customerModel->add($_SESSION["givenGender"], $_SESSION["givenFirst_name"], $_SESSION["givenLast_name"], $_SESSION["givenStreet_address"], $_SESSION["givenCountry_code"], $_SESSION["givenPhone_number"], $_SESSION["givenCity"], $_SESSION["givenZip_code"],  $_SESSION["givenEmail"], $_SESSION["givenCountry"], $_SESSION["givenBirth_date"]);              
 
         $bookingModel = $GLOBALS["bookingModel"];
-        $_SESSION["BookingID"] = $bookingModel->add($_SESSION["CustomerID"]);
-
-       
+        $_SESSION["BookingID"] = $bookingModel->add($_SESSION["CustomerID"], "0");
+        
+        $seatReservationModel = $GLOBALS["seatReservationModel"];
+        $seatReservationModel->add($_SESSION["givenSeatNumber"], $_SESSION["CustomerID"], $_SESSION["BookingID"], $_SESSION["givenRegID"], $_SESSION["selectedFlightID"] );
+      
    }
+       
+
     private function addCustomBooking()
     {
         $customerModel = $GLOBALS["customerModel"];
