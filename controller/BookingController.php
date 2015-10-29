@@ -38,12 +38,15 @@ class BookingController extends Controller {
  
                 $this->showBookingOne();   
                 
+                
+                
             break;
            
                 
             case '2':
             $productModel = $GLOBALS["productModel"];
             $flightModel = $GLOBALS["flightModel"];
+            $SeatReservationModel = $GLOBALS["seatReservationModel"];
             
             
             $_SESSION["selectedFlightID"]     = filter_input(INPUT_POST, "selectedFlightID");
@@ -69,7 +72,7 @@ class BookingController extends Controller {
             $drinkID = $productModel->getAllWhereProductID($_SESSION["givenDrinkID"]);
             $dutyFreeID = $productModel->getAllWhereProductID($_SESSION["givenDutyFreeID"]);
            
-            echo $_SESSION["givenDate"] . "  " . $_SESSION["selectedFlightID"]  . "  " . $_SESSION["givenTime"] . " Food:" . $_SESSION["givenFoodID"];
+          //  echo $_SESSION["givenDate"] . "  " . $_SESSION["selectedFlightID"]  . "  " . $_SESSION["givenTime"] . " Food:" . $_SESSION["givenFoodID"];
 
             
             
@@ -100,25 +103,30 @@ class BookingController extends Controller {
             }
                
                     
-                   
-           
-            
             //Innhenting av data fra contact form
                $_SESSION["givenCustomDestination"]  = filter_input(INPUT_POST, "givenPreferredDate");
                $_SESSION["givenPreferredDate"]      = filter_input(INPUT_POST, "givenPreferredDate");
                $_SESSION["givenPreferredTime"]      = filter_input(INPUT_POST, "givenPreferredTime");
                $_SESSION["givenGuide"]              = filter_input(INPUT_POST, "givenGuide");
 
-            
+               
+               $takenSeats = $SeatReservationModel->getAllSeatsByFlight($_SESSION["selectedFlightID"]);
+              
+               
+               
+               $data = array(
+                   "takenSeats" => $takenSeats,
+               );
+                       
                
                 
-                return $this->render("bookingstepTwo");
+                return $this->render("bookingstepTwo", $data );
  
                
             
             case '3':
-                // hente inn data FRA setereservasjon her!
-                
+                $_SESSION["givenSeatNumber"]         = filter_input(INPUT_POST, "givenSeatNumber");
+                echo $_SESSION["givenSeatNumber"];
                 
                  return $this->render("bookingstepThree");
                 

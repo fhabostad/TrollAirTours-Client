@@ -899,6 +899,7 @@ input[type="number"] {
     height:40px;
     position:relative;
     text-align: center;
+    
 
 }
 
@@ -981,6 +982,7 @@ input[type="number"] {
 .select-seat-row-two label:hover {
      background:#AAA;
 }
+
 
 
 @media screen and (max-width: 1730px){

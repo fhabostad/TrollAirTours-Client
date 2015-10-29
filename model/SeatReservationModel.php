@@ -5,20 +5,23 @@ class SeatReservationModel {
     private $dbConn;
 
     const TABLE = "SeatReservation"; //seat reservation table
-    const SELECT_QUERY = "SELECT * FROM " . SeatReservation::TABLE; //Select all from seat reservations 
-    const INSERT_QUERY = "INSERT INTO " . SeatReservation::TABLE . " (SeatNumber, CustomerID , BookingID, RegID, FlightID) VALUES (:SeatNumber,:CustomerID,:BookingID,:RegID,:FlightID)"; //Insert complete seat reservation from parameter
-    const DELETE_QUERY = "DELETE FROM" . SeatReservation::TABLE . " WHERE FlightID= ?"; //Delete seat reservation where SeatNumber equals given parameter
+    const SELECT_QUERY = "SELECT * FROM " . SeatReservationModel::TABLE; //Select all from seat reservations 
+    const SELECT_SEATS_QUERY = "SELECT * FROM " . SeatReservationModel::TABLE . " WHERE FlightID= ?";
+    const INSERT_QUERY = "INSERT INTO " . SeatReservationModel::TABLE . " (SeatNumber, CustomerID , BookingID, RegID, FlightID) VALUES (:SeatNumber,:CustomerID,:BookingID,:RegID,:FlightID)"; //Insert complete seat reservation from parameter
+    
+    
     
 
     private $selStmt;
-    private $addStmt;
+    private $selSeatsStmt;
     private $delStmt;
+    private $selWhereSeatStmt;
 
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
         $this->addStmt = $this->dbConn->prepare(SeatReservationModel::INSERT_QUERY);
         $this->selStmt = $this->dbConn->prepare(SeatReservationModel::SELECT_QUERY);
-        $this->delStmt = $this->dbConn->prepare(SeatReservationModel::DELETE_QUERY);
+        $this->selSeatsStmt = $this->dbConn->prepare(SeatReservationModel::SELECT_SEATS_QUERY);
     }
 
     /**
@@ -31,4 +34,8 @@ class SeatReservationModel {
         return $this->selStmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
+    public function getAllSeatsByFlight($flightID) {
+        $this->selSeatsStmt->execute(array($flightID));
+        return $this->selSeatsStmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

@@ -8,7 +8,7 @@ function validateFormStepOne() {
     //g.style.border = "2px solid green";
     if (date == null || date == "") {
         f.style.border = "2px solid red";
-        return false
+        return false;
     }
     if(time == null || time == "")
     {
@@ -202,4 +202,30 @@ function validateBookingCustom() {
     {
         document.getElementById('bookingSummary').submit();
     }
+}
+
+function validateSeatReservation()
+{
+    var valid = false;
+    for (i=1; i<7 ; i++ ) 
+    {
+        if(document.getElementById("A" + i).checked)
+        {       
+            valid = true;
+        }
+
+        
+        if(document.getElementById("B" + i).checked)
+        {
+            valid = true;
+        }
+        
+    }
+    if(valid)
+    {
+        document.getElementById("bookingstepTwoForm").submit();
+    }else{
+        window.alert("Please select a seat");
+    }
+    
 }
