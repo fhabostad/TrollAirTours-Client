@@ -15,7 +15,7 @@
 <div id="planechart">
     <ul class="select-seat-row-one">
         <li>
-            <input type="radio" id="A1" value="A1" name="seatnumber" />
+            <input type="radio" id="A1" value="A1" name="seatnumber" <?php echo ($result['seatnumber'] == "A1" ? 'checked="checked"': ''); ?>/>
             <label for="A1">A1</label>
         </li>
         <li>
