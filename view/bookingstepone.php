@@ -7,6 +7,7 @@ $flightTimesAndDates = $GLOBALS["flightDateAndTimes"];
 $foods = $GLOBALS["foods"];
 $drinks = $GLOBALS["drinks"];
 $dutyfrees = $GLOBALS["dutyfrees"];
+
 //$tourPriceGeiranger = $GLOBALS["Geiranger"];
 //$tourPriceBriksdalen = $GLOBALS["Briksdalen"];
 //$tourPriceAakneset = $GLOBALS["Aakneset"];
@@ -117,7 +118,7 @@ function switchForm()
     document.getElementById('datepicker').value = "";
     document.getElementById('datepicker').value = "";
     clearTimeDrop();
-    var sumTour = 0;
+    //var sumTour = 0;
     var e = document.getElementById('preDefTour');
     var f = document.getElementById('Custom-form-stepone');
     var g = document.getElementById('preDefTourNext');
@@ -149,7 +150,7 @@ function switchForm()
             h.style.display = 'block';
            // sumTour = sumTour + 2500;
     } 
-    return sumTour;
+    //return sumTour;
 }
 
 function getPrice()
@@ -163,8 +164,9 @@ function getPrice()
             var flightPrice = "<?php echo $flightTimeAndDate["FlightPrice"] ?>";
             var p =document.getElementById('Price'); 
             p.style.display = 'block';
-            p.text = flightPrice + " NOK" 
+            //p.text = flightPrice + " NOK" 
             p.value = flightPrice;
+             
            
         }
         
@@ -201,7 +203,8 @@ function getPrice()
             <option disabled selected>- Select time -</option>
         </select>
        
-        
+        <label for="inputPrice">Price</label>
+       <input readonly  type="text" id="Price" name="givenPrice" value="0" >NOK</input>
     </div>
        
             
@@ -211,21 +214,21 @@ function getPrice()
 
                             <label for="inputProductID" >Select your desired products</label>
                          
-                            <select name="givenFoodID" required>
+                            <select id="Food" name="givenFoodID" required>
                                <option value="None" selected>- no food selected -</option>
                                 <?php foreach($foods as $food): ?> 
                                          <option value="<?php echo $food["ProductID"];?>"><?php echo $food["ProductName"];?>  <?php echo "NOK." . $food["ProductPrice"].",-" ;  ?></option>
                                 <?php endforeach; ?>
                             </select>
 
-                            <select name="givenDrinkID" required>
+                            <select id="Drink" name="givenDrinkID" required>
                               <option value="None" selected>- no drink selected -</option>
                                 <?php foreach($drinks as $drink): ?> 
                                <option value="<?php echo $drink["ProductID"]; ?>"><?php echo $drink["ProductName"];?>  <?php echo "NOK." . $drink["ProductPrice"].",-" ; ?></option>
                                 <?php endforeach; ?>
                             </select>
 
-                            <select name="givenDutyFreeID" required>
+                            <select id="Dutyfree" name="givenDutyFreeID" required>
                               <option value="None" selected>- no duty free selected -</option>
                                 <?php foreach($dutyfrees as $dutyfree): ?> 
                                          <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];?>  <?php echo "NOK." . $dutyfree["ProductPrice"].",-" ; ?></option>
@@ -235,9 +238,7 @@ function getPrice()
                             </div>
         
         
-        <label for="inputPrice">Price</label>
-        <input readonly  type="text" id="Price" name="givenPrice" value="0" ><p>NOK</p>
-        
+            
         
         
         
