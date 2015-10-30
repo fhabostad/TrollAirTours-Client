@@ -44,7 +44,7 @@ $Drink          = $_SESSION['givenDrinkName'];
 $Food           = $_SESSION['givenFoodName'];
 $DutyFree       = $_SESSION['givenDutyFreeName'];      
 $Seat           = $_SESSION["givenSeatNumber"];
-$FlightPrice    = $_SESSION["givenFlighPrice"];
+$FlightPrice    = $_SESSION["givenPrice"];
 $FoodPrice      = $_SESSION["givenFoodPrice"];
 $DutyFreePrice  = $_SESSION["givenDutyFreePrice"];
 $DrinkPrice     = $_SESSION["givenDrinkPrice"];
@@ -98,8 +98,17 @@ $html   .=  "<p><b>Date of Issue:</b> {$date}</p>";
 $html   .= "<p><b>Name:</b> {$FirstName} {$LastName}</p>";
 $html   .= "<p><b>Tour:</b> {$Fligthnr } {$Dest} </P>"; 
 $html   .= "<p><b>Date</b> {$Date} <b>Departure</b> {$Time}</p>";
-$html   .= "<P><b>Seat</b> {$Seat}</p>";  
-$html   .= "<p><b>Extra Orders:</b> {$Drink} {$DrinkPrice}, {$Food}, {$DutyFree}";
+$html   .= "<P><b>Seat</b> {$Seat}</p>";
+$html   .= "<p><b>Flight:</b>";
+$html   .= "<p><b>Your prices</b>";
+$html   .= "<p>Flight:                  Nok {$FlightPrice}";
+$html   .= "<p>Food:     {$Food}        Nok {$FoodPrice}";
+$html   .= "<p>Drink:    {$Drink}       Nok {$DrinkPrice}";
+$html   .= "<p>Dutyfree: {$DutyFree}    Nok {$DutyFreePrice}";
+$html   .= "<p><b>TOTAL: Nok ";
+       
+
+
 $html   .= "<p><img src='$urlRelativeFilePath'></p>";
 $html   .= '</body></html>';
 $mpdf->WriteHTML($html);    

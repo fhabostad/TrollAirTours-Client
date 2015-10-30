@@ -129,7 +129,7 @@ class BookingController extends Controller {
             {
                 $_SESSION["givenDutyFreeName"] = "None";
             }
-            echo $_SESSION["givenPrice"]; 
+          //  echo $_SESSION["givenPrice"]; 
             //echo $_SESSION["givenFoodPrice"];
             //echo $_SESSION["givenDrinkPrice"];
             //echo $_SESSION["givenDutyFreePrice"];        
