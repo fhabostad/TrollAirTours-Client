@@ -115,6 +115,7 @@ function switchForm()
     document.getElementById('datepicker').value = "";
     document.getElementById('datepicker').value = "";
     clearTimeDrop();
+    var sumTour = 0;
     var e = document.getElementById('preDefTour');
     var f = document.getElementById('Custom-form-stepone');
     var g = document.getElementById('preDefTourNext');
@@ -124,23 +125,28 @@ function switchForm()
             e.style.display = 'block';
             f.style.display = 'none';
             g.style.display = 'block';
-            h.style.display = 'none';
+            h.style.display = 'none';           
+            sumTour = sumTour + 2500;
     }else if(document.getElementById('Briksdalen').checked) {
             e.style.display = 'block';
             f.style.display = 'none';
             g.style.display = 'block';
             h.style.display = 'none';
+            sumTour = sumTour + database.getprice();
     }else if(document.getElementById('Aakneset').checked) {
             e.style.display = 'block';
             f.style.display = 'none';
             g.style.display = 'block';
             h.style.display = 'none';
+            sumTour = sumTour + 2500;
     }else if(document.getElementById('Custom').checked) {
             e.style.display = 'none';
             f.style.display = 'block';
             g.style.display = 'none';
             h.style.display = 'block';
+            sumTour = sumTour + 2500;
     } 
+    return sumTour;
 }
 
 
@@ -185,21 +191,21 @@ function switchForm()
                             <select name="givenFoodID" required>
                                <option value="None" selected>- no food selected -</option>
                                 <?php foreach($foods as $food): ?> 
-                                         <option value="<?php echo $food["ProductID"]; ?>"><?php echo $food["ProductName"];  ?></option>
+                                         <option value="<?php echo $food["ProductID"];?>"><?php echo $food["ProductName"];?>  <?php echo "NOK." . $food["ProductPrice"].",-" ;  ?></option>
                                 <?php endforeach; ?>
                             </select>
 
                             <select name="givenDrinkID" required>
                               <option value="None" selected>- no drink selected -</option>
                                 <?php foreach($drinks as $drink): ?> 
-                               <option value="<?php echo $drink["ProductID"]; ?>"><?php echo $drink["ProductName"];  ?></option>
+                               <option value="<?php echo $drink["ProductID"]; ?>"><?php echo $drink["ProductName"];?>  <?php echo "NOK." . $drink["ProductPrice"].",-" ; ?></option>
                                 <?php endforeach; ?>
                             </select>
 
                             <select name="givenDutyFreeID" required>
                               <option value="None" selected>- no duty free selected -</option>
                                 <?php foreach($dutyfrees as $dutyfree): ?> 
-                                         <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];  ?></option>
+                                         <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];?>  <?php echo "NOK." . $dutyfree["ProductPrice"].",-" ; ?></option>
                                 <?php endforeach; ?>
                             </select>
 

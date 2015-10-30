@@ -7,6 +7,7 @@ class FlightModel {
     const TABLE = "Flight"; //Flight table
     const SELECT_QUERY = "SELECT * FROM " . FlightModel::TABLE; //Select all from Flight 
     const SELECT_TIME_WHERE_FLIGHTID_QUERY = "SELECT Departure FROM " . FlightModel::TABLE . " WHERE FlightID = ?";
+    //const SELECT_WHERE_FLIGHTPRICE_QUERY = "SELECT FlightPrice FROM " . FlightModel::TABLE . " WHERE FlightPrice = ?";
     const SELECT_DATE_QUERY = "SELECT FlightDate FROM " . FlightModel::TABLE . " WHERE TourType = ?"; //Select all FlightDate where TourType = given parameter.
     const SELECT_DATE_TIME_QUERY = "SELECT Flight.FlightDate, Flight.Departure, Flight.TourType, Flight.FlightID FROM " . FlightModel::TABLE; 
     const INSERT_QUERY = "INSERT INTO " . FlightModel::TABLE . " (FlightID,RegID,FlightDate,Departure,TourType) VALUES (:FlightID,:RegID,:FlightDate,:Departure,:TourType)"; //Insert complete flight from parameter
@@ -17,6 +18,7 @@ class FlightModel {
     private $selDateStmt;
     private $selDateTimeStmt;
     private $selTimeWhrId;
+    private $selPriceStmt;
     private $addStmt;
 
     public function __construct(PDO $dbConn) {
@@ -25,6 +27,7 @@ class FlightModel {
         $this->selDateStmt = $this->dbConn->prepare(FlightModel::SELECT_DATE_QUERY);
         $this->selTimeWhrId = $this->dbConn->prepare(FlightModel::SELECT_TIME_WHERE_FLIGHTID_QUERY);
         $this->selDateTimeStmt = $this->dbConn->prepare(FlightModel::SELECT_DATE_TIME_QUERY);
+      //  $this->selPriceStmt = $this->prepare(FlightModel::SELECT_WHERE_FLIGHTPRICE_QUERY);
         $this->selStmt = $this->dbConn->prepare(FlightModel::SELECT_QUERY);
         $this->delStmt = $this->dbConn->prepare(FlightModel::DELETE_QUERY);
     }
@@ -56,7 +59,12 @@ class FlightModel {
         $this->selTimeWhrId->execute(array($flightID));
         return $this->selTimeWhrId->fetchAll(PDO::FETCH_ASSOC);
     }
-
+    
+        public function getAllPrices($FlightPrice) {
+        // Fetch all Aircraft as associative arrays
+        $this->selPriceStmt->execute(array($FlightPrice));
+        return $this->selPriceStmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     /**
      * Try to add a new aircraft
      *
