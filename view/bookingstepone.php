@@ -7,7 +7,9 @@ $flightTimesAndDates = $GLOBALS["flightDateAndTimes"];
 $foods = $GLOBALS["foods"];
 $drinks = $GLOBALS["drinks"];
 $dutyfrees = $GLOBALS["dutyfrees"];
-
+//$tourPriceGeiranger = $GLOBALS["Geiranger"];
+//$tourPriceBriksdalen = $GLOBALS["Briksdalen"];
+//$tourPriceAakneset = $GLOBALS["Aakneset"];
 ?>
 
 
@@ -106,7 +108,7 @@ dateFormat: "dd.mm.yy",
         
     <?php } ?>
     
-     
+     getPrice()
  }
 
 
@@ -126,29 +128,49 @@ function switchForm()
             f.style.display = 'none';
             g.style.display = 'block';
             h.style.display = 'none';           
-            sumTour = sumTour + 2500;
+          //  sumTour = "<?php $tourPriceGeiranger ?>";
+           // window.alert(sumTour);
     }else if(document.getElementById('Briksdalen').checked) {
             e.style.display = 'block';
             f.style.display = 'none';
             g.style.display = 'block';
             h.style.display = 'none';
-            sumTour = sumTour + database.getprice();
+           // sumTour = sumTour + database.getprice();
     }else if(document.getElementById('Aakneset').checked) {
             e.style.display = 'block';
             f.style.display = 'none';
             g.style.display = 'block';
             h.style.display = 'none';
-            sumTour = sumTour + 2500;
+           // sumTour = sumTour + 2500;
     }else if(document.getElementById('Custom').checked) {
             e.style.display = 'none';
             f.style.display = 'block';
             g.style.display = 'none';
             h.style.display = 'block';
-            sumTour = sumTour + 2500;
+           // sumTour = sumTour + 2500;
     } 
     return sumTour;
 }
 
+function getPrice()
+{
+    var selectedFlight = document.getElementById('TimeList').value;
+    
+    <?php foreach($flightTimesAndDates as $flightTimeAndDate)
+    {?>
+        if ( "<?php echo $flightTimeAndDate["FlightID"] ?>" ==  selectedFlight)
+        {
+            var flightPrice = "<?php echo $flightTimeAndDate["FlightPrice"] ?>";
+            var p =document.getElementById('Price'); 
+            p.style.display = 'block';
+            p.text = flightPrice + " NOK" 
+            p.value = flightPrice;
+           
+        }
+        
+    <?php } ?>
+    
+}
 
 
 
@@ -175,13 +197,14 @@ function switchForm()
         <input readonly  type="text" id="datepicker" name="givenDate" placeholder="Select Date" onchange="timedrop()" >
         
         <label for="inputTime" >Select time</label>
-        <select id="TimeList" name="selectedFlightID">
+        <select id="TimeList" name="selectedFlightID" onchange="getPrice()" >
             <option disabled selected>- Select time -</option>
         </select>
        
         
     </div>
-
+       
+            
 
 
                         <div id="product-form">
@@ -210,7 +233,14 @@ function switchForm()
                             </select>
 
                             </div>
-
+        
+        
+        <label for="inputPrice">Price</label>
+        <input readonly  type="text" id="Price" name="givenPrice" value="0" ><p>NOK</p>
+        
+        
+        
+        
     </form>
 
 </div>

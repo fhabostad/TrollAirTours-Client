@@ -65,7 +65,7 @@ class BookingController extends Controller {
             $_SESSION["givenDrinkID"]           = filter_input(INPUT_POST, "givenDrinkID");
             $_SESSION["givenDutyFreeID"]        = filter_input(INPUT_POST, "givenDutyFreeID");
             $_SESSION["givenProductPrice"]      = filter_input(INPUT_POST, "givenProductPrice");
-             
+            
                       
            
             $foodID         = $productModel->getAllWhereProductID($_SESSION["givenFoodID"]);
@@ -277,10 +277,17 @@ class BookingController extends Controller {
         $foods = $productModel->getAllWhereProductType(array("Food")); //Fetches an array of all Food products
         $drinks = $productModel->getAllWhereProductType(array("Drink")); //Fetches an array of all Drink products
         $dutyfrees = $productModel->getAllWhereProductType(array("DutyFree")); //Fetches an array of all Dutyfree products
+       // $tourPriceGeiranger = $flightModel ->getAllPrices(array("Geiranger"));
+       // $tourPriceBriksdalen = $flightModel ->getAllPrices(array("Briksdalen"));
+       // $tourPriceAakneset = $flightModel ->getAllPrices(array("Aakneset"));
+        
         $data = array( // Puts food,drink and dutyfree in a array variable
         "foods" => $foods,
         "drinks" => $drinks,
         "dutyfrees" => $dutyfrees,
+   //     "Geiranger" => $tourPriceGeiranger,
+    //    "Briksdalen" => $tourPriceBriksdalen,
+    //    "Aakneset" => $tourPriceAakneset,    
          );
         
         $flightModel = $GLOBALS["flightModel"];

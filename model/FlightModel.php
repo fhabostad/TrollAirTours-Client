@@ -7,9 +7,9 @@ class FlightModel {
     const TABLE = "Flight"; //Flight table
     const SELECT_QUERY = "SELECT * FROM " . FlightModel::TABLE; //Select all from Flight 
     const SELECT_TIME_WHERE_FLIGHTID_QUERY = "SELECT Departure FROM " . FlightModel::TABLE . " WHERE FlightID = ?";
-    //const SELECT_WHERE_FLIGHTPRICE_QUERY = "SELECT FlightPrice FROM " . FlightModel::TABLE . " WHERE FlightPrice = ?";
+    const SELECT_FLIGHTPRICE_WHERE_TOURTYPE = "SELECT FlightPrice FROM " . FlightModel::TABLE . " WHERE TourType = ?";
     const SELECT_DATE_QUERY = "SELECT FlightDate FROM " . FlightModel::TABLE . " WHERE TourType = ?"; //Select all FlightDate where TourType = given parameter.
-    const SELECT_DATE_TIME_QUERY = "SELECT Flight.FlightDate, Flight.Departure, Flight.TourType, Flight.FlightID FROM " . FlightModel::TABLE; 
+    const SELECT_DATE_TIME_QUERY = "SELECT Flight.FlightDate, Flight.Departure, Flight.TourType, Flight.FlightID, Flight.FlightPrice FROM " . FlightModel::TABLE; 
     const INSERT_QUERY = "INSERT INTO " . FlightModel::TABLE . " (FlightID,RegID,FlightDate,Departure,TourType) VALUES (:FlightID,:RegID,:FlightDate,:Departure,:TourType)"; //Insert complete flight from parameter
     const DELETE_QUERY = "DELETE FROM" . FlightModel::TABLE . " WHERE FlightID= ?"; //Delete Flight where flightID equals given parameter
     
@@ -27,7 +27,7 @@ class FlightModel {
         $this->selDateStmt = $this->dbConn->prepare(FlightModel::SELECT_DATE_QUERY);
         $this->selTimeWhrId = $this->dbConn->prepare(FlightModel::SELECT_TIME_WHERE_FLIGHTID_QUERY);
         $this->selDateTimeStmt = $this->dbConn->prepare(FlightModel::SELECT_DATE_TIME_QUERY);
-      //  $this->selPriceStmt = $this->prepare(FlightModel::SELECT_WHERE_FLIGHTPRICE_QUERY);
+        $this->selPriceStmt = $this->dbConn->prepare(FlightModel::SELECT_FLIGHTPRICE_WHERE_TOURTYPE);
         $this->selStmt = $this->dbConn->prepare(FlightModel::SELECT_QUERY);
         $this->delStmt = $this->dbConn->prepare(FlightModel::DELETE_QUERY);
     }
@@ -60,9 +60,9 @@ class FlightModel {
         return $this->selTimeWhrId->fetchAll(PDO::FETCH_ASSOC);
     }
     
-        public function getAllPrices($FlightPrice) {
+        public function getAllPrices($TourType) {
         // Fetch all Aircraft as associative arrays
-        $this->selPriceStmt->execute(array($FlightPrice));
+        $this->selPriceStmt->execute(array($TourType));
         return $this->selPriceStmt->fetchAll(PDO::FETCH_ASSOC);
     }
     /**
