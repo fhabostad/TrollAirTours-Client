@@ -298,20 +298,12 @@ class BookingController extends Controller {
         $seatReservationModel = $GLOBALS["seatReservationModel"];
         $seatReservationModel->add($_SESSION["givenSeatNumber"], $_SESSION["CustomerID"], $_SESSION["BookingID"], "DKA88", $_SESSION["selectedFlightID"] );
         
-<<<<<<< HEAD
+
        $seatReservation_ProductModel = $GLOBALS["seatReservation_ProductModel"];
        $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenFoodID"], $_SESSION["selectedFlightID"] );
        $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenDrinkID"], $_SESSION["selectedFlightID"] );
        $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenDutyFreeID"], $_SESSION["selectedFlightID"] );
-=======
-        $seatReservation_ProductModel = $GLOBALS["seatReservation_ProductModel"];
-        $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],$_SESSION["givenFoodID"], $_SESSION["selectedFlightID"] ); //Adding Food
-        $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],$_SESSION["givenDrinkID"], $_SESSION["selectedFlightID"] ); //Adding Drink
-        $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],$_SESSION["givenDutyFreeID"], $_SESSION["selectedFlightID"] ); //Adding DutyFree
-
-
-      
->>>>>>> origin/master
+         
    }
        
 
