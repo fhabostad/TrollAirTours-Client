@@ -44,6 +44,12 @@ $Drink          = $_SESSION['givenDrinkName'];
 $Food           = $_SESSION['givenFoodName'];
 $DutyFree       = $_SESSION['givenDutyFreeName'];      
 $Seat           = $_SESSION["givenSeatNumber"];
+$FlightPrice    = $_SESSION["givenFlighPrice"];
+$FoodPrice      = $_SESSION["givenFoodPrice"];
+$DutyFreePrice  = $_SESSION["givenDutyFreePrice"];
+$DrinkPrice     = $_SESSION["givenDrinkPrice"];
+
+
 
 ob_start();
 require 'controller/Fpdf.php';
@@ -93,7 +99,7 @@ $html   .= "<p><b>Name:</b> {$FirstName} {$LastName}</p>";
 $html   .= "<p><b>Tour:</b> {$Fligthnr } {$Dest} </P>"; 
 $html   .= "<p><b>Date</b> {$Date} <b>Departure</b> {$Time}</p>";
 $html   .= "<P><b>Seat</b> {$Seat}</p>";  
-$html   .= "<p><b>Extra Orders:</b> {$Drink}, {$Food}, {$DutyFree}";
+$html   .= "<p><b>Extra Orders:</b> {$Drink} {$DrinkPrice}, {$Food}, {$DutyFree}";
 $html   .= "<p><img src='$urlRelativeFilePath'></p>";
 $html   .= '</body></html>';
 $mpdf->WriteHTML($html);    

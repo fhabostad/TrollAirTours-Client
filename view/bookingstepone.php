@@ -163,7 +163,7 @@ function getPrice()
         {
             var flightPrice = "<?php echo $flightTimeAndDate["FlightPrice"] ?>";
             var p =document.getElementById('Price'); 
-            p.style.display = 'block';
+            //p.style.display = 'block';
             //p.text = flightPrice + " NOK" 
             p.value = flightPrice;
              
@@ -203,8 +203,8 @@ function getPrice()
             <option disabled selected>- Select time -</option>
         </select>
        
-        <label for="inputPrice">Price</label>
-       <input readonly  type="text" id="Price" name="givenPrice" value="0" >NOK</input>
+        <label for="inputPrice">Price Flight (NOK)</label>
+       <input readonly  type="text" id="Price" name="givenPrice" value="0" ></input>
     </div>
        
             
