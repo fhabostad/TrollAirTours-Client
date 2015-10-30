@@ -49,7 +49,8 @@ $takenSeats = $GLOBALS["takenSeats"];
 <div id="main-top-booking">
     <div id="main-top-overlay-booking">
        
-<div id="planechart"  onload="updateSeats()">
+<div id="planechart"   onload="updateSeats()" >
+    <img src="image/planechart.png" />
             <form id="bookingstepTwoForm" action="?page=bookingThree" method="post">
                 <ul class="select-seat-row-one" >
                     <li>
@@ -104,7 +105,6 @@ $takenSeats = $GLOBALS["takenSeats"];
                     </li>
                 </ul>
             </form>
-
 </div>
 
 

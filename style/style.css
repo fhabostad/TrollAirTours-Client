@@ -11,6 +11,7 @@ and open the template in the editor.
 body, html { 
     overflow-x: hidden; 
     overflow-y: auto;
+    height: 100%;
 }
 body
 {
@@ -843,16 +844,14 @@ input[type="number"] {
 #planechart
 {
    display:block;
-   width: 60%;
+   width: 50%;
    margin-left: auto;
    margin-right: auto;
    height: 50%;
    border: 1px solid transparent;
-   background-image: url('../image/planechart.png');
-   background-repeat: no-repeat;
-   background-size:contain;
+   border: 1px solid red;
    margin-top: 10%;
-   
+   position: relative;
 }
 
 #planechart ul
@@ -860,21 +859,32 @@ input[type="number"] {
    display:block;
    overflow:hidden;
    margin:0;
-   width: 50%;
+   width: 39%;
+   height: 100%;
    padding:0;
    margin-left: auto;
    margin-right: auto;
    
 }
 
+#planechart img
+{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    border: 1px solid blue;
+    width: 100%;
+    height: 100%;
+}
+
 #planechart ul:first-child
 {
- margin-top: 10%;
+ margin-top: 14%;
 }
 
 #planechart ul:last-child
 {
- margin-top: 7%;
+ margin-top: 5%;
 }
 
 
@@ -884,23 +894,28 @@ input[type="number"] {
      
 .select-seat-row-one {
      list-style-type:none;
-     width:25%;
+     width:100%;
      margin-top: 25em;
      margin-left: auto;
      margin-right: auto;
+     height: 100%;
+     overflow: hidden;
     
 }
 
 
 .select-seat-row-one li {
-    float:left;
-    margin:0.8em;
-    width:50px;
-    height:40px;
-    position:relative;
-    text-align: center;
-    
 
+    float:left;
+    margin:2.5%;
+    width:11%;
+    height: 2.5em;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    font-size: 1em;
+    margin-top: 0;
+    margin-left: 3%;
 }
 
 .select-seat-row-one label, .select-seat-row-one input {
@@ -936,6 +951,7 @@ input[type="number"] {
 .select-seat-row-two {
      list-style-type:none;
      width:25%;
+     height: 2em;
      margin-top: 25em;
      margin-left: auto;
      margin-right: auto;
@@ -944,12 +960,16 @@ input[type="number"] {
 
 .select-seat-row-two li {
     float:left;
-    margin:0.8em;
-    width:50px;
-    height:40px;
+    margin:2.5%;
+    width:11%;
+    height: 2.5em;
     overflow: hidden;
     position: relative;
     text-align: center;
+    font-size: 1em;
+    margin-top: 0;
+    margin-left: 3%;
+
 
 }
 
@@ -985,22 +1005,70 @@ input[type="number"] {
 
 
 
-@media screen and (max-width: 1730px){
+@media screen and (max-width: 1730px){ //125%
 #main-top-overlay /* Home page info box*/
  {
   width: 50%;
   height: 80%;
  }
+ 
+
+
+#planechart ul:first-child
+{
+ margin-top: 14%;
+}
+
+#planechart ul:last-child
+{
+ margin-top: 5%;
+}
+
+     
+
+
+
+ 
+ 
    
 }
 
-@media screen and (max-width: 1500px){
+@media screen and (max-width: 1500px){ //150%
 #main-top-overlay /* Home page info box*/
  {
   margin-top: 2em;
   width: 80%;
   height: 80%;
  }
+ 
+ #planechart ul:first-child
+{
+ margin-top: 13%;
+}
+
+#planechart ul:last-child
+{
+ margin-top: 9%;
+}
+
+
+
+.select-seat-row-two li {
+
+    height: 2em;
+    width: 11%;
+    font-size: 0.8em;
+
+
+}
+ 
+ .select-seat-row-one li {
+
+    height: 2em;
+    font-size: 0.8em;
+    width: 11%;
+
+}
    
 }
 
