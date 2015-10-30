@@ -37,11 +37,14 @@ $CountryCode    = $_SESSION['givenCountry_code'].
 $Phone          = $_SESSION['givenPhone_number'];
 $Email          = $_SESSION['givenEmail'];
 $Dest           = $_SESSION['givenDestination'];
+$Fligthnr       = $_SESSION["selectedFlightID"];
 $Date           = $_SESSION['givenDate'];
 $Time           = $_SESSION['givenTime'];
 $Drink          = $_SESSION['givenDrinkName'];
 $Food           = $_SESSION['givenFoodName'];
 $DutyFree       = $_SESSION['givenDutyFreeName'];      
+$Seat           = $_SESSION["givenSeatNumber"];
+
 ob_start();
 require 'controller/Fpdf.php';
 require 'vendor/phpmailer/phpmailer/PHPMailerautoload.php';
@@ -50,7 +53,7 @@ require_once ('vendor/phpqrcode/qrlib.php');
 
 // This makes the QR code
 $tempDir = 'bookings/';
-$codeContents = "{$Ref} -- {$RefCust} - {$Gender} - {$Birth} - {$FirstName} - {$LastName} - {$Adress} - {$ZipCode} - {$City} - {$Country} - {$CountryCode} - {$Phone} - {$Email} - {$Dest} - {$Date} - {$Time} - {$Drink} - {$Food} - {$DutyFree}";
+$codeContents = "{$Ref} -- {$RefCust} - {$Gender} - {$Birth} - {$FirstName} - {$LastName} - {$Adress} - {$ZipCode} - {$City} - {$Country} - {$CountryCode} - {$Phone} - {$Email} - {$Dest} - {$Date} - {$Time} - $Seat - {$Drink} - {$Food} - {$DutyFree}";
 $qfileName = '005_file_'.md5($codeContents).'.png';
 $pngAbsoluteFilePath = $tempDir.$qfileName;
 $urlRelativeFilePath = "bookings/$qfileName";
@@ -78,19 +81,21 @@ $mpdf->Image('/style/booking.png',0,0,105,143,'png','',true, false);
 //	<th>Electronic Ticket Itinerary and Receipt</th>';
      
      
-$html = '<html><body>';
+$html   = '<html><body>';
 //$html.= "<img src='style/booking.png',0,0,210,297,'png' alt=''>";
-$html.= '<div style="text-align:center;"><img src="image/test.png"/></div>'; // Troll Logo
-$html .= '<table class = "bpmTopnTailC" align="center"><thead>
-         <tr class="headerrow">
-         <th>Electronic Ticket Itinerary and Receipt</th></table>';
-$html.=  "<p><b>Booking Reference:</b> TAT{$Ref}</p>";
-$html.=  "<p><b>Date of Issue:</b> {$date}</p>";
-$html .= "<p><b>Name:</b> {$FirstName} {$LastName}</p>";
-$html .= "<p><b>Tour:</b> {$Dest} <b>Date</b> {$Date} <b>Departure</b> {$Time}</p>";
-$html.= "<p><b>Extra Orders:</b> {$Drink}, {$Food}, {$DutyFree}";
-$html.= "<p><img src='$urlRelativeFilePath'></p>";
-$html .= '</body></html>';
+$html   .= '<div style="text-align:center;"><img src="image/test.png"/></div>'; // Troll Logo
+$html   .= '<table class = "bpmTopnTailC" align="center"><thead>
+            <tr class="headerrow">
+            <th>Electronic Ticket Itinerary and Receipt</th></table>';
+$html   .=  "<p><b>Booking Reference:</b> TAT{$Ref}</p>";
+$html   .=  "<p><b>Date of Issue:</b> {$date}</p>";
+$html   .= "<p><b>Name:</b> {$FirstName} {$LastName}</p>";
+$html   .= "<p><b>Tour:</b> {$Fligthnr } {$Dest} </P>"; 
+$html   .= "<p><b>Date</b> {$Date} <b>Departure</b> {$Time}</p>";
+$html   .= "<P><b>Seat</b> {$Seat}</p>";  
+$html   .= "<p><b>Extra Orders:</b> {$Drink}, {$Food}, {$DutyFree}";
+$html   .= "<p><img src='$urlRelativeFilePath'></p>";
+$html   .= '</body></html>';
 $mpdf->WriteHTML($html);    
 $mpdf->Output($filename);
 
@@ -121,9 +126,11 @@ $mail->addAttachment($filename) ;
 
 if (!$mail->send()) {
    echo "Mailer Error: " . $mail->ErrorInfo;
+   
 } else {
    unlink($filename);
    unlink($urlRelativeFilePath);
+
    exit();
    //echo "Message sent!";
 }
