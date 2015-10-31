@@ -174,7 +174,7 @@ class BookingController extends Controller {
                 $_SESSION["givenCountry_code"]   = filter_input(INPUT_POST, "givenCountry_code");
                 $_SESSION["givenPhone_number"]   = filter_input(INPUT_POST, "givenPhone_number");
                 $_SESSION["givenEmail"]          = filter_input(INPUT_POST, "givenEmail");
-                
+               
                 /*                
                 $_SESSION["givenGender"]            = $givenGender;
                 $_SESSION["givenFirst_name"]        = $givenFirst_name;

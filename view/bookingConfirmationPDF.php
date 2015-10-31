@@ -48,7 +48,10 @@ $FlightPrice    = $_SESSION["givenPrice"];
 $FoodPrice      = $_SESSION["givenFoodPrice"];
 $DutyFreePrice  = $_SESSION["givenDutyFreePrice"];
 $DrinkPrice     = $_SESSION["givenDrinkPrice"];
+$TotalPrice     = $FlightPrice + $FoodPrice + $DutyFreePrice + $DrinkPrice;
 
+
+  
 
 
 ob_start();
@@ -59,7 +62,7 @@ require_once ('vendor/phpqrcode/qrlib.php');
 
 // This makes the QR code
 $tempDir = 'bookings/';
-$codeContents = "{$Ref} -- {$RefCust} - {$Gender} - {$Birth} - {$FirstName} - {$LastName} - {$Adress} - {$ZipCode} - {$City} - {$Country} - {$CountryCode} - {$Phone} - {$Email} - {$Dest} - {$Date} - {$Time} - $Seat - {$Drink} - {$Food} - {$DutyFree}";
+$codeContents = "BookingRef:{$Ref} -- CustomerID:{$RefCust} - Gender:{$Gender} - Birthdate{$Birth} - First Name{$FirstName} - Last Name:{$LastName} - Address:{$Adress} - Zipcode:{$ZipCode} - City:{$City} - Country:{$Country} - Areacode:{$CountryCode} - Phone Number:{$Phone} - E-mail:{$Email} - Destination:{$Dest} - Date:{$Date} - Time:{$Time} - Seat Number:{$Seat} - Ordered Flight:{$FlightPrice} NOK - Orderd Drink:{$Drink} NOK {$DrinkPrice}  - Ordered Food:{$Food} NOK {$FoodPrice} - Ordered Dutyfree{$DutyFree} NOK {$DutyFreePrice} - Total Cost NOK {$TotalPrice}";
 $qfileName = '005_file_'.md5($codeContents).'.png';
 $pngAbsoluteFilePath = $tempDir.$qfileName;
 $urlRelativeFilePath = "bookings/$qfileName";
@@ -76,17 +79,7 @@ $date = date("d-m-Y");
 //$mpdf->SetProtection(array(), 'UserPassword', $Birth);
 $filename="bookings/{$LastName}_{$FirstName}_Booking.pdf";
 $mpdf->Image('/style/booking.png',0,0,105,143,'png','',true, false);
-// the last "false" allows a full page picture
-//$stylesheet = file_get_contents('/style/style.css'); // external css
-//$stylesheet = file_get_contents('/style/style.css');
-//$mpdf->WriteHTML($stylesheet, 1);
 
-//$html = "<html><<img src='style/booking.png',0,0,210,297,'png' alt=''>";
-//$html .= '<table class = "bpmTopnTailC" align="center"><thead>
-//	<tr class="headerrow">
-//	<th>Electronic Ticket Itinerary and Receipt</th>';
-     
-     
 $html   = '<html><body>';
 //$html.= "<img src='style/booking.png',0,0,210,297,'png' alt=''>";
 $html   .= '<div style="text-align:center;"><img src="image/test.png"/></div>'; // Troll Logo
@@ -99,13 +92,12 @@ $html   .= "<p><b>Name:</b> {$FirstName} {$LastName}</p>";
 $html   .= "<p><b>Tour:</b> {$Fligthnr } {$Dest} </P>"; 
 $html   .= "<p><b>Date</b> {$Date} <b>Departure</b> {$Time}</p>";
 $html   .= "<P><b>Seat</b> {$Seat}</p>";
-$html   .= "<p><b>Flight:</b>";
-$html   .= "<p><b>Your prices</b>";
-$html   .= "<p>Flight:                  Nok {$FlightPrice}";
-$html   .= "<p>Food:     {$Food}        Nok {$FoodPrice}";
-$html   .= "<p>Drink:    {$Drink}       Nok {$DrinkPrice}";
-$html   .= "<p>Dutyfree: {$DutyFree}    Nok {$DutyFreePrice}";
-$html   .= "<p><b>TOTAL: Nok ";
+$html   .= "<p><b>Cost</b>";
+$html   .= "<p>Flight:                  Nok {$FlightPrice},-";
+$html   .= "<p>Food:     {$Food}        Nok {$FoodPrice},-";
+$html   .= "<p>Drink:    {$Drink}       Nok {$DrinkPrice},-";
+$html   .= "<p>Dutyfree: {$DutyFree}    Nok {$DutyFreePrice},-";
+$html   .= "<p><b>TOTAL:</b>            Nok {$TotalPrice},-";
        
 
 
@@ -124,7 +116,7 @@ $mail = new PHPMailer;
 
 //Tell PHPMailer to use SMTP
 $mail->isSMTP();
-//$mail->Host = 'smtp.gmail.com';
+$mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
@@ -142,16 +134,16 @@ $mail->addAttachment($filename) ;
 if (!$mail->send()) {
    echo "Mailer Error: " . $mail->ErrorInfo;
    // Unset all of the session variables.
-$_SESSION = array();
+  $_SESSION = array();
 
-// If it's desired to kill the session, also delete the session cookie.
-// Note: This will destroy the session, and not just the session data!
-if (ini_get("session.use_cookies")) {
-    $params = session_get_cookie_params();
-    setcookie(session_name(), '', time() - 42000,
-        $params["path"], $params["domain"],
-        $params["secure"], $params["httponly"]
-    );
+  // If it's desired to kill the session, also delete the session cookie.
+  // Note: This will destroy the session, and not just the session data!
+  if (ini_get("session.use_cookies")) {
+  $params = session_get_cookie_params();
+  setcookie(session_name(), '', time() - 42000,
+    $params["path"], $params["domain"],
+  $params["secure"], $params["httponly"]
+  );
 }
 
 // Finally, destroy the session.
@@ -165,21 +157,21 @@ session_destroy();
 
 // If it's desired to kill the session, also delete the session cookie.
 // Note: This will destroy the session, and not just the session data!
-    if (ini_get("session.use_cookies")) {
-    $params = session_get_cookie_params();
-    setcookie(session_name(), '', time() - 42000,
-        $params["path"], $params["domain"],
-        $params["secure"], $params["httponly"]
-    );
+   if (ini_get("session.use_cookies")) {
+   $params = session_get_cookie_params();
+   setcookie(session_name(), '', time() - 42000,
+       $params["path"], $params["domain"],
+       $params["secure"], $params["httponly"]
+   );
 }
 
 // Finally, destroy the session.
-    session_destroy();
+   session_destroy();
 
    exit();
    //echo "Message sent!";
 }
-?>
+
 
 
 

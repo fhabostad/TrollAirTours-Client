@@ -217,21 +217,21 @@ function getPrice()
                             <select id="Food" name="givenFoodID" required>
                                <option value="None" selected>- no food selected -</option>
                                 <?php foreach($foods as $food): ?> 
-                                         <option value="<?php echo $food["ProductID"];?>"><?php echo $food["ProductName"];?>  <?php echo "NOK." . $food["ProductPrice"].",-" ;  ?></option>
+                                         <option value="<?php echo $food["ProductID"];?>"><?php echo $food["ProductName"];?>  <?php echo " NOK " . $food["ProductPrice"].",-" ;  ?></option>
                                 <?php endforeach; ?>
                             </select>
 
                             <select id="Drink" name="givenDrinkID" required>
                               <option value="None" selected>- no drink selected -</option>
                                 <?php foreach($drinks as $drink): ?> 
-                               <option value="<?php echo $drink["ProductID"]; ?>"><?php echo $drink["ProductName"];?>  <?php echo "NOK." . $drink["ProductPrice"].",-" ; ?></option>
+                               <option value="<?php echo $drink["ProductID"]; ?>"><?php echo $drink["ProductName"];?>  <?php echo " NOK " . $drink["ProductPrice"].",-" ; ?></option>
                                 <?php endforeach; ?>
                             </select>
 
                             <select id="Dutyfree" name="givenDutyFreeID" required>
                               <option value="None" selected>- no duty free selected -</option>
                                 <?php foreach($dutyfrees as $dutyfree): ?> 
-                                         <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];?>  <?php echo "NOK." . $dutyfree["ProductPrice"].",-" ; ?></option>
+                                         <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];?>  <?php echo " NOK " . $dutyfree["ProductPrice"].",-" ; ?></option>
                                 <?php endforeach; ?>
                             </select>
 
