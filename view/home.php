@@ -30,7 +30,7 @@
                         
                         <div id="egendefinert-info">
                             <h2> Custom destination </h2>
-                            <p>Egendefinert er en nydelig plass i Stryn kommune, jallatext atext atext </p>
+                            <p> </p>
                         </div>
                      
                         
