@@ -824,9 +824,9 @@ input[type="number"] {
 #bookingCustomSummary input
 { 
     clear: both;
-    width: 40%;
+    width: 30%;
     margin-right: auto;
-    margin-left: 12em;
+    margin-left: 15em;
     margin-bottom: 5em;
     height: 100%;
 }
