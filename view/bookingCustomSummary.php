@@ -22,7 +22,7 @@
                                 <label>E-mail: <?php echo $_SESSION["givenEmail"];?></label>  
                                 <label>Telephone: <?php echo $_SESSION["givenPhone_number"];?></label>  
             
-                                <p>Please check that all the details are correct. :)</p>
+                                <p>Please check that all the details are correct.</p>
                                  
                                       
                                  

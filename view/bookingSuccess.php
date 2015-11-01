@@ -5,8 +5,11 @@
         <div id="bookingCustom">
          <div id="bookingSuccess">
              <h2>Success</h2>
-             <h3>You have now Sent a request for your customized tour! <br>
-             You will get an answer on your email within a few weekdays.</h3> 
+             <h3><p>Your Ref.nr: <?php echo $_SESSION['BookingID'] ?></p></h3>
+             <label><h3>You have now Sent a request for your customized tour!</label>
+             <label><p>We will send an answer to you email address <h4><?php echo "".$_SESSION['givenEmail']?></h4></label>
+             <label>within a few working days.</p></label>
+           
                                                                           
                                  
                                  
