@@ -48,7 +48,7 @@
                 <div id="main-bottom-booking">
                     <ul>
                         <li id="previous-booking-step">
-                            <a href="?page=bookingTwo"> <h3>Previous</h3></a>
+                            <a href="?page=bookingOne"> <h3>Previous</h3></a>
                         </li>
                         <li id="next-booking-step">
                             
