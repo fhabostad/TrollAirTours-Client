@@ -19,10 +19,10 @@
                                          
                             <h3>Extra Products</h3>
                             <label>Drink: <?php echo "".$_SESSION['givenDrinkName']. " NOK " . $_SESSION['givenDrinkPrice']?></label>
-                            <label>Food: <?php echo "".$_SESSION['givenFoodName']. " NOK " . $_SESSION['givenFoodPrice']?></label>
-                            <label>Dutyfree: <?php echo "".$_SESSION['givenDutyFreeName']. " NOK " . $_SESSION['givenDutyFreePrice']?></label>       
+                            <label>Food: <?php echo "".$_SESSION['givenFoodName']." NOK " . $_SESSION['givenFoodPrice']?></label>
+                            <label>Dutyfree: <?php echo "".$_SESSION['givenDutyFreeName']."  NOK " . $_SESSION['givenDutyFreePrice']?></label>       
    
-       </div>
+     
        <?php
                 $FlightPrice    = $_SESSION["givenPrice"];
                 $FoodPrice      = $_SESSION["givenFoodPrice"];
@@ -34,12 +34,11 @@
  
                 ?>
 
-                <div class="product">            
-                You will be charged: 
-                </div>
-                <div class="price">
-                <?php echo $TotalPrice?>Nok
-                </div>
+                         
+                            <h3>Your total cost:</h3> 
+                
+                            <label>NOK <?php echo $TotalPrice?></label>
+               
                 <div class="btn">
                 <form action="<?php echo $paypal_url; ?>" method="post" name="frmPayPal1">
                 <input type="hidden" name="business" value="<?php echo $paypal_id; ?>">
@@ -70,14 +69,14 @@
       
         
         <div id="main-bottom-booking">
-                    <ul>
-                        <li id="previous-booking-step">
-                            <a href="?page=bookingThree"> <h3>Previous</h3></a>
-                        </li>
-                        <li id="next-booking-step">
-                             <a href="?page=bookingConfirmation"> <h3>Confirm/Pay</h3></a>
-                          <!-- <a href="javascript:{}" onclick="document.getElementById('bookingstepthree').submit();"><h3>Next</h3></a>-->
+            
+                    <ul style="width:100%;">
+                        
+                       <li style="width:99%; text-align: center;">
+                            <!--<div id="preDefTourNext"><a href="javascript:{}" onclick="document.getElementById('bookingTwo').submit();"><h3>Next</h3></a></div> -->
+                            <div id="previous-booking-step"><a href="?page=bookingThree"><h3 text-align="center">Previous</h3></a></div>
                         </li>
                         
                     </ul>
                 </div>
+            
