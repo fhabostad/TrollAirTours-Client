@@ -76,7 +76,7 @@ $urlRelativeFilePath = "bookings/$qfileName";
     }
 $mpdf = new mPDF();
 $date = date("d-m-Y");
-//$mpdf->SetProtection(array(), 'UserPassword', $Birth);
+$mpdf->SetProtection(array(), 'UserPassword', $Birth);
 $filename="bookings/{$LastName}_{$FirstName}_Booking.pdf";
 $mpdf->Image('/style/booking.png',0,0,105,143,'png','',true, false);
 
