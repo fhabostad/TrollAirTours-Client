@@ -333,7 +333,7 @@ class BookingController extends Controller {
        $_SESSION["BookingID"] = $bookingModel->add($_SESSION["CustomerID"], "0");
         
        $seatReservationModel = $GLOBALS["seatReservationModel"];
-       $seatReservationModel->add($_SESSION["givenSeatNumber"], $_SESSION["CustomerID"], $_SESSION["BookingID"], "DKA88", $_SESSION["selectedFlightID"] );
+       $seatReservationModel->add($_SESSION["givenSeatNumber"], $_SESSION["CustomerID"], $_SESSION["BookingID"], "TAT88", $_SESSION["selectedFlightID"] );
         
        $seatReservation_ProductModel = $GLOBALS["seatReservation_ProductModel"];
        $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenFoodID"], $_SESSION["selectedFlightID"] );
