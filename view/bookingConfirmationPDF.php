@@ -78,11 +78,11 @@ $mpdf = new mPDF();
 $date = date("d-m-Y");
 $mpdf->SetProtection(array(), 'UserPassword', $Birth);
 $filename="bookings/{$LastName}_{$FirstName}_Booking.pdf";
-$mpdf->Image('/style/booking.png',0,0,105,143,'png','',true, false);
+//$mpdf->Image('/style/booking.png',0,0,105,143,'png','',true, false);
 
 $html   = '<html><body>';
 //$html.= "<img src='style/booking.png',0,0,210,297,'png' alt=''>";
-$html   .= '<div style="text-align:center;"><img src="image/test.png"/></div>'; // Troll Logo
+$html   .= '<div style="text-align:center;"><img src="image/tatlogo.jpg"/></div>'; // TAT Logo
 $html   .= '<table class = "bpmTopnTailC" align="center"><thead>
             <tr class="headerrow">
             <th>Electronic Ticket Itinerary and Receipt</th></table>';
