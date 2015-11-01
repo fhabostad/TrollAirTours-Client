@@ -39,7 +39,7 @@
                 
                             <label>NOK <?php echo $TotalPrice?></label>
                
-                <div class="btn">
+                
                 <form action="<?php echo $paypal_url; ?>" method="post" name="frmPayPal1">
                 <input type="hidden" name="business" value="<?php echo $paypal_id; ?>">
                 <input type="hidden" name="cmd" value="_xclick">
@@ -56,7 +56,7 @@
                 <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                 <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
                 </form> 
-    </div>
+
 </div>
        </div>
  </div>
@@ -72,7 +72,7 @@
             
                     <ul style="width:100%;">
                         
-                       <li style="width:99%; text-align: center;">
+                       <li style="width:100%; text-align: center;">
                             <!--<div id="preDefTourNext"><a href="javascript:{}" onclick="document.getElementById('bookingTwo').submit();"><h3>Next</h3></a></div> -->
                             <div id="previous-booking-step"><a href="?page=bookingThree"><h3 text-align="center">Previous</h3></a></div>
                         </li>

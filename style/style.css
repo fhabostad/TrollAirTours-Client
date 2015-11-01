@@ -820,6 +820,16 @@ input[type="number"] {
 {
     margin-left: 1.7em;
 }
+
+#bookingCustomSummary input
+{ 
+    clear: both;
+    width: 40%;
+    margin-right: auto;
+    margin-left: 12em;
+    margin-bottom: 5em;
+    height: 100%;
+}
 #main-top-overlay-summary /* Home page info box*/
  {
   display: block;
