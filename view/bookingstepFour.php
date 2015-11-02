@@ -43,7 +43,7 @@
                 $FoodPrice      = $_SESSION["givenFoodPrice"];
                 $DutyFreePrice  = $_SESSION["givenDutyFreePrice"];
                 $DrinkPrice     = $_SESSION["givenDrinkPrice"];
-                $TotalPrice     = $FlightPrice + $FoodPrice + $DutyFreePrice + $DrinkPrice;
+                $TotalPrice     = $_SESSION['givenTotalPrice'];//$FlightPrice + $FoodPrice + $DutyFreePrice + $DrinkPrice;
                 $paypal_url     ='https://www.sandbox.paypal.com/cgi-bin/webscr'; // Test Paypal API URL
                 $paypal_id      ='trollairtours@gmail.com'; // Business email ID
  
