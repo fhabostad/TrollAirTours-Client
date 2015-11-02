@@ -78,10 +78,8 @@ $mpdf = new mPDF();
 $date = date("d-m-Y");
 $mpdf->SetProtection(array(), 'UserPassword', $Birth);
 $filename="bookings/{$LastName}_{$FirstName}_Booking.pdf";
-//$mpdf->Image('/style/booking.png',0,0,105,143,'png','',true, false);
 
 $html   = '<html><body>';
-//$html.= "<img src='style/booking.png',0,0,210,297,'png' alt=''>";
 $html   .= '<div style="text-align:center;"><img src="image/tatlogo.jpg"/></div>'; // TAT Logo
 $html   .= '<table class = "bpmTopnTailC" align="center"><thead>
             <tr class="headerrow">
@@ -126,7 +124,7 @@ $mail->setFrom('trollairtours@gmail.com', 'noreply');
 $mail->addAddress('trollairtours@gmail.com'/*$Email, $FirstName.$LastName*/);
 $mail->Subject = 'Electronic Ticket Itinerary and Receipt from TAT ';
 $mail->AltBody = 'This is a plain-text message body';
-$mail->Body='For your security, added birth date is your password for the pdf.
+$mail->Body='For your security, added birth date YYYY.MM.DD is your password for the pdf.
     System generated e-mail, please do not respond.
     Attached please find Your Electronic Ticket Itinerary and Receipt.';
 $mail->addAttachment($filename) ;

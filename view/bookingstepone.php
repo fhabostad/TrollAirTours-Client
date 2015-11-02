@@ -340,7 +340,7 @@ function getTotalPrice()
     <div id="Custom-form-left">
         
         <label>Destination</label> <br> <input id="input-grow" type="text" name="givenCustomDestination" placeholder="Enter preferred destinations" tabindex="1" required draggable="true"> <a href="#" onclick='toggle_visiblity_infobox()'>(Help)</a><br>
-        <label>Date</label> <br> <input id="date" type="text" name="givenPreferredDate" placeholder="Enter pref. (DD-MM-YYYY)" max="31-12-2030" min="10-12-2015" tabindex="2" required><br>
+        <label>Date</label> <br> <input id="date" type="text" name="givenPreferredDate" placeholder="Enter pref. (YYYY-MM-DD)" max="2030-31-12" min="2015-12-10" tabindex="2" required><br>
         <label>Time</label> <br> <input id="time" type="text" name="givenPreferredTime" placeholder="Enter preferred (hh:mm)" max="23:59" min="00:00" tabindex="3" required><br>                                                  
     <label>Guide</label> <br> <select id="DropdownGuide" type="text" name="givenGuide" placeholder="Select language" tabindex="4" required>
      <option id="0" index="0" value="select" > -- Select language -- </option>
