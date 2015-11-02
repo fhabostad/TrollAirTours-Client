@@ -8,7 +8,7 @@
     <label>Your BookingID ID is: TAT<?php echo $_SESSION['BookingID'] ?> </label>
     <label>Your Customer  ID is: <?php echo $_SESSION['CustomerID'] ?> </label>
     <label>NB! For your added security our tickets are password protected.</label> 
-    <label>Please use your birthdate dd.mm.yyyy as password</label>
+    <label>Please use your birthdate YYYY.MM.DD. as password</label>
 
 </div></div></div></div></div>
 <div id="main-bottom-booking">

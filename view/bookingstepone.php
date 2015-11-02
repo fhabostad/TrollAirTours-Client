@@ -306,7 +306,7 @@ function getTotalPrice()
                                          <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];?>  <?php echo " NOK " . $dutyfree["ProductPrice"].",-" ; ?></option>
                                 <?php endforeach; ?>
                             </select>
-                        <label for="inputTotalPrice">Price:</label>
+                        <label for="inputTotalPrice">Price NOK:</label>
                         <input readonly  type="text" id="TotalPrice" name="givenTotalPrice" value="0" ></input>
                             </div>
         

@@ -36,8 +36,8 @@
                             <label>Drink: <?php echo "".$_SESSION['givenDrinkName']. " NOK " . $_SESSION['givenDrinkPrice']?></label>
                             <label>Food: <?php echo "".$_SESSION['givenFoodName']." NOK " . $_SESSION['givenFoodPrice']?></label>
                             <label>Dutyfree: <?php echo "".$_SESSION['givenDutyFreeName']."  NOK " . $_SESSION['givenDutyFreePrice']?></label>       
-   
-     
+                                
+                            <label><h4>NB! please note that you need to return to Troll Air Tours via Paypal before the booking is confirmed</h4></label>
        <?php
                 $FlightPrice    = $_SESSION["givenPrice"];
                 $FoodPrice      = $_SESSION["givenFoodPrice"];
@@ -48,7 +48,7 @@
                 $paypal_id      ='trollairtours@gmail.com'; // Business email ID
  
                 ?>
-
+                                
                          
                             <h3>Your total cost:</h3> 
                 
