@@ -4,6 +4,7 @@
     <div id="main-top-overlay-booking">
         <div id="bookingCustom">
          <div id="bookingSuccess">
+             <div id="main-top-overlay-summary">
              <h2>Success</h2>
              <h3><p>Your Ref.nr: <?php echo $_SESSION['BookingID'] ?></p></h3>
              <label><h3>You have now Sent a request for your customized tour!</label>
@@ -14,7 +15,7 @@
                                  
                                  
                                       
-                                 
+             </div>                        
          </div>
     
         </div>       
