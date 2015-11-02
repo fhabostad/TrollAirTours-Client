@@ -18,13 +18,7 @@ $dutyfrees = $GLOBALS["dutyfrees"];
 
 <script>
 
-
-
-function test()
-{
-    window.alert("yo");
-}
-   
+ 
    
 function EnableSpecificDates(date) {
 
@@ -109,7 +103,7 @@ dateFormat: "dd.mm.yy",
         
     <?php } ?>
     
-     getPrice()
+     getPrice();
  }
 
 
