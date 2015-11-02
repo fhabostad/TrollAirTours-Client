@@ -160,13 +160,76 @@ function getPrice()
             //p.style.display = 'block';
             //p.text = flightPrice + " NOK" 
             p.value = flightPrice;
-             
+           
            
         }
         
     <?php } ?>
+    getTotalPrice();
+    }    
+function getTotalPrice()
+ {
+     var selectFood = document.getElementById('Food'); 
+     var selectedFoodID = selectFood.value;
+     var selectDrink = document.getElementById('Drink'); 
+     var selectedDrinkID = selectDrink.value;
+     var selectDutyFree = document.getElementById('Dutyfree'); 
+     var selectedDutyFreeID = selectDutyFree.value;
+
+     
+     <?php foreach($foods as $food){?>
+         
+         if(selectedFoodID == <?php echo $food["ProductID"]?>)
+         {
+             var selectedFoodPrice =  <?php echo $food["ProductPrice"] ?>;
+         }
+       <?php } ?>
+       
+      <?php foreach($drinks as $drink){?>
+         
+         if(selectedDrinkID == <?php echo $drink["ProductID"]?>)
+         {
+             var selectedDrinkPrice =  <?php echo $drink["ProductPrice"] ?>;
+         }   
+                
+     <?php } ?>
+     
+     <?php foreach($dutyfrees as $dutyfree){?>
+         
+         if(selectedDutyFreeID == <?php echo $dutyfree["ProductID"]?>)
+         {
+             var selectedDutyFree =  <?php echo $dutyfree["ProductPrice"] ?>;
+         }   
+                
+     <?php } ?>
+     
+     var p =document.getElementById('Price'); 
+     var flightPrice = p.value;
+     var totalPrice = 0;
+     if((flightPrice != "")&&(flightPrice != null))
+     {
+         totalPrice += +flightPrice;
+     }
+     if((selectedDrinkPrice != "")&&(selectedDrinkPrice != null))
+     {
+         totalPrice += +selectedDrinkPrice;
+     }
+     if((selectedFoodPrice != "")&&(selectedFoodPrice != null))
+     {
+         totalPrice += +selectedFoodPrice;
+     }
+     if((selectedDutyFree != "")&&(selectedDutyFree != null))
+     {
+         totalPrice += +selectedDutyFree;
+     }
+     var y =document.getElementById('TotalPrice'); 
+            
+            y.value = totalPrice;
+             
     
-}
+ }    
+    
+
 
 
 
@@ -212,8 +275,8 @@ function getPrice()
             <option disabled selected>- Select time -</option>
         </select>
        
-        <label for="inputPrice">Price Flight (NOK)</label>
-       <input readonly  type="text" id="Price" name="givenPrice" value="0" ></input>
+        <label for="inputPrice"></label>
+       <input type="hidden" readonly  type="text" id="Price" name="givenPrice" value="0" ></input>
     </div>
        
             
@@ -223,35 +286,39 @@ function getPrice()
 
                             <label for="inputProductID" >Select your desired products</label>
                          
-                            <select id="Food" name="givenFoodID" required>
+                            <select id="Food" name="givenFoodID" onchange="getTotalPrice()">
                                <option value="None" selected>- no food selected -</option>
                                 <?php foreach($foods as $food): ?> 
                                          <option value="<?php echo $food["ProductID"];?>"><?php echo $food["ProductName"];?>  <?php echo " NOK " . $food["ProductPrice"].",-" ;  ?></option>
                                 <?php endforeach; ?>
                             </select>
 
-                            <select id="Drink" name="givenDrinkID" required>
+                            <select id="Drink" name="givenDrinkID" onchange="getTotalPrice()">
                               <option value="None" selected>- no drink selected -</option>
                                 <?php foreach($drinks as $drink): ?> 
                                <option value="<?php echo $drink["ProductID"]; ?>"><?php echo $drink["ProductName"];?>  <?php echo " NOK " . $drink["ProductPrice"].",-" ; ?></option>
                                 <?php endforeach; ?>
                             </select>
 
-                            <select id="Dutyfree" name="givenDutyFreeID" required>
+                            <select id="Dutyfree" name="givenDutyFreeID" onchange="getTotalPrice()">
                               <option value="None" selected>- no duty free selected -</option>
                                 <?php foreach($dutyfrees as $dutyfree): ?> 
                                          <option value="<?php echo $dutyfree["ProductID"]; ?>"><?php echo $dutyfree["ProductName"];?>  <?php echo " NOK " . $dutyfree["ProductPrice"].",-" ; ?></option>
                                 <?php endforeach; ?>
                             </select>
-
+                        <label for="inputTotalPrice">Price:</label>
+                        <input readonly  type="text" id="TotalPrice" name="givenTotalPrice" value="0" ></input>
                             </div>
         
-        
+                        
+    </div>
             
         
         
         
     </form>
+
+
 
 </div>
     
