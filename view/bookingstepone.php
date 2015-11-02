@@ -252,7 +252,7 @@ function getTotalPrice()
      <div class='circleBase'>
          <span> 4 </span> 
     </div>
-    </div>
+</div>
 <form action="?page=bookingTwo" id="bookingTwo" method="post">
 
     
@@ -320,7 +320,7 @@ function getTotalPrice()
 
 
 
-</div>
+
     
     
   
@@ -356,9 +356,11 @@ function getTotalPrice()
 
 </div>
 
+    </div>
+
 
 </div>
-</div>
+
  
                 <div id="main-bottom-booking">
                     <ul>

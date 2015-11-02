@@ -64,8 +64,7 @@ header
     margin: 0;
     padding-left: 1em;
 
-    width: 38%;
-    border: 1px solid red;
+    width: 50%;
     height: 100%;
 }
 
@@ -906,7 +905,7 @@ input[type="number"] {
     float: left;
     margin-left: 1.5em;
     margin-bottom: 0em;
-    margin-top: 0.9em;
+    margin-top: 1.5em;
     position: relative;
 }
 .circleBase
@@ -921,7 +920,7 @@ input[type="number"] {
     float: left;
     position: relative;
     margin-left: 1.5em;
-    margin-top: 0.9em;
+    margin-top: 1.5em;
     margin-bottom: 0em;
     
     
