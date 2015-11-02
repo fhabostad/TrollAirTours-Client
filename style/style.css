@@ -50,7 +50,7 @@ body h3
 
 header
 {
-    //max-height: 15%;
+    //min-height: 20%;
     width:100%;
     float:left;
     background: black;
@@ -63,7 +63,9 @@ header
     float:left;
     margin: 0;
     padding-left: 1em;
-    width: 40%;
+
+    width: 38%;
+    border: 1px solid red;
     height: 100%;
 }
 
@@ -595,7 +597,7 @@ input[type="number"] {
 
 #destination-buttons
 {
-    padding-top: 5%;
+    margin-top: 2em;
     display:block;
     font-weight: bold;
     margin-left: auto;
@@ -890,6 +892,74 @@ input[type="number"] {
 #infobox a:hover
 {
     color: black;
+}
+
+.circleBaseActive
+{
+    border-radius: 50%;
+    border: 2px solid black;
+    background: green;
+    width: 2.7em;
+    height: 2.7em;
+    text-align: center;
+    vertical-align: middle;
+    float: left;
+    margin-left: 1.5em;
+    margin-bottom: 0em;
+    margin-top: 0.9em;
+    position: relative;
+}
+.circleBase
+{
+    border-radius: 50%;
+    border: 2px solid black;
+    background: grey;
+    width: 2.7em;
+    height: 2.7em;
+    text-align:center;
+    vertical-align: middle;
+    float: left;
+    position: relative;
+    margin-left: 1.5em;
+    margin-top: 0.9em;
+    margin-bottom: 0em;
+    
+    
+}
+.circleBase span
+{
+    margin-top: 0.7em;
+    line-height: normal;
+    display:inline-block;
+    vertical-align: middle;
+}
+.circleBaseActive span
+{
+    margin-top: 0.7em;
+    line-height: normal;
+    display:inline-block;
+    vertical-align: middle;
+    
+}
+#CircleLocation
+{   
+    padding: 0;
+    margin: 0;
+    right: 0;
+    top: 0;
+    margin-right: 0%;
+
+    background: black;
+    
+    
+    width: 20%;
+    min-height: 7%;
+    position: fixed;
+    //bottom: 0;
+    
+    //border: 1px solid red;
+   // text-align: center;
+    vertical-align: bottom;
 }
 #planechart
 {

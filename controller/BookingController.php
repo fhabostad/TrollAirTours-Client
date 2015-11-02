@@ -35,7 +35,7 @@ class BookingController extends Controller {
         switch($casevalue)
         {
             case '1':
- 
+                
                 $this->showBookingOne();   
                 
                 

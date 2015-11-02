@@ -175,9 +175,24 @@ function getPrice()
 <div id="main-top-booking">
 <div id="main-top-overlay-booking">
 
-
+<div id='CircleLocation'>
+    <div class='circleBaseActive'>
+        <span> 1 </span> 
+            
+    </div>
+     <div class='circleBase'>
+         <span> 2 </span> 
+    </div>
+     <div class='circleBase'>
+         <span> 3 </span> 
+    </div>
+     <div class='circleBase'>
+         <span> 4 </span> 
+    </div>
+    </div>
 <form action="?page=bookingTwo" id="bookingTwo" method="post">
 
+    
     <div id="destination-buttons"> 
         <input type="radio" name="givenDestination" id="Geiranger" value="Geiranger" checked="checked" onclick="switchForm()" > Geiranger </input>
         <input type="radio" name="givenDestination" id="Briksdalen" value="Briksdalen" onclick="switchForm()"> Briksdalen </input>
