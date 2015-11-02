@@ -2,6 +2,21 @@
 
 <div id="main-top-booking">
     <div id="main-top-overlay-booking">
+        <div id='CircleLocation'>
+    <div class='circleBase'>
+        <span> 1 </span> 
+            
+    </div>
+     <div class='circleBase'>
+         <span> 2 </span> 
+    </div>
+     <div class='circleBaseActive'>
+         <span> 3 </span> 
+    </div>
+     <div class='circleBase'>
+         <span> 4 </span> 
+    </div>
+    </div>
         <div id="bookingCustom">
             <div id="main-top-overlay-summary">    
         <div id="bookingCustomSummary">

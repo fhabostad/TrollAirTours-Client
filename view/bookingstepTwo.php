@@ -48,6 +48,21 @@ $takenSeats = $GLOBALS["takenSeats"];
 
 <div id="main-top-booking">
     <div id="main-top-overlay-booking">
+        <div id='CircleLocation'>
+    <div class='circleBase'>
+        <span> 1 </span> 
+            
+    </div>
+     <div class='circleBaseActive'>
+         <span> 2 </span> 
+    </div>
+     <div class='circleBase'>
+         <span> 3 </span> 
+    </div>
+     <div class='circleBase'>
+         <span> 4 </span> 
+    </div>
+    </div>
         <div id="top-text-seatres"> <p> Select seating </p></div>
 <div id="planechart"   onload="updateSeats()" >
     <img src="image/planechart.png" />
