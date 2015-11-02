@@ -51,7 +51,7 @@ class BookingController extends Controller {
             $_SESSION["givenDestination"]     = filter_input(INPUT_POST, "givenDestination");
             $_SESSION["selectedFlightID"]     = filter_input(INPUT_POST, "selectedFlightID");
             $_SESSION["givenDate"]            = filter_input(INPUT_POST, "givenDate"); 
-            $_SESSION["givenPrice"]           = filter_input(INPUT_POST, "givenPrice");   
+            $_SESSION["givenTotalPrice"]           = filter_input(INPUT_POST, "givenTotalPrice");   
             
             $FlightIDs = $flightModel->getTimeForFlightID( $_SESSION["selectedFlightID"] );
             if(isset($FlightIDs[0])){
