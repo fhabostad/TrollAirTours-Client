@@ -4,7 +4,14 @@
     <div id="main-top-overlay-booking">
         <div id="bookingCustom">
         <h2>Custom Form</h2>
-        
+        <div id="infobox">
+            <p>
+                Please fill out the required personal details about yourself.
+                The company input field is not required if you're not booking
+                for a whole company.
+                
+            </p>
+        </div>
          <div id="bookingCustomcolumn">
                                 <form action="?page=bookingCustomSummary" id="bookingSummary" method="post">
                                 <h3>Personal details</h3>

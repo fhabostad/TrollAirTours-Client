@@ -63,3 +63,10 @@
              
          
   }   
+  function toggle_visiblity_infobox() {
+       var e = document.getElementById("infobox");
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }    

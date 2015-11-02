@@ -784,7 +784,8 @@ input[type="number"] {
     color: black;
     font-weight: bold;
     margin-left: 7.2em;
-    margin-top: 2em;
+    margin-top: 1em;
+    margin-bottom: 0.2em;
 
 }
 #bookingCustomSummary 
@@ -815,6 +816,7 @@ input[type="number"] {
 #bookingCustomSummary h2
 {
     text-align: center;
+    color: green;
 }
 #bookingCustomSummary p
 {
@@ -859,17 +861,35 @@ input[type="number"] {
 
 #infobox
 {
-  display: block;
+  display: none;
   overflow: hidden;
-  margin-left: auto;
+  margin-left: 2em;
   margin-right: auto;
-  margin-top: 2em;
-  width: 20%;
+  margin-top: 0em;
+  margin-bottom: 0.5em;
+  width: 93%;
   min-height: 15%;
   max-height: 30%;
   z-index: 10;
   border-radius: 0.5em;
+  border: 1px solid green;
   background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
+}
+#infobox p
+{
+    margin-left: 1em;
+    margin-right: 1em;
+    font-weight: normal;
+}
+#infobox a
+{
+    color: green;
+    margin-left: 9em;
+    font-weight: bold;
+}
+#infobox a:hover
+{
+    color: black;
 }
 #planechart
 {
