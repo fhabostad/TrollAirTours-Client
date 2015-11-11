@@ -8,9 +8,7 @@ $foods = $GLOBALS["foods"];
 $drinks = $GLOBALS["drinks"];
 $dutyfrees = $GLOBALS["dutyfrees"];
 
-//$tourPriceGeiranger = $GLOBALS["Geiranger"];
-//$tourPriceBriksdalen = $GLOBALS["Briksdalen"];
-//$tourPriceAakneset = $GLOBALS["Aakneset"];
+
 ?>
 
 
@@ -18,6 +16,21 @@ $dutyfrees = $GLOBALS["dutyfrees"];
 
 <script>
 
+
+$(function() {
+ $( "#datepicker" ).datepicker({
+ beforeShowDay: EnableSpecificDates,
+ dateFormat: "yy-mm-dd"
+
+ 
+ });
+ });
+
+
+
+function pad(d) {
+    return (d < 10) ? '0' + d.toString() : d.toString();
+}
  
    
 function EnableSpecificDates(date) {
@@ -32,15 +45,19 @@ if(document.getElementById('Geiranger').checked) {
   var disableddates = [<?php foreach($calenderDatesAakneset as $calenderDateAakneset){ echo  "\"$calenderDateAakneset\"" . ",";} ?>];
 }     
       
-disableddates.push("10.10.9999"); //Adds a date to prevent calender crash.
-        
+disableddates.push("9999-12-12"); //Adds a date to prevent calender crash.
+
+
  var m = date.getMonth();
- var d = date.getDate();
+ var d = pad(date.getDate());
  var y = date.getFullYear();
  
- var currentdate = d + "." + (m + 1) + "." + y; 
+  
+ var currentdate = y + "-" + (m+1) + "-" + d;
+ //window.alert(currentdate);
  for (var i = 0; i < disableddates.length; i++) {
  if ($.inArray(currentdate, disableddates) !== -1) {
+     //window.alert(currentdate);
  return [true];
  }else
  {
@@ -48,18 +65,10 @@ disableddates.push("10.10.9999"); //Adds a date to prevent calender crash.
  }
  }
 
- 
- 
 }
 
-$(function() {
- $( "#datepicker" ).datepicker({
-dateFormat: "dd.mm.yy",
- beforeShowDay: EnableSpecificDates
- 
- });
 
- });
+
  
  
  function clearTimeDrop()
@@ -112,7 +121,6 @@ function switchForm()
     document.getElementById('datepicker').value = "";
     document.getElementById('datepicker').value = "";
     clearTimeDrop();
-    //var sumTour = 0;
     var e = document.getElementById('preDefTour');
     var f = document.getElementById('Custom-form-stepone');
     var g = document.getElementById('preDefTourNext');
@@ -123,28 +131,22 @@ function switchForm()
             f.style.display = 'none';
             g.style.display = 'block';
             h.style.display = 'none';           
-          //  sumTour = "<?php $tourPriceGeiranger ?>";
-           // window.alert(sumTour);
     }else if(document.getElementById('Briksdalen').checked) {
             e.style.display = 'block';
             f.style.display = 'none';
             g.style.display = 'block';
             h.style.display = 'none';
-           // sumTour = sumTour + database.getprice();
     }else if(document.getElementById('Aakneset').checked) {
             e.style.display = 'block';
             f.style.display = 'none';
             g.style.display = 'block';
             h.style.display = 'none';
-           // sumTour = sumTour + 2500;
     }else if(document.getElementById('Custom').checked) {
             e.style.display = 'none';
             f.style.display = 'block';
             g.style.display = 'none';
             h.style.display = 'block';
-           // sumTour = sumTour + 2500;
     } 
-    //return sumTour;
 }
 
 function getPrice()
@@ -157,8 +159,6 @@ function getPrice()
         {
             var flightPrice = "<?php echo $flightTimeAndDate["FlightPrice"] ?>";
             var p =document.getElementById('Price'); 
-            //p.style.display = 'block';
-            //p.text = flightPrice + " NOK" 
             p.value = flightPrice;
            
            
@@ -167,6 +167,8 @@ function getPrice()
     <?php } ?>
     getTotalPrice();
     }    
+    
+    
 function getTotalPrice()
  {
      var selectFood = document.getElementById('Food'); 
@@ -205,31 +207,36 @@ function getTotalPrice()
      
      var p =document.getElementById('Price'); 
      var flightPrice = p.value;
-     var totalPrice = 0;
-     if((flightPrice != "")&&(flightPrice != null))
+
+        var totalPrice = 0;
+   
+     if((flightPrice != "")&&(selectedFoodPrice != null))
      {
          totalPrice += +flightPrice;
      }
-     if((selectedDrinkPrice != "")&&(selectedDrinkPrice != null))
+     
+     if(typeof selectedDrinkPrice != 'undefined')
      {
          totalPrice += +selectedDrinkPrice;
      }
-     if((selectedFoodPrice != "")&&(selectedFoodPrice != null))
+     
+  
+     if(typeof selectedFoodPrice != 'undefined')
      {
          totalPrice += +selectedFoodPrice;
      }
-     if((selectedDutyFree != "")&&(selectedDutyFree != null))
+     
+     if(typeof selectedDutyFree != 'undefined')
      {
          totalPrice += +selectedDutyFree;
      }
+
      var y =document.getElementById('TotalPrice'); 
             
-            y.value = totalPrice;
-             
+     y.value = totalPrice;
+        
     
- }    
-    
-
+ }
 
 
 
@@ -268,7 +275,7 @@ function getTotalPrice()
     <div id="date-and-time">
         
         <label for="inputDate" >Select date</label>
-        <input readonly  type="text" id="datepicker" name="givenDate" placeholder="Select Date" onchange="timedrop()" >
+        <input readonly  type="text" id="datepicker" name="givenDate" placeholder="Select Date" onchange="timedrop()">
         
         <label for="inputTime" >Select time</label>
         <select id="TimeList" name="selectedFlightID" onchange="getPrice()" >
@@ -276,7 +283,7 @@ function getTotalPrice()
         </select>
        
         <label for="inputPrice"></label>
-       <input type="hidden" readonly  type="text" id="Price" name="givenPrice" value="0" ></input>
+       <input type="text" readonly  type="text" id="Price" name="givenPrice" value="0" ></input>
     </div>
        
             
