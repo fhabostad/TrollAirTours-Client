@@ -157,7 +157,7 @@ class BookingController extends Controller {
             case '3':
                 $_SESSION["givenSeatNumber"]         = filter_input(INPUT_POST, "givenSeatNumber");
                // echo $_SESSION["givenSeatNumber"];
-                
+                  
                  return $this->render("bookingstepThree");
                 
                  break;
@@ -274,6 +274,9 @@ class BookingController extends Controller {
     
     function showBookingOne()
     {
+      
+        
+        
         $productModel = $GLOBALS["productModel"]; //Gets the productmodel
         $foods = $productModel->getAllWhereProductType(array("Food")); //Fetches an array of all Food products
         $drinks = $productModel->getAllWhereProductType(array("Drink")); //Fetches an array of all Drink products
@@ -332,8 +335,16 @@ class BookingController extends Controller {
        $bookingModel = $GLOBALS["bookingModel"];
        $_SESSION["BookingID"] = $bookingModel->add($_SESSION["CustomerID"], "0");
         
+        $flightModel = $GLOBALS["flightModel"];
+       $regIDArray = $flightModel->getRegIDForFlight($_SESSION["selectedFlightID"]);
+       if(isset($regIDArray[0]))
+       {
+        $row = $regIDArray[0];
+        $regID = $row["RegID"];
+       }
+       //echo  $_SESSION["givenSeatNumber"] . " " . $_SESSION["CustomerID"] . " " . $_SESSION["BookingID"] . " " . $regID . " " . $_SESSION["selectedFlightID"];
        $seatReservationModel = $GLOBALS["seatReservationModel"];
-       $seatReservationModel->add($_SESSION["givenSeatNumber"], $_SESSION["CustomerID"], $_SESSION["BookingID"], "TAT88", $_SESSION["selectedFlightID"] );
+       $seatReservationModel->add($_SESSION["givenSeatNumber"], $_SESSION["CustomerID"], $_SESSION["BookingID"], $regID, $_SESSION["selectedFlightID"] );
         
        $seatReservation_ProductModel = $GLOBALS["seatReservation_ProductModel"];
        $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenFoodID"], $_SESSION["selectedFlightID"] );

@@ -210,7 +210,9 @@ function getTotalPrice()
 
         var totalPrice = 0;
    
-     if((flightPrice != "")&&(selectedFoodPrice != null))
+   
+     
+     if(typeof flightPrice != 'undefined')
      {
          totalPrice += +flightPrice;
      }
@@ -245,6 +247,8 @@ function getTotalPrice()
 <div id="main-top-booking">
 <div id="main-top-overlay-booking">
 
+
+    
 <div id='CircleLocation'>
     <div class='circleBaseActive'>
         <span> 1 </span> 
@@ -283,7 +287,7 @@ function getTotalPrice()
         </select>
        
         <label for="inputPrice"></label>
-       <input type="text" readonly  type="text" id="Price" name="givenPrice" value="0" ></input>
+       <input type="hidden" readonly  type="text" id="Price" name="givenPrice" value="0" ></input>
     </div>
        
             

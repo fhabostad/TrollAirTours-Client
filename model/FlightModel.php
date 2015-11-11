@@ -11,7 +11,8 @@ class FlightModel {
     const SELECT_DATE_QUERY = "SELECT FlightDate FROM " . FlightModel::TABLE . " WHERE SeatsAvailable>0 AND TourType = ?"; //Select all FlightDate where TourType = given parameter.
     const SELECT_DATE_TIME_QUERY = "SELECT Flight.FlightDate, Flight.Departure, Flight.TourType, Flight.FlightID, Flight.FlightPrice FROM " . FlightModel::TABLE . " WHERE SeatsAvailable>0"; 
     const INSERT_QUERY = "INSERT INTO " . FlightModel::TABLE . " (FlightID,RegID,FlightDate,Departure,TourType) VALUES (:FlightID,:RegID,:FlightDate,:Departure,:TourType)"; //Insert complete flight from parameter
-    const DELETE_QUERY = "DELETE FROM" . FlightModel::TABLE . " WHERE FlightID= ?"; //Delete Flight where flightID equals given parameter
+   // const DELETE_QUERY = "DELETE FROM " . FlightModel::TABLE . " WHERE FlightID= ?"; //Delete Flight where flightID equals given parameter
+    const SELECT_REGID_FLIGHT_QUERY = "SELECT RegID FROM ". FlightModel::TABLE . " WHERE FlightID=?";
     
 
     private $selStmt;
@@ -20,6 +21,7 @@ class FlightModel {
     private $selTimeWhrId;
     private $selPriceStmt;
     private $addStmt;
+    private $selRegIDFromFlightStmt;
 
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
@@ -29,15 +31,12 @@ class FlightModel {
         $this->selDateTimeStmt = $this->dbConn->prepare(FlightModel::SELECT_DATE_TIME_QUERY);
         $this->selPriceStmt = $this->dbConn->prepare(FlightModel::SELECT_FLIGHTPRICE_WHERE_TOURTYPE);
         $this->selStmt = $this->dbConn->prepare(FlightModel::SELECT_QUERY);
-        $this->delStmt = $this->dbConn->prepare(FlightModel::DELETE_QUERY);
+       // $this->delStmt = $this->dbConn->prepare(FlightModel::DELETE_QUERY);
+        $this->selRegIDFromFlightStmt = $this->dbConn->prepare(FlightModel::SELECT_REGID_FLIGHT_QUERY);
     }
 
-    /**
-     * Get all aircraft stored in the DB
-     * @return array in associative form
-     */
+
     public function getAll() {
-        // Fetch all Aircraft as associative arrays
         $this->selStmt->execute();
         return $this->selStmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -65,16 +64,12 @@ class FlightModel {
         $this->selPriceStmt->execute(array($TourType));
         return $this->selPriceStmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    /**
-     * Try to add a new aircraft
-     *
-     * @param 
-     *
-     * @return bool true on success, false otherwise
-     */
-  //  public function add($givenFlightID,$givenRegIDFK,$givenFlightDate,$givenDeparture,$givenTourType) {
-  //      return $this->addStmt->execute(array("FlightID" => $givenFlightID,"RegID" => $givenRegIDFK,"FlightDate" => $givenFlightDate,"Departure" => $givenDeparture, "TourType" => $givenTourType));
-  //  }
     
+    public function getRegIDForFlight($flightID)
+    {
+        $this->selRegIDFromFlightStmt->execute(array($flightID));
+        return $this->selRegIDFromFlightStmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
 }
