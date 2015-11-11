@@ -8,7 +8,7 @@
     <label>Your BookingID ID is: TAT<?php echo $_SESSION['BookingID'] ?> </label>
     <label>Your Customer  ID is: <?php echo $_SESSION['CustomerID'] ?> </label>
     <label>NB! For your added security our tickets are password protected.</label> 
-    <label>Please use your birthdate YYYY.MM.DD. as password</label>
+    <label>Please use your phonenumber (without country code!) as password</label>
 
 </div></div></div></div></div>
 <div id="main-bottom-booking">
@@ -76,7 +76,7 @@ $urlRelativeFilePath = "bookings/$qfileName";
     }
 $mpdf = new mPDF();
 $date = date("d-m-Y");
-$mpdf->SetProtection(array(), 'UserPassword', $Birth);
+$mpdf->SetProtection(array(), 'UserPassword', $Phone);
 $filename="bookings/{$LastName}_{$FirstName}_Booking.pdf";
 
 $html   = '<html><body>';
@@ -124,7 +124,7 @@ $mail->setFrom('trollairtours@gmail.com', 'noreply');
 $mail->addAddress('trollairtours@gmail.com'/*$Email, $FirstName.$LastName*/);
 $mail->Subject = 'Electronic Ticket Itinerary and Receipt from TAT ';
 $mail->AltBody = 'This is a plain-text message body';
-$mail->Body='For your security, added birth date YYYY.MM.DD is your password for the pdf.
+$mail->Body='For your security, your phonenumber (without country code!) is your password for the pdf.
     System generated e-mail, please do not respond.
     Attached please find Your Electronic Ticket Itinerary and Receipt.';
 $mail->addAttachment($filename) ;
