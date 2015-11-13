@@ -4,25 +4,27 @@ $takenSeats = $GLOBALS["takenSeats"];
 ?>
         
 <script>
+    /*
+     * When the document is fully loaded the function updateSeats() is called.
+     */
     $(document).ready(function() {
     updateSeats();
     });
-   
-   
-   
-   
+    
+   /*
+    * Runs through an foreach loop of the taken seats in a flight. If the values
+    * are equal to the SeatNumber the seat will be unavailable for clicking and
+    * get a red background color.
+    */
     function updateSeats()
     {
- 
         <?php foreach($takenSeats as $takenSeat): ?>
             for (i=1; i<7 ; i++ ) 
             {
               var x = document.getElementById("A" + i);
               var y = document.getElementById("B" + i);  
               
-              
              //window.alert(<?php //echo json_encode($takenSeat["SeatNumber"]) ?> );
-       
              
               if(x.value == <?php echo json_encode($takenSeat["SeatNumber"]) ?> )
               {
@@ -30,7 +32,6 @@ $takenSeats = $GLOBALS["takenSeats"];
                   xLabel.style.backgroundColor = "red";
                   x.disabled=true;
               }
-              
               if(y.value == <?php echo json_encode($takenSeat["SeatNumber"]) ?> )
               {
                   var yLabel = document.getElementById("label" + y.value);
@@ -39,30 +40,26 @@ $takenSeats = $GLOBALS["takenSeats"];
               }
             }
         <?php endforeach; ?>
-        
     }
 
 </script>
 
-
-
 <div id="main-top-booking">
     <div id="main-top-overlay-booking">
         <div id='CircleLocation'>
-    <div class='circleBase'>
-        <span> 1 </span> 
-            
-    </div>
-     <div class='circleBaseActive'>
-         <span> 2 </span> 
-    </div>
-     <div class='circleBase'>
-         <span> 3 </span> 
-    </div>
-     <div class='circleBase'>
-         <span> 4 </span> 
-    </div>
-    </div>
+            <div class='circleBase'>
+                <span> 1 </span> 
+            </div>
+            <div class='circleBaseActive'>
+                 <span> 2 </span> 
+            </div>
+             <div class='circleBase'>
+                 <span> 3 </span> 
+            </div>
+            <div class='circleBase'>
+                 <span> 4 </span> 
+            </div>
+        </div>
         <div id="top-text-seatres"> <p> Select seating </p></div>
 <div id="planechart"   onload="updateSeats()" >
     <img src="image/planechart.png" />
@@ -93,7 +90,7 @@ $takenSeats = $GLOBALS["takenSeats"];
                         <label id="labelA6" for="A6">A6</label>
                     </li>
                 </ul>
-                 <ul class="select-seat-row-two">
+                <ul class="select-seat-row-two">
                     <li>
                         <input type="radio" id="B1" value="B1" name="givenSeatNumber"/>
                         <label id="labelB1" for="B1">B1</label>
@@ -120,13 +117,8 @@ $takenSeats = $GLOBALS["takenSeats"];
                     </li>
                 </ul>
             </form>
-</div>
-
-
-   
-        
- </div>
-    
+        </div>
+    </div>
 </div>
     
 <div id="main-bottom-booking">
@@ -136,8 +128,6 @@ $takenSeats = $GLOBALS["takenSeats"];
                         </li>
                         <li id="next-booking-step">
                              <a href="#" onclick="validateSeatReservation()"> <h3>Next</h3></a>
-                          <!-- <a href="javascript:{}" onclick="document.getElementById('bookingstepthree').submit();"><h3>Next</h3></a>-->
                         </li>
-                        
                     </ul>
                 </div>

@@ -1,35 +1,19 @@
-<?php
-//////////////////////////////////////////
-// Template for customer listing page
-//////////////////////////////////////////
-
-// TODO - initialize necessary variables here (remember to pass them in the controller's render() function)
-// Expected variables:
-// $customers - list of all customers
-// $customerName - last value used in "Add customer" form
-//$Customers = $GLOBALS["customers"];
-//$CustomerName = $GLOBALS["customerName"];
-?>
-            
-                    <div id="main-top-booking">
-                    
-                    <div id="main-top-overlay-booking">
+<div id="main-top-booking">
+<div id="main-top-overlay-booking">
     <div id='CircleLocation'>
-    <div class='circleBase'>
-        <span> 1 </span> 
-            
+            <div class='circleBase'>
+                <span> 1 </span> 
+            </div>
+            <div class='circleBase'>
+                 <span> 2 </span> 
+            </div>
+            <div class='circleBaseActive'>
+                 <span> 3 </span> 
+            </div>
+            <div class='circleBase'>
+                 <span> 4 </span> 
+            </div>
     </div>
-     <div class='circleBase'>
-         <span> 2 </span> 
-    </div>
-     <div class='circleBaseActive'>
-         <span> 3 </span> 
-    </div>
-     <div class='circleBase'>
-         <span> 4 </span> 
-    </div>
-    </div>
-                        
                         <form id="bookingstepthreeform" action="?page=bookingFour" method="post">
                             <div id="form-left-column">
                                 <label>Gender</label> <select id="Gender" name="givenGender"  size="1" required>
@@ -43,23 +27,16 @@
                                 <label>ZIP code</label> <input id="Zipcode" type="number" name="givenZip_code" value="<?php print "".$_SESSION['givenZip_code']?>" placeholder="Enter ZIP code" min="0" tabindex="8" required><br>        
                                 <label>Country code</label> <input id="Countrycode" type="text" name="givenCountry_code" value="<?php print "".$_SESSION['givenCountry_code']?>" placeholder="Enter country code" tabindex="10" required><br> 
                             </div>
-
                             <div id="form-right-column">
                                  <label>Last name</label> <input id="Lastname" type="text" name="givenLast_name" value="<?php print "".$_SESSION['givenLast_name']?>" placeholder="Enter last name" tabindex="3" required><br>
                                  <label>Country</label> <input id="Country" type="text" name="givenCountry" value="<?php print "".$_SESSION['givenCountry']?>" placeholder="Enter country" tabindex="5" required><br>
                                  <label>Address</label> <input id="Streetaddress" type="text" name="givenStreet_address" value="<?php print "".$_SESSION['givenStreet_address']?>" placeholder="Enter address line" tabindex="7" required><br>                                                  
                                  <label>E-mail</label> <input id="Email" type="email" name="givenEmail" value="<?php print "".$_SESSION['givenEmail']?>" placeholder="Enter e-mail address" tabindex="9" required><br> 
                                  <label>Telephone</label> <input id="Phonenumber" type="number" name="givenPhone_number" value="<?php print "".$_SESSION['givenPhone_number']?>" placeholder="Enter telephone number" min="0" tabindex="11" required><br>
-                                      
-                                 
                             </div>
-                            
                         </form>
                     </div>
-                
-                    
                 </div>   
-
                 <div id="main-bottom-booking">
                     <ul>
                         <li id="previous-booking-step">
