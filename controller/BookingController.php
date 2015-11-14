@@ -4,6 +4,10 @@ require_once("Controller.php");
 
 class BookingController extends Controller {
 
+    /*
+     * Checks if $page is set to one of the booking sites. If that is true runs 
+     * showBookingAction with the equivalent number.
+     */
     public function show($page) {
       
        if ($page == "bookingOne") {
@@ -26,228 +30,71 @@ class BookingController extends Controller {
     }
 
 
-
+/*
+ * Runs initSession() to start a new Session or to clear existing session variables.
+ * Contains all booking actions and is split into one case for each booking step.
+ */
     private function showBookingAction($casevalue) {
 
+    $this->initSession();
         
-        $this->initSession();
+    switch($casevalue)
+    {
         
-        switch($casevalue)
-        {
-            case '1':
+        //Runs showBookingOne() function
+        case '1':
                 
-                $this->showBookingOne();   
-                
-                
-                
+                 $this->showBookingOne();   
             break;
            
-                
-            case '2':
-            $productModel = $GLOBALS["productModel"];
-            $flightModel = $GLOBALS["flightModel"];
-            $SeatReservationModel = $GLOBALS["seatReservationModel"];
+        //Runs showBookingTwo() function        
+        case '2':
             
-            $_SESSION["givenDestination"]     = filter_input(INPUT_POST, "givenDestination");
-            $_SESSION["selectedFlightID"]     = filter_input(INPUT_POST, "selectedFlightID");
-            $_SESSION["givenDate"]            = filter_input(INPUT_POST, "givenDate"); 
-            $_SESSION["givenTotalPrice"]           = filter_input(INPUT_POST, "givenTotalPrice");   
-            $_SESSION["givenPrice"]           = filter_input(INPUT_POST, "givenPrice"); 
-            $FlightIDs = $flightModel->getTimeForFlightID( $_SESSION["selectedFlightID"] );
-            if(isset($FlightIDs[0])){
-                $FlightID = $FlightIDs[0];
-            }
-            
-            $_SESSION["givenTime"] = $FlightID["Departure"];
-             
+                 $this->showBookingTwo();
+            break;
 
-                
-            $_SESSION["givenFoodID"]            = filter_input(INPUT_POST, "givenFoodID");
-            $_SESSION["givenDrinkID"]           = filter_input(INPUT_POST, "givenDrinkID");
-            $_SESSION["givenDutyFreeID"]        = filter_input(INPUT_POST, "givenDutyFreeID");
-            $_SESSION["givenProductPrice"]      = filter_input(INPUT_POST, "givenProductPrice");
+         //Runs showBookingThree() function
+        case '3':
             
-                      
-           
-            $foodID         = $productModel->getAllWhereProductID($_SESSION["givenFoodID"]);
-            $drinkID        = $productModel->getAllWhereProductID($_SESSION["givenDrinkID"]);
-            $dutyFreeID     = $productModel->getAllWhereProductID($_SESSION["givenDutyFreeID"]);
-            $foodPrice      = $productModel->getPriceWhereProductID($_SESSION["givenFoodID"]);
-            $drinkPrice     = $productModel->getPriceWhereProductID($_SESSION["givenDrinkID"]);
-            $dutyFreePrice  = $productModel->getPriceWhereProductID($_SESSION["givenDutyFreeID"]);
-            
-           
-            if(isset($foodPrice[0])){
-                $food = $foodPrice[0];
-                $_SESSION["givenFoodPrice"] =  $food["ProductPrice"];
-                              
-            }else
-            {
-                $_SESSION["givenFoodPrice"] = 0;
-            }
-            
-                               
-            if(isset($foodID[0])){
-                $food = $foodID[0];
-                $_SESSION["givenFoodName"] =  $food["ProductName"];
-                              
-            }else
-            {
-                $_SESSION["givenFoodName"] = "None";
-            }
-            
-             if(isset($drinkPrice[0])){
-                $food = $drinkPrice[0];
-                $_SESSION["givenDrinkPrice"] =  $food["ProductPrice"];
-                              
-            }else
-            {
-                $_SESSION["givenDrinkPrice"] = 0;
-            }          
-            
-            if(isset($drinkID[0]))
-            {
-                $drink = $drinkID[0];
-                $_SESSION["givenDrinkName"] = $drink["ProductName"];  
-            }else
-            {
-                $_SESSION["givenDrinkName"] = "None";
-            }
-            if(isset($dutyFreePrice[0])){
-                $food = $dutyFreePrice[0];
-                $_SESSION["givenDutyFreePrice"] =  $food["ProductPrice"];
-                              
-            }else
-            {
-                $_SESSION["givenDutyFreePrice"] = 0;
-            }          
-            if(isset($dutyFreeID[0]))
-            {
-                $dutyfree = $dutyFreeID[0];
-                $_SESSION["givenDutyFreeName"] = $dutyfree["ProductName"]; 
-            }else
-            {
-                $_SESSION["givenDutyFreeName"] = "None";
-            }
-          //  echo $_SESSION["givenPrice"]; 
-            //echo $_SESSION["givenFoodPrice"];
-            //echo $_SESSION["givenDrinkPrice"];
-            //echo $_SESSION["givenDutyFreePrice"];        
-            //Innhenting av data fra contact form
-               $_SESSION["givenCustomDestination"]  = filter_input(INPUT_POST, "givenPreferredDate");
-               $_SESSION["givenPreferredDate"]      = filter_input(INPUT_POST, "givenPreferredDate");
-               $_SESSION["givenPreferredTime"]      = filter_input(INPUT_POST, "givenPreferredTime");
-               $_SESSION["givenGuide"]              = filter_input(INPUT_POST, "givenGuide");
-
-               
-               $takenSeats = $SeatReservationModel->getAllSeatsByFlight($_SESSION["selectedFlightID"]);
-              
-               
-               
-               $data = array(
-                   "takenSeats" => $takenSeats,
-               );
-                       
-               
-                
-                return $this->render("bookingstepTwo", $data );
+                 $this->showBookingThree();
+            break;
  
-               
+         //Runs showBookingFour() function        
+        case '4':
             
-            case '3':
-                $_SESSION["givenSeatNumber"]         = filter_input(INPUT_POST, "givenSeatNumber");
-               // echo $_SESSION["givenSeatNumber"];
-                  
-                 return $this->render("bookingstepThree");
-                
-                 break;
-             
-             case '4':
-                $_SESSION["givenGender"]         = filter_input(INPUT_POST, "givenGender");
-                $_SESSION["givenFirst_name"]     = filter_input(INPUT_POST, "givenFirst_name");
-                $_SESSION["givenLast_name"]      = filter_input(INPUT_POST, "givenLast_name");
-                $_SESSION["givenBirth_date"]     = filter_input(INPUT_POST, "givenBirth_date");
-                $_SESSION["givenStreet_address"] = filter_input(INPUT_POST, "givenStreet_address");
-                $_SESSION["givenZip_code"]       = filter_input(INPUT_POST, "givenZip_code");
-                $_SESSION["givenCity"]           = filter_input(INPUT_POST, "givenCity");
-                $_SESSION["givenCountry"]        = filter_input(INPUT_POST, "givenCountry");
-                $_SESSION["givenCountry_code"]   = filter_input(INPUT_POST, "givenCountry_code");
-                $_SESSION["givenPhone_number"]   = filter_input(INPUT_POST, "givenPhone_number");
-                $_SESSION["givenEmail"]          = filter_input(INPUT_POST, "givenEmail");
-               
-                /*                
-                $_SESSION["givenGender"]            = $givenGender;
-                $_SESSION["givenFirst_name"]        = $givenFirst_name;
-                $_SESSION["givenLast_name"]         = $givenLast_name;
-                $_SESSION["givenBirth_date"]        = $givenBirth_date;
-                $_SESSION["givenStreet_address"]    = $givenStreet_address;
-                $_SESSION["givenZip_code"]          = $givenZip_code;
-                $_SESSION["givenCity"]              = $givenCity;
-                $_SESSION["givenCountry"]           = $givenCountry;
-                $_SESSION["givenCountry_code"]      = $givenCountry_code;
-                $_SESSION["givenPhone_number"]      = $givenPhone_number;
-                $_SESSION["givenEmail"]             = $givenEmail;
-                */
+                 $this->showBookingFour();
+            break;
+
+         //Runs showBookingCustom() function        
+        case '5':
             
-                 return $this->render("bookingstepFour");
-                 break;
-             
-             case '5':
-                //Innhenting av data fra contact form
-                $_SESSION["givenCustomDestination"] = filter_input(INPUT_POST, "givenCustomDestination");
-                $_SESSION["givenPreferredDate"]     = filter_input(INPUT_POST, "givenPreferredDate");
-                $_SESSION["givenPreferredTime"]     = filter_input(INPUT_POST, "givenPreferredTime");
-                $_SESSION["givenGuide"]             = filter_input(INPUT_POST, "givenGuide");
-                                               
-//                $_SESSION["givenCustomDestination"] = $givenCustomDestination;
-//                $_SESSION["givenPreferredDate"]     = $givenPreferredDate;
-//                $_SESSION["givenPreferredTime"]     = $givenPreferredTime;
-//                $_SESSION["givenGuide"]             = $givenGuide;
-//                                               
-//                //test av funksjonalitet stepone custom form
-//                echo $_SESSION["givenCustomDestination"];
-//                echo $_SESSION["givenPreferredDate"];
-//                echo $_SESSION["givenPreferredTime"];
-//                echo $_SESSION["givenGuide"];
-                
-                return $this->render("bookingCustom");
+                 $this->showBookingCustom();
+            break;
               
+         //Runs showBookingConfirmation() function        
+        case '6':
             
-             case '6':
-                 $this->addBooking();
-                 return $this->render("bookingConfirmationPDF");
+                 $this->showBookingConfirmation();
+            break;  
               
-            case '7':
+         //Runs showBookingCustomSummary() function               
+        case '7':
                 
-                $_SESSION["givenGender"]       = filter_input(INPUT_POST, "givenGender");
-                $_SESSION["givenFirst_name"]   = filter_input(INPUT_POST, "givenFirst_name");
-                $_SESSION["givenLast_name"]    = filter_input(INPUT_POST, "givenLast_name");
-                $_SESSION["givenBirth_date"]   = filter_input(INPUT_POST, "givenBirth_date");
-                $_SESSION["givenCompany"]      = filter_input(INPUT_POST, "givenCompany");
-                $_SESSION["givenEmail"]        = filter_input(INPUT_POST, "givenEmail");
-                $_SESSION["givenPhone_number"] = filter_input(INPUT_POST, "givenPhone_number");
-                
-//                echo $_SESSION["givenGender"]; 
-//                echo $_SESSION["givenFirst_name"];    
-//                echo $_SESSION["givenLast_name"];    
-//                echo $_SESSION["givenBirth_date"];         
-//                echo $_SESSION["givenCompany"];          
-//                echo $_SESSION["givenEmail"];            
-//                echo $_SESSION["givenPhone_number"];  
-                
-                return $this->render("bookingCustomSummary");
-                break;
-            case '8':
-                $this->addCustomBooking();
-                return $this->render("bookingSuccess");
+                 $this->showBookingCustomSummary();
+            break;
+
+        //Runs showBookingSuccess() function               
+        case '8':
+            
+                 $this->showBookingSuccess();   
+            break;
         }
-                    
-        
-        
-        
     }
     
        
+    /*
+     * Starts a new Session and clears session attributes
+     */
     function initSession()
     {
         session_start();
@@ -265,91 +112,283 @@ class BookingController extends Controller {
                 $_SESSION["givenCountry_code"]   = "";   
                 $_SESSION["givenPhone_number"]   = "";    
                 $_SESSION["givenEmail"]          = "";    
-           
         }
-       
+    }
+    
+    /*
+     * Retrieves product model and flight model. Fetches the various data from both models.
+     * Makes some of the variables GLOBAL and then renders the view and the model data.
+     * #GLOBALS $FlightDateAndTimes
+     * #GLOBALS $dateArrayGeiranger
+     * #GLOBALS $dateArrayAakneset
+     * #GLOBALS $dateArrayBriksdalen
+     * #RENDER bookingstepOne
+     * #MODELDATA product array
+     */
+    function showBookingOne()
+    {
+            $productModel = $GLOBALS["productModel"]; //Gets the product model
+            $foods = $productModel->getAllWhereProductType(array("Food")); //Fetches an array of all Food products
+            $drinks = $productModel->getAllWhereProductType(array("Drink")); //Fetches an array of all Drink products
+            $dutyfrees = $productModel->getAllWhereProductType(array("DutyFree")); //Fetches an array of all Dutyfree products
+
+            $data = array( //Puts food,drink and dutyfree in a array variable
+            "foods" => $foods,
+            "drinks" => $drinks,
+            "dutyfrees" => $dutyfrees,
+
+             );
+
+            $flightModel = $GLOBALS["flightModel"]; //Get the flight model
+            $FlightDateAndTimes = $flightModel->getAllDatesAndTimes(); //Fetches all dates and times
+
+            $GLOBALS["flightDateAndTimes"] = $FlightDateAndTimes; //Makes variable GLOBAL
+
+            $flightDatesGeiranger = $flightModel->getAllDatesFor("Geiranger"); //Fetches all dates for Geiranger
+            $flightDatesAakneset = $flightModel->getAllDatesFor("Aakneset"); //Fetches all dates for Aakneset
+            $flightDatesBriksdalen = $flightModel->getAllDatesFor("Briksdalen"); //Fetches all dates for Briksdalen
+
+            $dateArrayGeiranger = array(); //Creates an array for Geiranger
+                foreach($flightDatesGeiranger as $flightDateGeiranger){
+                    array_push($dateArrayGeiranger, $flightDateGeiranger["FlightDate"]); //Foreach loop that puts all flight dates to Geiranger in a array         
+                }
+            $GLOBALS["CalenderDatesGeiranger"] = $dateArrayGeiranger; //Makes the array GLOBAL
+
+            $dateArrayAakneset = array();  //Creates an array for Aakneset
+                foreach($flightDatesAakneset as $flightDateAakneset){
+                    array_push($dateArrayAakneset, $flightDateAakneset["FlightDate"]);  //Foreach loop that puts all flight dates to Aakneset in a array           
+                }
+            $GLOBALS["CalenderDatesAakneset"] = $dateArrayAakneset; //Makes the array GLOBAL
+
+            $dateArrayBriksdalen = array();  //Creates an array for Briksdalen
+                foreach($flightDatesBriksdalen as $flightDateBriksdalen){
+                    array_push($dateArrayBriksdalen, $flightDateBriksdalen["FlightDate"]);  //Foreach loop that puts all flight dates to Briksdalen in a array           
+                }
+            $GLOBALS["CalenderDatesBriksdalen"] = $dateArrayBriksdalen; //Makes the array GLOBAL
+
+
+            return $this->render("bookingstepOne",$data); //Takes view part (bookingstepOne) and model part (data) and renders the page content
+    }
+    
+    /*
+     * Retrieves product model, flight model and seat reservation model. Retrieves input from 
+     * bookingstepOne and makes them into $_SESSION variables to store them between sites.
+     * Checks if the order contains products, if that is true it gets product ID and product Price.
+     * It then renders the view and the model data.
+     * #RENDER bookingstepTwo
+     * #MODELDATA taken seats array
+     */
+    function showBookingTwo()
+    {
+            $productModel = $GLOBALS["productModel"]; //Gets the product model
+            $flightModel = $GLOBALS["flightModel"]; //Gets the flight model
+            $SeatReservationModel = $GLOBALS["seatReservationModel"]; //Gets the seat reservation model
+            
+            $_SESSION["givenDestination"]     = filter_input(INPUT_POST, "givenDestination"); //Destination input 
+            $_SESSION["selectedFlightID"]     = filter_input(INPUT_POST, "selectedFlightID"); //FlightID input 
+            $_SESSION["givenDate"]            = filter_input(INPUT_POST, "givenDate"); //Date input 
+            $_SESSION["givenTotalPrice"]      = filter_input(INPUT_POST, "givenTotalPrice"); //Total price input 
+            $_SESSION["givenPrice"]           = filter_input(INPUT_POST, "givenPrice"); //Price input 
+            
+            $FlightIDs = $flightModel->getTimeForFlightID($_SESSION["selectedFlightID"]); //Fetches time for the given flight ID
+            if(isset($FlightIDs[0])){  //Checks if the FlightIDs array contains a flight ID
+                $FlightID = $FlightIDs[0]; //Sets the variable as the first element in the array
+            }
+            
+            $_SESSION["givenTime"] = $FlightID["Departure"]; //Sets FlightID as givenTime 
+             
+            $_SESSION["givenFoodID"]            = filter_input(INPUT_POST, "givenFoodID"); //FoodID input
+            $_SESSION["givenDrinkID"]           = filter_input(INPUT_POST, "givenDrinkID"); //DrinkID input
+            $_SESSION["givenDutyFreeID"]        = filter_input(INPUT_POST, "givenDutyFreeID"); //DutyFreeID input
+            $_SESSION["givenProductPrice"]      = filter_input(INPUT_POST, "givenProductPrice"); //ProductPrice input
+            
+            $foodID         = $productModel->getAllWhereProductID($_SESSION["givenFoodID"]); //Fetches all products with given FoodID
+            $drinkID        = $productModel->getAllWhereProductID($_SESSION["givenDrinkID"]); //Fetches all products with given DrinkID
+            $dutyFreeID     = $productModel->getAllWhereProductID($_SESSION["givenDutyFreeID"]); //Fetches all products with given DutyFreeID
+            
+            $foodPrice      = $productModel->getPriceWhereProductID($_SESSION["givenFoodID"]); //Fetches all product prices with given FoodID
+            $drinkPrice     = $productModel->getPriceWhereProductID($_SESSION["givenDrinkID"]); //Fetches all product prices with given DrinkID
+            $dutyFreePrice  = $productModel->getPriceWhereProductID($_SESSION["givenDutyFreeID"]); //Fetches all product prices with given DutyFreeID
+            
+           
+            if(isset($foodPrice[0])){ //Checks if the foodPrice array contains a element
+                $food = $foodPrice[0]; //Sets the variable as the first element in the array
+                $_SESSION["givenFoodPrice"] =  $food["ProductPrice"]; //Sets givenFoodPrice as ProductPrice
+                              
+            }else 
+            {
+                $_SESSION["givenFoodPrice"] = 0; //If there is no element, the variable is set to 0
+            }
+            
+                               
+            if(isset($foodID[0])){ //Checks if the foodID array contains a element
+                $food = $foodID[0]; //Sets the variable as the first element in the array
+                $_SESSION["givenFoodName"] =  $food["ProductName"]; //Sets givenFoodName as ProductName 
+                              
+            }else
+            {
+                $_SESSION["givenFoodName"] = "None"; //If there is no element, the variable is set to None
+            }
+            
+             if(isset($drinkPrice[0])){ //Checks if the drinkPrice array contains a element
+                $drink = $drinkPrice[0]; //Sets the variable as the first element in the array
+                $_SESSION["givenDrinkPrice"] =  $drink["ProductPrice"]; //Sets givenDrinkPrice as ProductPrice
+                              
+            }else
+            {
+                $_SESSION["givenDrinkPrice"] = 0; //If there is no element, the variable is set to 0
+            }          
+            
+            if(isset($drinkID[0])){ //Checks if the drinkID array contains a element
+                $drink = $drinkID[0]; //Sets the variable as the first element in the array
+                $_SESSION["givenDrinkName"] = $drink["ProductName"]; //Sets givenDrinkName as ProductName
+            }else
+            {
+                $_SESSION["givenDrinkName"] = "None"; //If there is no element, the variable is set to None
+            }
+            if(isset($dutyFreePrice[0])){ //Checks if the dutyFreePrice array contains a element
+                $dutyfree = $dutyFreePrice[0]; //Sets the variable as the first element in the array
+                $_SESSION["givenDutyFreePrice"] =  $dutyfree["ProductPrice"]; //Sets givenDutyFreePrice as ProductPrice
+                              
+            }else
+            {
+                $_SESSION["givenDutyFreePrice"] = 0; //If there is no element, the variable is set to 0
+            }          
+            
+            if(isset($dutyFreeID[0])){ //Checks if the dutyFreeID array contains a element
+                $dutyfree = $dutyFreeID[0]; //Sets the variable as the first element in the array
+                $_SESSION["givenDutyFreeName"] = $dutyfree["ProductName"]; 
+            }else
+            {
+                $_SESSION["givenDutyFreeName"] = "None"; //If there is no element, the variable is set to None
+            }
+
+            $_SESSION["givenCustomDestination"]  = filter_input(INPUT_POST, "givenPreferredDate"); //Preferred date input
+            $_SESSION["givenPreferredDate"]      = filter_input(INPUT_POST, "givenPreferredDate"); //Preferred date input
+            $_SESSION["givenPreferredTime"]      = filter_input(INPUT_POST, "givenPreferredTime"); //Preferred time input
+            $_SESSION["givenGuide"]              = filter_input(INPUT_POST, "givenGuide"); //Guide language input
+
+            $takenSeats = $SeatReservationModel->getAllSeatsByFlight($_SESSION["selectedFlightID"]);  //Fetches seats taken for the given flight ID
+
+            $data = array( //Puts taken seats in a array variable
+                "takenSeats" => $takenSeats,
+            );
+
+             return $this->render("bookingstepTwo", $data ); //Takes view part (bookingstepTwo) and model part (data) and renders the page content
+    }
+    
+    /*
+     * Gets the chosen seat number and makes it a SESSION variable and renders next booking step
+     * #RENDER bookingstepThree
+     */
+    function showBookingThree()
+    {
+            $_SESSION["givenSeatNumber"]         = filter_input(INPUT_POST, "givenSeatNumber"); //Seat number input
+            return $this->render("bookingstepThree"); //Takes view part (bookingstepThree) and renders the page
+    }
+    
+    /*
+     * Retrieves input from bookingstepThree and makes them into $_SESSION variables
+     * and renders next booking step
+     * #RENDER bookingstepFour
+     */
+    function showBookingFour()
+    {
+            $_SESSION["givenGender"]         = filter_input(INPUT_POST, "givenGender"); //Gender input
+            $_SESSION["givenFirst_name"]     = filter_input(INPUT_POST, "givenFirst_name"); //First name input
+            $_SESSION["givenLast_name"]      = filter_input(INPUT_POST, "givenLast_name"); //Last name input
+            $_SESSION["givenBirth_date"]     = filter_input(INPUT_POST, "givenBirth_date"); //Birth date input
+            $_SESSION["givenStreet_address"] = filter_input(INPUT_POST, "givenStreet_address"); //Street address input
+            $_SESSION["givenZip_code"]       = filter_input(INPUT_POST, "givenZip_code"); //Zip code input
+            $_SESSION["givenCity"]           = filter_input(INPUT_POST, "givenCity"); //City input
+            $_SESSION["givenCountry"]        = filter_input(INPUT_POST, "givenCountry"); //Country input
+            $_SESSION["givenCountry_code"]   = filter_input(INPUT_POST, "givenCountry_code"); //Country code input
+            $_SESSION["givenPhone_number"]   = filter_input(INPUT_POST, "givenPhone_number"); //Phone number input
+            $_SESSION["givenEmail"]          = filter_input(INPUT_POST, "givenEmail"); //Email input
+               
+            return $this->render("bookingstepFour"); //Takes view part (bookingstepFour) and renders the page
     }
     
     
-    
-    function showBookingOne()
+    /*
+     * Retrieves input from bookingstepOne and makes them into $_SESSION variables
+     * and renders next booking step
+     * #RENDER bookingCustom
+     */
+    function showBookingCustom()
     {
-      
+            $_SESSION["givenCustomDestination"] = filter_input(INPUT_POST, "givenCustomDestination"); //Custom destination input
+            $_SESSION["givenPreferredDate"]     = filter_input(INPUT_POST, "givenPreferredDate"); //Preferred date input
+            $_SESSION["givenPreferredTime"]     = filter_input(INPUT_POST, "givenPreferredTime"); //Preferred time input
+            $_SESSION["givenGuide"]             = filter_input(INPUT_POST, "givenGuide"); //Guide language input
+                                               
+            return $this->render("bookingCustom"); //Takes view part (bookingCustom) and renders the page
+    }
+    
+    /*
+     * Runs the function addBooking() and render next booking step 
+     * then renders next booking step
+     * #RENDER bookingConfirmationPDF
+     */
+    function showBookingConfirmation()
+    {
+            $this->addBooking();
+            return $this->render("bookingConfirmationPDF"); //Takes view part (bookingConfirmationPDF) and renders the page
         
-        
-        $productModel = $GLOBALS["productModel"]; //Gets the productmodel
-        $foods = $productModel->getAllWhereProductType(array("Food")); //Fetches an array of all Food products
-        $drinks = $productModel->getAllWhereProductType(array("Drink")); //Fetches an array of all Drink products
-        $dutyfrees = $productModel->getAllWhereProductType(array("DutyFree")); //Fetches an array of all Dutyfree products
-       // $tourPriceGeiranger = $flightModel ->getAllPrices(array("Geiranger"));
-       // $tourPriceBriksdalen = $flightModel ->getAllPrices(array("Briksdalen"));
-       // $tourPriceAakneset = $flightModel ->getAllPrices(array("Aakneset"));
-        
-        $data = array( // Puts food,drink and dutyfree in a array variable
-        "foods" => $foods,
-        "drinks" => $drinks,
-        "dutyfrees" => $dutyfrees,
-   //     "Geiranger" => $tourPriceGeiranger,
-    //    "Briksdalen" => $tourPriceBriksdalen,
-    //    "Aakneset" => $tourPriceAakneset,    
-         );
-        
-        $flightModel = $GLOBALS["flightModel"];
-        $FlightDateAndTimes = $flightModel->getAllDatesAndTimes();
-        
-        $GLOBALS["flightDateAndTimes"] = $FlightDateAndTimes;
-        
-        $flightDatesGeiranger = $flightModel->getAllDatesFor("Geiranger");
-        $flightDatesAakneset = $flightModel->getAllDatesFor("Aakneset");
-        $flightDatesBriksdalen = $flightModel->getAllDatesFor("Briksdalen");
-
-        $dateArrayGeiranger = array(); 
-        foreach($flightDatesGeiranger as $flightDateGeiranger){
-            array_push($dateArrayGeiranger, $flightDateGeiranger["FlightDate"]);         
-        }
-        $GLOBALS["CalenderDatesGeiranger"] = $dateArrayGeiranger;
-
-        $dateArrayAakneset = array(); 
-        foreach($flightDatesAakneset as $flightDateAakneset){
-            array_push($dateArrayAakneset, $flightDateAakneset["FlightDate"]);         
-        }
-
-        $GLOBALS["CalenderDatesAakneset"] = $dateArrayAakneset;
-
-        $dateArrayBriksdalen = array(); 
-        foreach($flightDatesBriksdalen as $flightDateBriksdalen){
-            array_push($dateArrayBriksdalen, $flightDateBriksdalen["FlightDate"]);         
-        }
-        $GLOBALS["CalenderDatesBriksdalen"] = $dateArrayBriksdalen;
-        
-        
-        return $this->render("bookingstepOne",$data);
+    }
+    
+    /*
+     * Retrieves input from bookingstepOne and makes them into $_SESSION variables
+     * and renders next booking step
+     * #RENDER bookingCustomSummary
+     */
+    function showBookingCustomSummary()
+    {
+            $_SESSION["givenGender"]       = filter_input(INPUT_POST, "givenGender"); //Gender input
+            $_SESSION["givenFirst_name"]   = filter_input(INPUT_POST, "givenFirst_name"); //First name input
+            $_SESSION["givenLast_name"]    = filter_input(INPUT_POST, "givenLast_name"); //Last name input
+            $_SESSION["givenBirth_date"]   = filter_input(INPUT_POST, "givenBirth_date"); //Birth date input
+            $_SESSION["givenCompany"]      = filter_input(INPUT_POST, "givenCompany"); //Company input
+            $_SESSION["givenEmail"]        = filter_input(INPUT_POST, "givenEmail"); //Email input
+            $_SESSION["givenPhone_number"] = filter_input(INPUT_POST, "givenPhone_number"); //Phone number input
+                
+            return $this->render("bookingCustomSummary"); //Takes view part (bookingConfirmationPDF) and renders the page
+    }
+    
+    
+    /*
+     * Runs the function showBookingSuccess() and render next booking step 
+     *#RENDER bookingCustomSummary
+     */
+    function showBookingSuccess()
+    {
+            $this->addCustomBooking();
+            return $this->render("bookingSuccess");
     }
     
     
     
     private function addBooking(){
-       $customerModel = $GLOBALS["customerModel"];
-       $_SESSION["CustomerID"] = $customerModel->add($_SESSION["givenGender"], $_SESSION["givenFirst_name"], $_SESSION["givenLast_name"], $_SESSION["givenStreet_address"], $_SESSION["givenCountry_code"], $_SESSION["givenPhone_number"], $_SESSION["givenCity"], $_SESSION["givenZip_code"],  $_SESSION["givenEmail"], $_SESSION["givenCountry"], $_SESSION["givenBirth_date"]);              
+            $customerModel = $GLOBALS["customerModel"];
+            $_SESSION["CustomerID"] = $customerModel->add($_SESSION["givenGender"], $_SESSION["givenFirst_name"], $_SESSION["givenLast_name"], $_SESSION["givenStreet_address"], $_SESSION["givenCountry_code"], $_SESSION["givenPhone_number"], $_SESSION["givenCity"], $_SESSION["givenZip_code"],  $_SESSION["givenEmail"], $_SESSION["givenCountry"], $_SESSION["givenBirth_date"]);              
 
-       $bookingModel = $GLOBALS["bookingModel"];
-       $_SESSION["BookingID"] = $bookingModel->add($_SESSION["CustomerID"], "0");
-        
-        $flightModel = $GLOBALS["flightModel"];
-       $regIDArray = $flightModel->getRegIDForFlight($_SESSION["selectedFlightID"]);
-       if(isset($regIDArray[0]))
-       {
-        $row = $regIDArray[0];
-        $regID = $row["RegID"];
-       }
-       //echo  $_SESSION["givenSeatNumber"] . " " . $_SESSION["CustomerID"] . " " . $_SESSION["BookingID"] . " " . $regID . " " . $_SESSION["selectedFlightID"];
-       $seatReservationModel = $GLOBALS["seatReservationModel"];
-       $seatReservationModel->add($_SESSION["givenSeatNumber"], $_SESSION["CustomerID"], $_SESSION["BookingID"], $regID, $_SESSION["selectedFlightID"] );
-        
-       $seatReservation_ProductModel = $GLOBALS["seatReservation_ProductModel"];
-       $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenFoodID"], $_SESSION["selectedFlightID"] );
-       $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenDrinkID"], $_SESSION["selectedFlightID"] );
-       $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenDutyFreeID"], $_SESSION["selectedFlightID"] );
+            $bookingModel = $GLOBALS["bookingModel"];
+            $_SESSION["BookingID"] = $bookingModel->add($_SESSION["CustomerID"], "0");
+
+             $flightModel = $GLOBALS["flightModel"];
+            $regIDArray = $flightModel->getRegIDForFlight($_SESSION["selectedFlightID"]);
+            if(isset($regIDArray[0]))
+            {
+             $row = $regIDArray[0];
+             $regID = $row["RegID"];
+            }
+            $seatReservationModel = $GLOBALS["seatReservationModel"];
+            $seatReservationModel->add($_SESSION["givenSeatNumber"], $_SESSION["CustomerID"], $_SESSION["BookingID"], $regID, $_SESSION["selectedFlightID"] );
+
+            $seatReservation_ProductModel = $GLOBALS["seatReservation_ProductModel"];
+            $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenFoodID"], $_SESSION["selectedFlightID"] );
+            $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenDrinkID"], $_SESSION["selectedFlightID"] );
+            $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenDutyFreeID"], $_SESSION["selectedFlightID"] );
    
    }
        
@@ -358,7 +397,6 @@ class BookingController extends Controller {
     {
         $customerModel = $GLOBALS["customerModel"];
         $name = $_SESSION["givenFirst_name"];
-        //$name = $_SESSION["givenFirst_name"] . " " . $_SESSION["givenLast_name"];
         $_SESSION["CustomerID"] = $customerModel->addCustom($_SESSION["givenCompany"],$name , $_SESSION["givenEmail"], $_SESSION["givenPhone_number"]);              
 
         $CustomerRequest = "Destination: " . $_SESSION["givenCustomDestination"] . ". Date: " . $_SESSION["givenPreferredDate"] . ". Time: " . $_SESSION["givenPreferredTime"] . " Language: " . $_SESSION["givenGuide"] . ".";
