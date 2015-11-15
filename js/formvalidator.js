@@ -176,10 +176,10 @@ function validateBookingCustom() {
     var k = document.getElementById('Phonenumber');
     k.style.border = "2px solid green";
     
-    if (company == null || company == "") {
-        f.style.border = "2px solid red";
-        valid = false;
-    }
+    //if (company == null || company == "") {
+    //    f.style.border = "2px solid red";
+    //    valid = false;
+    //}
     if(firstname == null || firstname == "") {
         g.style.border = "2px solid red";
         valid = false;

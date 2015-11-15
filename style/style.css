@@ -8,7 +8,8 @@ and open the template in the editor.
     Author     : Nesjen
 */
 
-body, html { 
+body, html 
+{ 
     overflow-x: hidden; 
     overflow-y: auto;
     height: 100%;
@@ -63,7 +64,6 @@ header
     float:left;
     margin: 0;
     padding-left: 1em;
-
     width: 50%;
     height: 100%;
 }
@@ -102,8 +102,6 @@ header
     height: 50%;
  }*/
 
-
-
 main
 {
     clear:both;
@@ -129,8 +127,7 @@ main
    position: absolute;
    background-image: url("geiranger9.png");
    background-repeat: space;
-   background-size: cover;
-   
+   background-size: cover;  
 }
 
 /*#main-top-overlay  Home page info box
@@ -146,116 +143,102 @@ main
   background-color: rgba(255, 255, 255, 0.68); dim the background
  }*/
  
- #main-top-overlay /* Home page info box*/
- {
-  display: block;
-  overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 7em;
-  width: 30%;
-  min-height: 50%;
-  max-height: 50%;
-  z-index: 10;
-  border-radius: 0.5em;
-  background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
- }
+#main-top-overlay /* Home page info box*/
+{
+    display: block;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7em;
+    width: 30%;
+    min-height: 50%;
+    max-height: 50%;
+    z-index: 10;
+    border-radius: 0.5em;
+    background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
+}
  
-  #main-top-overlay a
-  {
-      text-align: center;
-  }
+#main-top-overlay a
+{
+    text-align: center;
+}
  
- #BookingButtonHome  /* Booking button home page*/
- {
-     display:block;
-     margin-left: auto;
-     margin-right: auto;
-     margin-top: 1em;
-     height: 10%;
-     width: 10%;
-     margin-bottom: 2em;
-     
- }
+#BookingButtonHome  /* Booking button home page*/
+{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    height: 10%;
+    width: 10%;
+    margin-bottom: 2em;   
+}
  
- #BookingButtonHome a /* Booking button home page*/
- {
+#BookingButtonHome a /* Booking button home page*/
+{
     text-decoration: none;
- }
+}
  
- #BookingButtonHome a:hover /* Booking button home page*/
- {
+#BookingButtonHome a:hover /* Booking button home page*/
+{
      
- }
+}
  
- #BookingButtonHome button
- {
-     padding: 0;
-     margin:0;
-     display:block;
-     background-color: greenyellow;
-     border-radius: 0.4em;
-     height: 100%;
-     width: 100%;
-     text-decoration: none;
-     font-size: 1.5em;
-         
- }
+#BookingButtonHome button
+{
+    padding: 0;
+    margin:0;
+    display:block;
+    background-color: greenyellow;
+    border-radius: 0.4em;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    font-size: 1.5em;        
+} 
  
+#main-top-overlay h2
+{
+    text-decoration: underline;
+    text-align: center;
+}
+  
+#main-top-overlay p
+{
+    font-size: 1em;
+    text-align: center;
+}
  
+#main-top-overlay  a
+{   
+    color: steelblue;
+    margin-left: 13.5em;
+    text-align: center;
+    text-decoration: underline;
+}
+ 
+#main-top-overlay a:hover
+{
+    color: darkblue;
+}
 
-
+#main-top-overlay-booking
+{
+    position: absolute;
+    top: 0;
+     left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.70); /*dim the background*/
+}
  
-  #main-top-overlay h2
- {
-     text-decoration: underline;
-     text-align: center;
- }
- 
- 
- 
- #main-top-overlay p
- {
-     font-size: 1em;
-     text-align: center;
- }
- 
- #main-top-overlay  a
- {
-     
-     color: steelblue;
-     margin-left: 13.5em;
-     text-align: center;
-     text-decoration: underline;
- }
- 
- #main-top-overlay a:hover
- {
-     color: darkblue;
- }
-
- 
- 
- #main-top-overlay-booking
- {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  background-color: rgba(255, 255, 255, 0.70); /*dim the background*/
- }
- 
-
- #top-text-seatres p
- {
-     margin-top: 2em;
-     font-size: 2em;
-     text-align: center;
- }
-
-
+#top-text-seatres p
+{
+    margin-top: 2em;
+    font-size: 2em;
+    text-align: center;
+}
  
 /* #main-top-overlay-booking button
  {
@@ -283,10 +266,10 @@ main
    z-index: 15;  
 }
 
- #main-bottom h3:hover
- {
-     color: greenyellow;
- }
+#main-bottom h3:hover
+{
+    color: greenyellow;
+}
  
 #main-bottom ul
 {
@@ -307,27 +290,26 @@ main
     border-right: 1px solid white;  
 }
 
-
 #main-bottom li:last-child
 {
     border:none;
 }
 
- #main-bottom-booking
+#main-bottom-booking
 {  
-   position:absolute;
-   clear:both;
-   width: 100%;
-   height: 10%;
-   bottom:0;
-   background-color: black;
-   z-index: 15; 
+    position:absolute;
+    clear:both;
+    width: 100%;
+    height: 10%;
+    bottom:0;
+    background-color: black;
+    z-index: 15; 
 }
 
- #main-bottom-booking h3:hover
- {
-     color: greenyellow;
- }
+#main-bottom-booking h3:hover
+{
+    color: greenyellow;
+}
  
 #main-bottom-booking ul
 {
@@ -338,7 +320,6 @@ main
     overflow: hidden;
 }
 
-
 #main-bottom-booking li
 {
     font-size: 1.6em;
@@ -347,7 +328,6 @@ main
     height: 100%;
     text-align: center;
 }
-
 
 #main-bottom-booking li:first-child
 {
@@ -373,72 +353,63 @@ main
     margin-top: 5%;
     -webkit-transition: width 1s, height 0s; /* Safari */
     transition: width 0.2s, height 0s;
-
 }
 
+#navigation:target
+{
+    width: 15%;
+}
 
- #navigation:target
- {
-     width: 15%;
- }
+#navigation ul
+{
+    margin: 0;
+    padding:0;
+}
 
- #navigation ul
- {
-     margin: 0;
-     padding:0;
- }
-
- #navigation li
- {
-     list-style: none;
-     padding: 0px;
-     margin: 0;
-     width: 100%;
-
-     overflow:hidden;
-     text-align: center;
-
- }
+#navigation li
+{
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    overflow:hidden;
+    text-align: center;
+}
  
- #navigation li:hover
- {
-     color: greenyellow;
- }
+#navigation li:hover
+{
+    color: greenyellow;
+}
 
- #navigation li a
+#navigation li a
 {
     width: 100%;
     display:block;
     padding:3% 0 3% 0;
     vertical-align: middle;
-
 }
 
+#opennav 
+{
+    display: block;
+}
 
- #opennav
- {
-     display: block;
- }
+#opennav img:hover
+{
+    border-radius:2em;
+    box-shadow: 0px 0px 20px #00ff00;
+}
 
-  #opennav img:hover
- {
-      border-radius:2em;
-      box-shadow: 0px 0px 20px #00ff00;
- }
-
-
- #closenav
- {
-     display:none;
- }
+#closenav
+{
+    display:none;
+}
  
 #closenav img:hover
 {
     border-radius:2em;
     box-shadow: 0px 0px 20px #ff0000;
 }
-
-
 
 /* #topnav
  {
@@ -467,89 +438,86 @@ main
  }*/
  
 #countryCode
- {
-     width: 8.1em;
-     height: 1.6em;
- }
+{
+    width: 8.1em;
+    height: 1.6em;
+}
  
- #countryCode optgroup option
- {
-     width: 8.1em;
-     height: 1.6em;
-     color: black;
-     float: right;
- }
-  #form-left-column label
- {
-     display:block;
-     margin-top: 2em;
-     font-size: 0.9em;
-     
- }
- 
-  #form-right-column label
- {
-     display:block;
-     margin-top: 2em;
-     font-size: 0.9em;
-     
- }
- 
- #main-top-overlay-booking input
- {
-     height: 2em;
-     width: 20em;    
-     border-radius: 0.01em;
+#countryCode optgroup option
+{
+    width: 8.1em;
+    height: 1.6em;
+    color: black;
+    float: right;
+}
 
-     
- }
+#form-left-column label
+{
+    display:block;
+    margin-top: 2em;
+    font-size: 0.9em;    
+}
  
+#form-right-column label
+{
+    display:block;
+    margin-top: 2em;
+    font-size: 0.9em;     
+}
  
- #form-left-column
- {
-     padding: 0;
-     margin-top: 4%;
-     margin-left: 33%;
-     max-height: 40em;
-     float: left;
- }
+#main-top-overlay-booking input
+{
+    height: 2em;
+    width: 20em;    
+    border-radius: 0.01em;         
+}
+  
+#form-left-column
+{
+    padding: 0;
+    margin-top: 4%;
+    margin-left: 33%;
+    max-height: 40em;
+    float: left;
+}
  
-  #form-right-column 
- {
-     padding: 0;
-     margin-top:8.3%;
-     margin-bottom: 12em;
-     margin-right: 33%;
-     max-height: 40em;
-     float: right;
- }
+#form-right-column 
+{
+    padding: 0;
+    margin-top:8.3%;
+    margin-bottom: 12em;
+    margin-right: 33%;
+    max-height: 40em;
+    float: right;
+}
  
- #geiranger-info
- {
-     display:block;
- }
+#geiranger-info
+{
+    display:block;
+}
  
- #briksdalen-info
- {
-     display:none;
- }
+#briksdalen-info
+{
+    display:none;
+}
  
- #Aakneset-info
- {
-     display:none;
- }
+#Aakneset-info
+{
+    display:none;
+}
  
- #egendefinert-info
- {
-     display: none;
- }
+#egendefinert-info
+{
+    display: none;
+}
  
- select
- {   width: 20.5em;
+select
+{   width: 20.5em;
      height: 2.5em;
- }
+}
  
-input[type="number"] {
+input[type="number"] 
+{
     -moz-appearance: textfield;
 }
 
@@ -560,15 +528,14 @@ input[type="number"] {
     margin-right: auto;
     width: 50%;
     overflow: hidden;
-
     text-align: center;
 }
 
 #product-form label
 {
     display: block;
-     margin-top: 2%;
-     min-width: 100%;
+    margin-top: 2%;
+    min-width: 100%;
      
 }
 
@@ -576,14 +543,10 @@ input[type="number"] {
 {
     display: block;
     width: 40%;
-     margin-top: 1.5%;
-     margin-left: auto;
-     margin-right: auto;
+    margin-top: 1.5%;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-
-
-
 
 /*#product-form button
 {
@@ -625,8 +588,8 @@ input[type="number"] {
 #date-and-time label
 {
     display: block;
-     margin-top: 2%;
-     min-width: 100%;
+    margin-top: 2%;
+    min-width: 100%;
 }
 
 #date-and-time input
@@ -639,8 +602,6 @@ input[type="number"] {
    width: 40%;
 }
 
-
-
 /* //// Custom Form //// */
 #Custom-form-stepone
 {
@@ -649,8 +610,7 @@ input[type="number"] {
   margin-right: auto;
   margin-top: 2%;
   width: 30%;
-  overflow:hidden;
-  
+  overflow:hidden;  
   //position: relative;
   //top: 200px;
   //left: 34.3%;
@@ -660,70 +620,73 @@ input[type="number"] {
   //border-radius: 0.5em;
   //background-color: rgba(255, 255, 255, 0.80); /*dim the background*/
 }
+
 #Custom-form-stepone h2
 {
     text-align: center;
 }
+
 #Custom-form-left
-{
-   
+{   
     float: left;
     margin-left: 8em;
     height: 50%;
 }
+
 #Custom-form-left a
 {
     margin-left: 1em;
 }
+
 #Custom-form-left a:hover
  {
-     color: green;
+    color: green;
  }
+ 
 #Custom-form-left input
 {
     margin-bottom: 3em;
 }
 
-
- #DropdownGuide 
- {  
-     
+#DropdownGuide 
+{       
     height: 20px;
-    width: 175px; 
-    
- }
+    width: 175px;     
+}
  
- #input-grow
- {
-     max-width: 30em;
-     width: auto;
-     display: inline;
- }
- #Custom-form-stepone button
- {
-     text-align: center;
-     width: 30%;
-     height: 40px;
-     border-radius: 0.5em;
-     background-color: greenyellow;
-     margin-top: 3em;
-     margin-left: 3em;
- }
- 
- #Tour
- {
-     display: block;
- }
+#input-grow
+{
+    max-width: 30em;
+    width: auto;
+    display: inline;
+}
 
-  #preDefTourNext
- {
-     display: block;
- }
- #customTourNext
- {
-     display: none;
- }
- /* --- Custom form second step --- */
+#Custom-form-stepone button
+{
+    text-align: center;
+    width: 30%;
+    height: 40px;
+    border-radius: 0.5em;
+    background-color: greenyellow;
+    margin-top: 3em;
+    margin-left: 3em;
+}
+ 
+#Tour
+{
+    display: block;
+}
+
+#preDefTourNext
+{
+    display: block;
+}
+#customTourNext
+{
+    display: none;
+}
+
+/* --- Custom form second step --- */
 /*#bookingCustom
 {
   position: absolute;
@@ -736,13 +699,11 @@ input[type="number"] {
 
 #bookingCustom
 {
-  position: relative;
-  margin-top: 2em;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30%;
-  
-  
+    position: relative;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;  
 }
 
 #bookingCustom h2
@@ -750,29 +711,30 @@ input[type="number"] {
     text-align: center;
 }
 
- #bookingCustom-column
- {
-     padding: 0;
-     margin-top: 4%;
-     margin-left: 0%;
-     max-height: 20em;
-     float: left;
- }
- #bookingCustomcolumn input
- {
-     border-radius: 0.01em;
-     margin-left: 10em;
-     margin-bottom: 1em;
-     width: 20em;
-     height: 2em;
-     border-radius: 0.1em;
- }
+#bookingCustom-column
+{
+    padding: 0;
+    margin-top: 4%;
+    margin-left: 0%;
+    max-height: 20em;
+    float: left;
+}
+
+#bookingCustomcolumn input
+{
+    border-radius: 0.01em;
+    margin-left: 10em;
+    margin-bottom: 1em;
+    width: 20em;
+    height: 2em;
+    border-radius: 0.1em;
+}
 
 #bookingCustomcolumn label 
 {
     margin-left: 8.5em;
-
 }
+
 #bookingCustomcolumn select
 {
     margin-left: 10em;
@@ -780,6 +742,7 @@ input[type="number"] {
     width: 20.5em;
     height: 2em;;
 }
+
 #bookingCustomcolumn h3
 {
     color: black;
@@ -787,11 +750,11 @@ input[type="number"] {
     margin-left: 7.2em;
     margin-top: 1em;
     margin-bottom: 0.2em;
-
 }
+
 #bookingCustomSummary 
  {
-     height: 100%;
+    height: 100%;
  }
 
 #bookingCustomSummary label 
@@ -802,8 +765,7 @@ input[type="number"] {
     margin:0;
     margin-bottom: 0.5em;
     padding-left: 4.99%;
-    padding-right: 4.99%;
-    
+    padding-right: 4.99%;    
 }
 
 #bookingCustomSummary h3
@@ -811,14 +773,15 @@ input[type="number"] {
     color: green;
     font-weight: bold;
     margin-left: 1.5em;
-    margin-bottom: 0;
-        
+    margin-bottom: 0;        
 }
+
 #bookingCustomSummary h2
 {
     text-align: center;
     color: green;
 }
+
 #bookingCustomSummary p
 {
     margin-left: 1.7em;
@@ -833,26 +796,29 @@ input[type="number"] {
     margin-bottom: 5em;
     height: 100%;
 }
+
 #main-top-overlay-summary /* Home page info box*/
- {
-  display: block;
-  overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2em;
-  width: 100%;
-  min-height: 50%;
-  max-height: 50%;
-  z-index: 10;
-  border-radius: 0.5em;
-  background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
- }
+{
+    display: block;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    width: 100%;
+    min-height: 50%;
+    max-height: 50%;
+    z-index: 10;
+    border-radius: 0.5em;
+    background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
+}
+
 #bookingSuccess h3
 {
     color: black;
     font-weight: bold;
     text-align: center;
 }
+
 #bookingSuccess h2
 {
     color: green;
@@ -862,32 +828,35 @@ input[type="number"] {
 
 #infobox
 {
-  display: none;
-  overflow: hidden;
-  margin-left: 2em;
-  margin-right: auto;
-  margin-top: 0em;
-  margin-bottom: 0.5em;
-  width: 93%;
-  min-height: 15%;
-  max-height: 30%;
-  z-index: 10;
-  border-radius: 0.5em;
-  border: 1px solid green;
-  background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
+    display: none;
+    overflow: hidden;
+    margin-left: 2em;
+    margin-right: auto;
+    margin-top: 0em;
+    margin-bottom: 0.5em;
+    width: 93%;
+    min-height: 15%;
+    max-height: 30%;
+    z-index: 10;
+    border-radius: 0.5em;
+    border: 1px solid green;
+    background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
 }
+
 #infobox p
 {
     margin-left: 1em;
     margin-right: 1em;
     font-weight: normal;
 }
+
 #infobox a
 {
     color: green;
     margin-left: 9em;
     font-weight: bold;
 }
+
 #infobox a:hover
 {
     color: black;
@@ -908,6 +877,7 @@ input[type="number"] {
     margin-top: 1.5em;
     position: relative;
 }
+
 .circleBase
 {
     border-radius: 50%;
@@ -921,10 +891,9 @@ input[type="number"] {
     position: relative;
     margin-left: 1.5em;
     margin-top: 1.5em;
-    margin-bottom: 0em;
-    
-    
+    margin-bottom: 0em;    
 }
+
 .circleBase span
 {
     margin-top: 0.7em;
@@ -932,6 +901,7 @@ input[type="number"] {
     display:inline-block;
     vertical-align: middle;
 }
+
 .circleBaseActive span
 {
     margin-top: 0.7em;
@@ -940,6 +910,7 @@ input[type="number"] {
     vertical-align: middle;
     
 }
+
 #CircleLocation
 {   
     padding: 0;
@@ -947,42 +918,38 @@ input[type="number"] {
     right: 0;
     top: 0;
     margin-right: 0%;
-
-    background: black;
-    
-    
+    background: black;    
     width: 20%;
     min-height: 7%;
     position: fixed;
-    //bottom: 0;
-    
-    //border: 1px solid red;
-   // text-align: center;
     vertical-align: bottom;
+    //bottom: 0;    
+    //border: 1px solid red;
+    //text-align: center;    
 }
+
 #planechart
 {
-   display:block;
-   width: 50%;
-   margin-left: auto;
-   margin-right: auto;
-   height: 50%;
-   border: 1px solid transparent;
-   margin-top: 10%;
-   position: relative;
+    display:block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50%;
+    border: 1px solid transparent;
+    margin-top: 10%;
+    position: relative;
 }
 
 #planechart ul
 {
-   display:block;
-   overflow:hidden;
-   margin:0;
-   width: 39%;
-   height: 100%;
-   padding:0;
-   margin-left: auto;
-   margin-right: auto;
-   
+    display:block;
+    overflow:hidden;
+    margin:0;
+    width: 39%;
+    height: 100%;
+    padding:0;
+    margin-left: auto;
+    margin-right: auto;  
 }
 
 #planechart img
@@ -996,33 +963,27 @@ input[type="number"] {
 
 #planechart ul:first-child
 {
- margin-top: 14%;
+    margin-top: 14%;
 }
 
 #planechart ul:last-child
 {
- margin-top: 5%;
+    margin-top: 5%;
 }
-
-
-
-
-
      
-.select-seat-row-one {
-     list-style-type:none;
-     width:100%;
-     margin-top: 25em;
-     margin-left: auto;
-     margin-right: auto;
-     height: 100%;
-     overflow: hidden;
-    
+.select-seat-row-one 
+{
+    list-style-type:none;
+    width:100%;
+    margin-top: 25em;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    overflow: hidden;    
 }
 
-
-.select-seat-row-one li {
-
+.select-seat-row-one li 
+{
     float:left;
     margin:2.5%;
     width:11%;
@@ -1035,7 +996,8 @@ input[type="number"] {
     margin-left: 3%;
 }
 
-.select-seat-row-one label, .select-seat-row-one input {
+.select-seat-row-one label, .select-seat-row-one input 
+{
     display:block;
     position:absolute;
     top:0;
@@ -1044,38 +1006,44 @@ input[type="number"] {
     bottom:0;
 }
 
-.select-seat-row-one input[type="radio"] {
+.select-seat-row-one input[type="radio"] 
+{
     opacity:0.01;
     z-index:200;
 }
 
 .select-seat-row-one input[type="radio"]:checked + label,
-.Checked + label {
+.Checked + label 
+{
     background:greenyellow;
 }
 
-.select-seat-row-one label {
-     padding:5px;
-     border:1px solid #AAA; 
-     cursor:pointer;
-     z-index:300;
+.select-seat-row-one label 
+{
+    padding:5px;
+    border:1px solid #AAA; 
+    cursor:pointer;
+    z-index:300;
 }
 
-.select-seat-row-one label:hover {
-     background: #AAA;
+.select-seat-row-one label:hover 
+{
+    background: #AAA;
 }
 
-.select-seat-row-two {
-     list-style-type:none;
-     width:25%;
-     height: 2em;
-     margin-top: 25em;
-     margin-left: auto;
-     margin-right: auto;
-     clear:both;
+.select-seat-row-two 
+{
+    list-style-type:none;
+    width:25%;
+    height: 2em;
+    margin-top: 25em;
+    margin-left: auto;
+    margin-right: auto;
+    clear:both;
 }
 
-.select-seat-row-two li {
+.select-seat-row-two li 
+{
     float:left;
     margin:2.5%;
     width:11%;
@@ -1086,11 +1054,10 @@ input[type="number"] {
     font-size: 1em;
     margin-top: 0;
     margin-left: 3%;
-
-
 }
 
-.select-seat-row-two label, .select-seat-row-one input {
+.select-seat-row-two label, .select-seat-row-one input 
+{
     display:block;
     position:absolute;
     top:0;
@@ -1099,208 +1066,186 @@ input[type="number"] {
     bottom:0;
 }
 
-.select-seat-row-two input[type="radio"] {
+.select-seat-row-two input[type="radio"] 
+{
     opacity:0.01;
     z-index:200;
 }
 
 .select-seat-row-two input[type="radio"]:checked + label,
-.Checked + label {
+.Checked + label 
+{
     background:greenyellow;
 }
 
-.select-seat-row-two label {
-     padding:5px;
-     border:1px solid #AAA; 
-     cursor:pointer;
-     z-index:300;
-}
-
-.select-seat-row-two label:hover {
-     background:#AAA;
-}
-
-
-
-@media screen and (max-width: 1730px){ //125%
-#main-top-overlay /* Home page info box*/
- {
-  width: 50%;
-  height: 80%;
- }
- 
-
-
-#planechart ul:first-child
+.select-seat-row-two label 
 {
- margin-top: 14%;
+    padding:5px;
+    border:1px solid #AAA; 
+    cursor:pointer;
+    z-index:300;
 }
 
-#planechart ul:last-child
+.select-seat-row-two label:hover 
 {
- margin-top: 5%;
+    background:#AAA;
 }
 
-     
 
 
-
- 
- 
-   
-}
-
-@media screen and (max-width: 1500px){ //150%
-#main-top-overlay /* Home page info box*/
+@media screen and (max-width: 1730px)
+{ //125%
+ #main-top-overlay /* Home page info box*/
  {
-  margin-top: 2em;
-  width: 80%;
-  height: 80%;
+    width: 50%;
+    height: 80%; 
  }
  
  #planechart ul:first-child
-{
- margin-top: 13%;
-}
-
-#planechart ul:last-child
-{
- margin-top: 9%;
-}
-
-
-
-.select-seat-row-two li {
-
-    height: 2em;
-    width: 11%;
-    font-size: 0.8em;
-
-
-}
- 
- .select-seat-row-one li {
-
-    height: 2em;
-    font-size: 0.8em;
-    width: 11%;
-
-}
-   
-}
-
-@media screen and (max-width: 1200px){
-#main-top-overlay /* Home page info box*/
  {
-  margin-top: 2em;
-  width: 100%;
-
+    margin-top: 14%;
  }
-   
+
+ #planechart ul:last-child
+ {
+    margin-top: 5%;
+ }  
 }
 
-
-
-
+@media screen and (max-width: 1500px)
+{ //150%
+ #main-top-overlay /* Home page info box*/
+ {
+    margin-top: 2em;
+    width: 80%;
+    height: 80%;
+ }
  
-@media screen and (max-width: 1024px){
-    
- #navigation {
-position: fixed;
-right:0;
-top:0;
-width: 0;
-color: white;
-height: 100%;
-z-index: 17;
--webkit-transition: width 1s, height 0s; /* Safari */
-transition: width 1s, height 0s;
+ #planechart ul:first-child
+ {
+    margin-top: 13%;
+ }
 
+ #planechart ul:last-child
+ {
+    margin-top: 9%;
+ }
+
+ .select-seat-row-two li 
+ {
+    height: 2em;
+    width: 11%;
+    font-size: 0.8em;
+ }
+ 
+ .select-seat-row-one li 
+ {
+    height: 2em;
+    font-size: 0.8em;
+    width: 11%;
+ }   
 }
 
+@media screen and (max-width: 1200px)
+{
+ #main-top-overlay /* Home page info box*/
+ {
+    margin-top: 2em;
+    width: 100%;
+ }   
+}
+
+@media screen and (max-width: 1024px)
+{
+    
+ #navigation 
+ {
+    position: fixed;
+    right:0;
+    top:0;
+    width: 0;
+    color: white;
+    height: 100%;
+    z-index: 17;
+    -webkit-transition: width 1s, height 0s; /* Safari */
+    transition: width 1s, height 0s;
+ }
 
  #navigation:target
  {
-     width: 100%;
+    width: 100%;
  }
 
  #navigation ul
  {
-     height: 100%;
-     margin: 0;
-     padding:0;
-
+    height: 100%;
+    margin: 0;
+    padding:0;
  }
 
  #navigation li
- {
-     
-     list-style: none;
-     padding: 0;
-     margin: 0;
-     width: 100%;
-     overflow:hidden;
-     text-align: center;
+ {    
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow:hidden;
+    text-align: center;
  }
 
  #navigation li a
-{
+ {
     width: 100%;
     display:block;
     padding:1.5% 0 1.5% 0;
     vertical-align: middle;
 
-}
+ }
 
-
-#navigation a:hover
-{
-    background-color: black;
-}
-    
-
-#main-top-overlay /* Home page info box*/
+ #navigation a:hover
  {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1em;
-  width: 100%;
-  min-height: 50%;
-  max-height: 100%;
-  font-size: 0.8em;
-  z-index: 10;
-  border-radius: 0.5em;
-  background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
+    background-color: black;
+ }
+    
+ #main-top-overlay /* Home page info box*/
+ {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    width: 100%;
+    min-height: 50%;
+    max-height: 100%;
+    font-size: 0.8em;
+    z-index: 10;
+    border-radius: 0.5em;
+    background-color: rgba(255, 255, 255, 0.68); /*dim the background*/
  }
  
-  #main-top-overlay a
-  {
-      text-align: center;
-  }
+ #main-top-overlay a
+ {
+    text-align: center;
+ }
  
  #BookingButtonHome  /* Booking button home page*/
  {
-     display:block;
-     margin-left: auto;
-     margin-right: auto;
-     margin-top: 1em;
-     height: 10%;
-     width: 50%;
-     margin-bottom: 1em;
-     }
-#main-top
-{
-   background-color: black;
-   height: 85%;
-   width: 100%;
-   position: absolute;
-   background-image: none;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    height: 10%;
+    width: 50%;
+    margin-bottom: 1em;
+ }
+ 
+ #main-top
+ {
+    background-color: black;
+    height: 85%;
+    width: 100%;
+    position: absolute;
+    background-image: none;
+ }    
 }
-
-    
-    
-}
-
 
 @media screen and (max-width: 768px){  
     
