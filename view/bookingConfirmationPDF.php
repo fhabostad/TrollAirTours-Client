@@ -15,7 +15,6 @@
                     <ul style="width:100%;">
                         
                         <li style="width:99%; text-align: center;">
-                            <!--<div id="preDefTourNext"><a href="javascript:{}" onclick="document.getElementById('bookingTwo').submit();"><h3>Next</h3></a></div> -->
                             <div id="preDefTourNext"><a href="?page=home" onclick="validateForm()"><h3 text-align="center">Home</h3></a></div>
                         </li>
                         
@@ -60,24 +59,32 @@ require_once('vendor/mpdf/mpdf.php');
 require_once ('vendor/phpqrcode/qrlib.php');
 
 // This makes the QR code
-$tempDir = 'bookings/';
+// Directory to create the qr code png
+$tempDir = 'bookings/'; 
+// What information to put in the code
 $codeContents = "BookingRef:{$Ref} -- CustomerID:{$RefCust} - Gender:{$Gender} - Birthdate{$Birth} - First Name{$FirstName} - Last Name:{$LastName} - Address:{$Adress} - Zipcode:{$ZipCode} - City:{$City} - Country:{$Country} - Areacode:{$CountryCode} - Phone Number:{$Phone} - E-mail:{$Email} - Destination:{$Dest} - Date:{$Date} - Time:{$Time} - Seat Number:{$Seat} - Ordered Flight:{$FlightPrice} NOK - Orderd Drink:{$Drink} NOK {$DrinkPrice}  - Ordered Food:{$Food} NOK {$FoodPrice} - Ordered Dutyfree{$DutyFree} NOK {$DutyFreePrice} - Total Cost NOK {$TotalPrice}";
+// File name 
 $qfileName = '005_file_'.md5($codeContents).'.png';
+// File paths
 $pngAbsoluteFilePath = $tempDir.$qfileName;
 $urlRelativeFilePath = "bookings/$qfileName";
     
-    // generating
+// generating the QR png
     if (!file_exists($pngAbsoluteFilePath)) {
         QRcode::png($codeContents, $pngAbsoluteFilePath);
            
     } else {
     
     }
+    
+// Create a nre mPDF incance    
 $mpdf = new mPDF();
 $date = date("d-m-Y");
+// Set password with the phone variable
 $mpdf->SetProtection(array(), 'UserPassword', $Phone);
+// File path and name
 $filename="bookings/{$LastName}_{$FirstName}_Booking.pdf";
-
+// Write the pdf information
 $html   = '<html><body>';
 $html   .= '<div style="text-align:center;"><img src="image/tatlogo.jpg"/></div>'; // TAT Logo
 $html   .= '<table class = "bpmTopnTailC" align="center"><thead>
@@ -97,10 +104,12 @@ $html   .= "<p>Dutyfree: {$DutyFree}    Nok {$DutyFreePrice},-";
 $html   .= "<p><b>TOTAL:</b>            Nok {$TotalPrice},-";
        
 
-
+// path to qr code
 $html   .= "<p><img src='$urlRelativeFilePath'></p>";
 $html   .= '</body></html>';
+// Write the PDF
 $mpdf->WriteHTML($html);    
+// Output the PDF
 $mpdf->Output($filename);
 
 
@@ -120,12 +129,14 @@ $mail->SMTPAuth = true;
 $mail->Username = "trollairtours@gmail.com";
 $mail->Password = "Hallo1234";
 $mail->setFrom('trollairtours@gmail.com', 'noreply');
+// The given email, firstname and lastname to send the email to
 $mail->addAddress($Email, $FirstName.$LastName);
 $mail->Subject = 'Electronic Ticket Itinerary and Receipt from TAT ';
 $mail->AltBody = 'This is a plain-text message body';
 $mail->Body='For your security, your phonenumber (without country code!) is your password for the pdf.
     System generated e-mail, please do not respond.
     Attached please find Your Electronic Ticket Itinerary and Receipt.';
+// add the pdf to the mail
 $mail->addAttachment($filename) ;
 
 if (!$mail->send()) {
@@ -145,7 +156,7 @@ if (!$mail->send()) {
 
 // Finally, destroy the session.
 session_destroy();
-   
+// If mail is sendt the qr code and pdf is deletet from the booking folder   
 } else {
    unlink($filename);
    unlink($urlRelativeFilePath);

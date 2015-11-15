@@ -39,13 +39,9 @@
                                 
                             <label><h4>NB! please note that you need to return to Troll Air Tours via Paypal before the booking is confirmed</h4></label>
        <?php
-                $FlightPrice    = $_SESSION["givenPrice"];
-                $FoodPrice      = $_SESSION["givenFoodPrice"];
-                $DutyFreePrice  = $_SESSION["givenDutyFreePrice"];
-                $DrinkPrice     = $_SESSION["givenDrinkPrice"];
-                $TotalPrice     = $_SESSION['givenTotalPrice'];//$FlightPrice + $FoodPrice + $DutyFreePrice + $DrinkPrice;
+                $TotalPrice     = $_SESSION['givenTotalPrice']; // FlightPrice + FoodPrice + DutyFreePrice + DrinkPrice
                 $paypal_url     ='https://www.sandbox.paypal.com/cgi-bin/webscr'; // Test Paypal API URL
-                $paypal_id      ='trollairtours@gmail.com'; // Business email ID
+                $paypal_id      ='trollairtours@gmail.com'; // Business email paypal ID
  
                 ?>
                                 
@@ -66,8 +62,8 @@
                 <input type="hidden" name="no_shipping" value="1">
                 <input type="hidden" name="currency_code" value="NOK">
                 <input type="hidden" name="handling" value="0">
-                <input type="hidden" name="cancel_return" value="http://localhost/TrollAirTours-client/?page=bookingOne">
-                <input type="hidden" name="return" value="http://localhost/TrollAirTours-client/?page=bookingConfirmation">
+                <input type="hidden" name="cancel_return" value="http://localhost/TrollAirTours-client/?page=bookingOne"> <!--Rederect page if payment is canceled-->
+                <input type="hidden" name="return" value="http://localhost/TrollAirTours-client/?page=bookingConfirmation"> <!--Rederect page if payment is sucsessfull-->
                 <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                 <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
                 </form> 
@@ -88,8 +84,7 @@
                     <ul style="width:100%;">
                         
                        <li style="width:100%; text-align: center;">
-                            <!--<div id="preDefTourNext"><a href="javascript:{}" onclick="document.getElementById('bookingTwo').submit();"><h3>Next</h3></a></div> -->
-                            <div id="previous-booking-step"><a href="?page=bookingThree"><h3 text-align="center">Previous</h3></a></div>
+                           <div id="previous-booking-step"><a href="?page=bookingThree"><h3 text-align="center">Previous</h3></a></div>
                         </li>
                         
                     </ul>
