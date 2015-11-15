@@ -55,7 +55,6 @@ $TotalPrice     =   $_SESSION["givenTotalPrice"];
 
 
 ob_start();
-require 'controller/Fpdf.php';
 require 'vendor/phpmailer/phpmailer/PHPMailerautoload.php';
 require_once('vendor/mpdf/mpdf.php');
 require_once ('vendor/phpqrcode/qrlib.php');
@@ -121,7 +120,7 @@ $mail->SMTPAuth = true;
 $mail->Username = "trollairtours@gmail.com";
 $mail->Password = "Hallo1234";
 $mail->setFrom('trollairtours@gmail.com', 'noreply');
-$mail->addAddress('trollairtours@gmail.com'/*$Email, $FirstName.$LastName*/);
+$mail->addAddress($Email, $FirstName.$LastName);
 $mail->Subject = 'Electronic Ticket Itinerary and Receipt from TAT ';
 $mail->AltBody = 'This is a plain-text message body';
 $mail->Body='For your security, your phonenumber (without country code!) is your password for the pdf.
