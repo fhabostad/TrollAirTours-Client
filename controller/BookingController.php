@@ -211,7 +211,7 @@ class BookingController extends Controller {
             $dutyFreePrice  = $productModel->getPriceWhereProductID($_SESSION["givenDutyFreeID"]); //Fetches all product prices with given DutyFreeID
             
            
-            if(isset($foodPrice[0])){ //Checks if the foodPrice array contains a element
+            if(isset($foodPrice[0])){ //Checks if the foodPrice array contains an element
                 $food = $foodPrice[0]; //Sets the variable as the first element in the array
                 $_SESSION["givenFoodPrice"] =  $food["ProductPrice"]; //Sets givenFoodPrice as ProductPrice
                               
@@ -221,7 +221,7 @@ class BookingController extends Controller {
             }
             
                                
-            if(isset($foodID[0])){ //Checks if the foodID array contains a element
+            if(isset($foodID[0])){ //Checks if the foodID array contains an element
                 $food = $foodID[0]; //Sets the variable as the first element in the array
                 $_SESSION["givenFoodName"] =  $food["ProductName"]; //Sets givenFoodName as ProductName 
                               
@@ -230,7 +230,7 @@ class BookingController extends Controller {
                 $_SESSION["givenFoodName"] = "None"; //If there is no element, the variable is set to None
             }
             
-             if(isset($drinkPrice[0])){ //Checks if the drinkPrice array contains a element
+             if(isset($drinkPrice[0])){ //Checks if the drinkPrice array contains an element
                 $drink = $drinkPrice[0]; //Sets the variable as the first element in the array
                 $_SESSION["givenDrinkPrice"] =  $drink["ProductPrice"]; //Sets givenDrinkPrice as ProductPrice
                               
@@ -239,14 +239,14 @@ class BookingController extends Controller {
                 $_SESSION["givenDrinkPrice"] = 0; //If there is no element, the variable is set to 0
             }          
             
-            if(isset($drinkID[0])){ //Checks if the drinkID array contains a element
+            if(isset($drinkID[0])){ //Checks if the drinkID array contains an element
                 $drink = $drinkID[0]; //Sets the variable as the first element in the array
                 $_SESSION["givenDrinkName"] = $drink["ProductName"]; //Sets givenDrinkName as ProductName
             }else
             {
                 $_SESSION["givenDrinkName"] = "None"; //If there is no element, the variable is set to None
             }
-            if(isset($dutyFreePrice[0])){ //Checks if the dutyFreePrice array contains a element
+            if(isset($dutyFreePrice[0])){ //Checks if the dutyFreePrice array contains an element
                 $dutyfree = $dutyFreePrice[0]; //Sets the variable as the first element in the array
                 $_SESSION["givenDutyFreePrice"] =  $dutyfree["ProductPrice"]; //Sets givenDutyFreePrice as ProductPrice
                               
@@ -255,7 +255,7 @@ class BookingController extends Controller {
                 $_SESSION["givenDutyFreePrice"] = 0; //If there is no element, the variable is set to 0
             }          
             
-            if(isset($dutyFreeID[0])){ //Checks if the dutyFreeID array contains a element
+            if(isset($dutyFreeID[0])){ //Checks if the dutyFreeID array contains an element
                 $dutyfree = $dutyFreeID[0]; //Sets the variable as the first element in the array
                 $_SESSION["givenDutyFreeName"] = $dutyfree["ProductName"]; 
             }else
@@ -327,7 +327,6 @@ class BookingController extends Controller {
     
     /*
      * Runs the function addBooking() and render next booking step 
-     * then renders next booking step
      * #RENDER bookingConfirmationPDF
      */
     function showBookingConfirmation()
@@ -352,59 +351,71 @@ class BookingController extends Controller {
             $_SESSION["givenEmail"]        = filter_input(INPUT_POST, "givenEmail"); //Email input
             $_SESSION["givenPhone_number"] = filter_input(INPUT_POST, "givenPhone_number"); //Phone number input
                 
-            return $this->render("bookingCustomSummary"); //Takes view part (bookingConfirmationPDF) and renders the page
+            return $this->render("bookingCustomSummary"); //Takes view part (bookingCustomSummary) and renders the page
     }
     
     
     /*
-     * Runs the function showBookingSuccess() and render next booking step 
-     *#RENDER bookingCustomSummary
+     * Runs the function addCustomBooking() and render next booking step 
+     * #RENDER bookingSuccess
      */
     function showBookingSuccess()
     {
             $this->addCustomBooking();
-            return $this->render("bookingSuccess");
+            return $this->render("bookingSuccess"); //Takes view part (bookingSuccess) and renders the page
     }
     
     
     
+    /*
+     * Predefined booking
+     * Retrieves customer model, booking model, flight model, seat reservation model and seat reservation-product model. 
+     * Adds customer, customer booking, seat reservation and seat reservation product to the database.
+     */
     private function addBooking(){
-            $customerModel = $GLOBALS["customerModel"];
-            $_SESSION["CustomerID"] = $customerModel->add($_SESSION["givenGender"], $_SESSION["givenFirst_name"], $_SESSION["givenLast_name"], $_SESSION["givenStreet_address"], $_SESSION["givenCountry_code"], $_SESSION["givenPhone_number"], $_SESSION["givenCity"], $_SESSION["givenZip_code"],  $_SESSION["givenEmail"], $_SESSION["givenCountry"], $_SESSION["givenBirth_date"]);              
+            $customerModel = $GLOBALS["customerModel"]; //Gets the customer model
+            $_SESSION["CustomerID"] = $customerModel->add($_SESSION["givenGender"], $_SESSION["givenFirst_name"], $_SESSION["givenLast_name"], 
+                $_SESSION["givenStreet_address"], $_SESSION["givenCountry_code"], $_SESSION["givenPhone_number"], $_SESSION["givenCity"], 
+                $_SESSION["givenZip_code"],  $_SESSION["givenEmail"], $_SESSION["givenCountry"], $_SESSION["givenBirth_date"]); //Adds the customer to the database and returns the latest customerID for later use
 
-            $bookingModel = $GLOBALS["bookingModel"];
-            $_SESSION["BookingID"] = $bookingModel->add($_SESSION["CustomerID"], "0");
+            $bookingModel = $GLOBALS["bookingModel"]; //Gets the booking model
+            $_SESSION["BookingID"] = $bookingModel->add($_SESSION["CustomerID"], "0"); //Adds customer booking to the database. The zero is used to separate predefined booking from custom booking
 
-             $flightModel = $GLOBALS["flightModel"];
-            $regIDArray = $flightModel->getRegIDForFlight($_SESSION["selectedFlightID"]);
-            if(isset($regIDArray[0]))
+             $flightModel = $GLOBALS["flightModel"]; //Gets the flight model
+            $regIDArray = $flightModel->getRegIDForFlight($_SESSION["selectedFlightID"]); //Gets flightID to put in regIDArray
+            
+            if(isset($regIDArray[0]))//Checks if the regIDArray array contains an element
             {
-             $row = $regIDArray[0];
-             $regID = $row["RegID"];
+             $row = $regIDArray[0]; //Sets the variable as the first element in the array
+             $regID = $row["RegID"]; //Sets regID to RegID from row array
             }
-            $seatReservationModel = $GLOBALS["seatReservationModel"];
-            $seatReservationModel->add($_SESSION["givenSeatNumber"], $_SESSION["CustomerID"], $_SESSION["BookingID"], $regID, $_SESSION["selectedFlightID"] );
+        
+            $seatReservationModel = $GLOBALS["seatReservationModel"]; //Gets the seat reservation model
+            $seatReservationModel->add($_SESSION["givenSeatNumber"], $_SESSION["CustomerID"], $_SESSION["BookingID"], $regID, $_SESSION["selectedFlightID"]); //Adds the seat reservation
 
-            $seatReservation_ProductModel = $GLOBALS["seatReservation_ProductModel"];
-            $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenFoodID"], $_SESSION["selectedFlightID"] );
-            $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenDrinkID"], $_SESSION["selectedFlightID"] );
-            $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenDutyFreeID"], $_SESSION["selectedFlightID"] );
+            $seatReservation_ProductModel = $GLOBALS["seatReservation_ProductModel"]; //Gets the seat reservation-product model
+            $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenFoodID"], $_SESSION["selectedFlightID"] ); //Adds seat reservation food product for the selected flight
+            $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenDrinkID"], $_SESSION["selectedFlightID"] ); //Adds seat reservation drink product for the selected flight
+            $seatReservation_ProductModel->add($_SESSION["givenSeatNumber"],  $_SESSION["givenDutyFreeID"], $_SESSION["selectedFlightID"] ); //Adds seat reservation duty free product for the selected flight
    
    }
        
-
+   /*
+    * Custom booking
+    * Retrieves customer model and booking model.
+    * Adds custom Customer and custom booking to the database
+    */
     private function addCustomBooking()
     {
-        $customerModel = $GLOBALS["customerModel"];
-        $name = $_SESSION["givenFirst_name"];
-        $_SESSION["CustomerID"] = $customerModel->addCustom($_SESSION["givenCompany"],$name , $_SESSION["givenEmail"], $_SESSION["givenPhone_number"]);              
+        $customerModel = $GLOBALS["customerModel"]; //Gets customer model
+        $name = $_SESSION["givenFirst_name"]; //Sets name as customer first name
+        $_SESSION["CustomerID"] = $customerModel->addCustom($_SESSION["givenCompany"],$name , $_SESSION["givenEmail"], $_SESSION["givenPhone_number"]); //Adds the customer to the database and returns the latest customerID for later use
 
-        $CustomerRequest = "Destination: " . $_SESSION["givenCustomDestination"] . ". Date: " . $_SESSION["givenPreferredDate"] . ". Time: " . $_SESSION["givenPreferredTime"] . " Language: " . $_SESSION["givenGuide"] . ".";
+        $CustomerRequest = "Destination: " . $_SESSION["givenCustomDestination"] . ". Date: " . $_SESSION["givenPreferredDate"] . ". Time: " . $_SESSION["givenPreferredTime"] . " Language: " . $_SESSION["givenGuide"] . "."; //Sets customer request as custom SESSION variables
             
-        $bookingModel = $GLOBALS["bookingModel"];
-        $_SESSION["BookingID"] = $bookingModel->add($_SESSION["CustomerID"],$CustomerRequest);
+        $bookingModel = $GLOBALS["bookingModel"]; //Gets booking model
+        $_SESSION["BookingID"] = $bookingModel->add($_SESSION["CustomerID"],$CustomerRequest); //Adds customer custom booking to the database. The $CustomerRequest is used to separate predefined booking from custom booking
     }
-       
 }
         
     
