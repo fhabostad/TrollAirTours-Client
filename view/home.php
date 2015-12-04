@@ -30,7 +30,10 @@
                         
                         <div id="egendefinert-info">
                             <h2> Custom destination </h2>
-                            <p> </p>
+                            <p> The custom destination trip is an exclusive offer for you to get a private guided tour to our long fjords and tall mountains.</p>
+                            <p> Maybe you want to enjoy the scenery alone or bring your family to this excursion, or even make it your wedding proposal? It is all up to you.</p>
+                            <p> The tour can go to anywhere within reach of the airplane. </p>
+                            <p>Use the custom contact form by pressing the 'Booking' button to get in touch with one of our booking managers.</p>
                         </div>
                      
                         
