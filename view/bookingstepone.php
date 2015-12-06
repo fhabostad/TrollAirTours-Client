@@ -127,7 +127,7 @@ function switchForm()
     var e = document.getElementById('preDefTour');
     var f = document.getElementById('Custom-form-stepone');
     var g = document.getElementById('preDefTourNext');
-    var h = document.getElementById('customNext');
+    var h = document.getElementById('customTourNext');
     
     if(document.getElementById('Geiranger').checked) {
             e.style.display = 'block';
@@ -349,7 +349,7 @@ function getTotalPrice()
                         </li>
                         <li id="next-booking-step">
                             <div id="preDefTourNext"><a href="#" onclick="validateFormStepOne()"><h3>Next</h3></a></div>
-                            <div id="preDefTourNext" style="display: none;"><a href="#" onclick="validateStepOneCustom()"><h3>Next</h3></a></div>
+                            <div id="customTourNext"><a href="#" onclick="validateStepOneCustom()"><h3>Next</h3></a></div>
                         </li>
                     </ul>
                 </div>
