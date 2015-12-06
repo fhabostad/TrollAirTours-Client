@@ -343,7 +343,7 @@ function getTotalPrice()
                 <div id="main-bottom-booking">
                     <ul>
                         <li id="previous-booking-step">
-                            <a href="#">
+                            <a href="?page=home">
                                 <h3>Previous</h3>
                             </a>
                         </li>
