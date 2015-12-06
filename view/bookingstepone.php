@@ -349,7 +349,7 @@ function getTotalPrice()
                         </li>
                         <li id="next-booking-step">
                             <div id="preDefTourNext"><a href="#" onclick="validateFormStepOne()"><h3>Next</h3></a></div>
-                            <div id="preDefTourNext"><a href="#" onclick="validateStepOneCustom()"><h3>Next</h3></a></div>
+                            <div id="preDefTourNext" style="display: none;"><a href="#" onclick="validateStepOneCustom()"><h3>Next</h3></a></div>
                         </li>
                     </ul>
                 </div>
