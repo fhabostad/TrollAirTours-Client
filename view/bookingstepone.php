@@ -44,11 +44,12 @@ function EnableSpecificDates(date) {
 
 disableddates.push("9999-12-12"); //Adds a date to prevent calender crash.
 
- var m = date.getMonth();
+ var tempM = date.getMonth() + 1;
+ var m = pad(tempM);
  var d = pad(date.getDate());
  var y = date.getFullYear();
   
- var currentdate = y + "-" + (m+1) + "-" + d;
+ var currentdate = y + "-" + m + "-" + d;
  //window.alert(currentdate);
  for (var i = 0; i < disableddates.length; i++) {
  if ($.inArray(currentdate, disableddates) !== -1) {
